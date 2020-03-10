@@ -1,0 +1,163 @@
+<h1 id="在ubuntu快速部署django">在Ubuntu快速部署Django</h1>
+
+<h2 id="配置环境">配置环境</h2>
+<ul>
+  <li>Ubuntu 16.04-64bit</li>
+  <li>Python 3.5</li>
+  <li>Django 2.0.4</li>
+</ul>
+
+<h2 id="第零步-部署准备工作"><strong>第零步 部署准备工作</strong></h2>
+
+<p>编写<code class="highlighter-rouge">requirements.txt</code>文件(根据自身情况编写)</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Django==2.0.4
+django-pagedown==1.0.4
+Markdown==2.6.11
+Pygments==2.2.0
+</code></pre></div></div>
+
+<p>关闭项目的<code class="highlighter-rouge">DEBUG</code>模式<br />
+<code class="highlighter-rouge">/mysite/mysite/settings.py</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...
+DEBUG = True					# 关闭DEBUG模式
+
+ALLOWED_HOSTS = ['*']			# 允许访问的域名，'*'表示允许所有
+
+LANGUAGE_CODE = 'en_us'			# Ubuntu中Django不包含中文语言包
+
+TIME_ZONE = 'Asia/Shanghai'		# 修改时区
+</code></pre></div></div>
+
+<p>本示例项目名字为<code class="highlighter-rouge">mysite</code>,后面内容请根据自身情况修改<br />
+然后把项目和<code class="highlighter-rouge">requirements.txt</code>上传到服务器<br />
+将项目放在<code class="highlighter-rouge">/home</code>,即项目目录为<code class="highlighter-rouge">/home/mysite</code>(即<code class="highlighter-rouge">manage.py</code>文件所在目录)</p>
+
+<hr />
+<h2 id="第一步-更新系统"><strong>第一步 更新系统</strong></h2>
+<blockquote>
+  <p>sudo apt-get update<br />
+sudo apt-get upgrade</p>
+</blockquote>
+
+<hr />
+<h2 id="第二步可选-安装python36"><strong>第二步(可选) 安装Python3.6</strong></h2>
+<blockquote>
+  <p>sudo apt-get install build-essential checkinstall<br />
+sudo apt-get install libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev<br />
+cd /etc/<br />
+wget https://www.python.org/ftp/python/3.6.4/Python-3.6.4.tgz<br />
+sudo tar xzf Python-3.6.4.tgz<br />
+cd Python-3.6.4<br />
+sudo ./configure<br />
+sudo make altinstall</p>
+</blockquote>
+
+<h2 id="可选最后进入root简化后面的部分操作">(可选)最后，进入<code class="highlighter-rouge">root</code>，简化后面的部分操作</h2>
+<h2 id="第三步-安装项目依赖项"><strong>第三步 安装项目依赖项</strong></h2>
+<blockquote>
+  <p>pip3 install -r requirements.txt</p>
+</blockquote>
+
+<hr />
+<h2 id="第四步-项目在服务器中初始化"><strong>第四步 项目在服务器中初始化</strong></h2>
+<blockquote>
+  <p>python manage.py makemigrations<br />
+python manage.py migrate<br />
+python manage.py createsuperuser # 若数据库中已有管理员账号则可跳过<br />
+python manage.py collectstatic</p>
+</blockquote>
+
+<p>测试</p>
+<blockquote>
+  <p>python manage.py runserver 0.0.0.0:80</p>
+</blockquote>
+
+<p>访问公网ip，能显示项目内容，但可能无法显示静态文件内容<br />
+杀掉80端口</p>
+<blockquote>
+  <p>fuser -k 80/tcp</p>
+</blockquote>
+
+<hr />
+<h2 id="第五步-安装uwsgi"><strong>第五步 安装uWSGI</strong></h2>
+<blockquote>
+  <p>pip3 install uwsgi</p>
+</blockquote>
+
+<p>测试</p>
+<blockquote>
+  <p>uwsgi –http :80  –chdir /home/mysite/ -w mysite.wsgi</p>
+</blockquote>
+
+<p>访问公网ip，访问正常则退出并继续</p>
+
+<blockquote>
+  <p>mkdir -p /etc/uwsgi/sites<br />
+cd /etc/uwsgi/sites<br />
+nano mysite.ini</p>
+</blockquote>
+
+<p>输入以下内容</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[uwsgi]
+project = mysite
+base = /home
+
+chdir = %(base)/%(project)
+module = %(project).wsgi:application
+
+master = true
+processes = 5
+
+socket = %(base)/%(project)/%(project).sock
+chmod-socket = 666
+vacuum = true
+</code></pre></div></div>
+
+<hr />
+<h2 id="第六步-安装nginx"><strong>第六步 安装Nginx</strong></h2>
+<blockquote>
+  <p>apt-get install nginx<br />
+nano /etc/nginx/sites-available/mysite</p>
+</blockquote>
+
+<p>输入以下内容</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server {
+	
+	listen 80;
+	server_name yourdomain.com;
+
+	location /static/ {
+		root /home/mysite;
+		}
+	location / {
+		include         uwsgi_params;
+		uwsgi_pass      unix:/home/mysite/mysite.sock;
+		}
+	}
+</code></pre></div></div>
+
+<p>其中<code class="highlighter-rouge">yourdomain.com</code>改成自己的域名(假设已经完成解析设置)</p>
+
+<p>链接文件并检测nginx服务器</p>
+<blockquote>
+  <p>ln -s /etc/nginx/sites-available/mysite /etc/nginx/sites-enabled/<br />
+service nginx configtest</p>
+</blockquote>
+
+<p>(可能需要)删除nginx默认模板</p>
+<blockquote>
+  <h2 id="rm--r-etcnginxsites-availabledefault">rm -r /etc/nginx/sites-available/default</h2>
+  <h2 id="第七步-启动服务"><strong>第七步 启动服务</strong></h2>
+  <p>service nginx restart<br />
+uwsgi /etc/uwsgi/sites/mysite.ini -d /home/mysite/mysite.log</p>
+</blockquote>
+
+<p>访问域名，能够正常访问，静态文件也能正常显示</p>
+
+<hr />
+<h2 id="最终步-欢呼吧"><strong>最终步 欢呼吧！</strong></h2>
+<p><a href="https://www.jianshu.com/p/d6f9138fab7b">来源</a></p>

@@ -1,0 +1,151 @@
+<h1 id="vscode用于cpp调试的相关设置">VSCode用于cpp调试的相关设置</h1>
+
+<h2 id="0-前言">0. 前言</h2>
+
+<p>由于对Cpp的需求比较轻量，用来学习语法和写写算法题之类的，用<code class="highlighter-rouge">visual studio</code>觉得十分臃肿。<code class="highlighter-rouge">vscode</code>是一款非常优秀的代码编辑器，本身不具备任何编译器等IDE功能。需要进行一定的环境准备才能用<code class="highlighter-rouge">vscode</code>进行Cpp代码的编译和调试。</p>
+
+<h2 id="1-gcc编译器安装">1. GCC编译器安装</h2>
+
+<p>1.下载<a href="https://sourceforge.net/projects/mingw-w64/files/">MinGW-w64</a>，选择最新版本的<strong>x86_64-posix-seh</strong>。  <br />
+2.解压下载下来的压缩包，并将<code class="highlighter-rouge">mingw64</code>文件夹移动到C盘根目录下（当然也可以到其他地方）。<br />
+3.将<code class="highlighter-rouge">mingw64</code>文件夹下的<code class="highlighter-rouge">bin</code>文件夹目录添加到用户环境变量中的<code class="highlighter-rouge">PATH</code>中。此例中则将<code class="highlighter-rouge">C:\mingw64\bin</code>添加到PATH中。<br />
+4.验证gcc编译器安装是否成功：<strong>Win+R</strong>运行cmd，输入gcc，若提示</p>
+
+<blockquote>
+  <p>gcc:fatal error: no input files</p>
+</blockquote>
+
+<p>则gcc编译器安装成功；若提示：</p>
+
+<blockquote>
+  <p>不是内部命令或外部命令</p>
+</blockquote>
+
+<p>则gcc没有安装成功，回头检查环境变量中<code class="highlighter-rouge">PATH</code>中的目录与gcc实际目录是否符合。</p>
+
+<h2 id="2-vscode-cpp相关插件">2. vscode cpp相关插件</h2>
+
+<ul>
+  <li>C/C++：提供Cpp Debug等功能。</li>
+</ul>
+
+<h2 id="3-vscode-相关配置文件">3. vscode 相关配置文件</h2>
+
+<p>在<code class="highlighter-rouge">vscode</code>打开Cpp工作区后，会在当前目录下自动生成<code class="highlighter-rouge">.vscode</code>文件夹。该文件夹下存放当前工作区的以下配置文件。若无以下文件可自行创建。</p>
+
+<ul>
+  <li>
+    <p><em>launch.json</em></p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  {
+      "version": "0.2.0",
+      "configurations": [
+        
+          {
+              "name": "(gdb) Launch",
+              "type": "cppdbg",
+              "request": "launch",
+              "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+              "args": [],
+              "stopAtEntry": false,
+              "cwd": "${workspaceFolder}",
+              "environment": [],
+              "externalConsole": true,
+              "internalConsoleOptions": "neverOpen",
+              "MIMode": "gdb",
+              "miDebuggerPath": "gdb.exe",
+              "setupCommands": [
+                  {
+                      "description": "Enable pretty-printing for gdb",
+                      "text": "-enable-pretty-printing",
+                      "ignoreFailures": false
+                  }
+              ],
+              "preLaunchTask": "Compile",
+          }
+      ]
+  }
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><em>task.json</em></p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  {
+      "version": "2.0.0",
+      "tasks": [
+          {
+              "label": "Compile",
+              "command": "g++",
+              "args": [
+                  "${file}",
+                  "-o",
+                  "${fileDirname}/${fileBasenameNoExtension}.exe",
+                  "-g",
+                  "-Wall",
+                  "-static-libgcc",
+                  "-fexec-charset=GBK"
+              ],
+              "type": "process",
+              "group": {
+                  "kind": "build",
+                  "isDefault": true
+              },
+              "presentation": {
+                  "echo": true,
+                  "reveal": "always",
+                  "focus": false,
+                  "panel": "shared",
+              },
+          }
+      ]
+  }
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><em>setting.json</em> (部分)</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  {
+      ...
+      "files.defaultLanguage": "cpp",
+      "editor.formatOnType": true,
+      "editor.suggest.snippetsPreventQuickSuggestions": false,
+      "editor.acceptSuggestionOnEnter": "off",
+      "editor.snippetSuggestions": "top",
+      "code-runner.runInTerminal": true,
+      "code-runner.executorMap": {
+          "c": "cd $dir &amp;&amp; gcc '$fileName' -o '$fileNameWithoutExt.exe' -Wall -g -O2 -static-libgcc -std=c11 -fexec-charset=GBK &amp;&amp; &amp;'$dir$fileNameWithoutExt'",
+          "cpp": "cd $dir &amp;&amp; g++ '$fileName' -o '$fileNameWithoutExt.exe' -Wall -g -O2 -static-libgcc -std=c++17 -fexec-charset=GBK &amp;&amp; &amp;'$dir$fileNameWithoutExt'"
+      },
+      "code-runner.saveFileBeforeRun": true,
+      "code-runner.preserveFocus": true,
+      "code-runner.clearPreviousOutput": false,
+      "code-runner.ignoreSelection": true,
+      "C_Cpp.clang_format_sortIncludes": true,
+      ...
+  }
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="4-用vscode进行cpp调试">4. 用vscode进行cpp调试</h2>
+<p>1.在任意目录下创建文件夹<code class="highlighter-rouge">cpp</code>。   <br />
+2.在<code class="highlighter-rouge">vscode</code>下<code class="highlighter-rouge">Ctrl+K</code>、<code class="highlighter-rouge">Ctrl+O</code>，打开<code class="highlighter-rouge">cpp</code>文件夹。 <br />
+3.<code class="highlighter-rouge">Ctrl+N</code>创建新文件，随便写个cpp demo:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main()
+{
+    cout &lt;&lt; "hello world" &lt;&lt; endl;
+    int a;
+    cin &gt;&gt; a;
+    return 0;
+}
+</code></pre></div></div>
+
+<p>4.<code class="highlighter-rouge">Shift+Ctrl+B</code>进行编译；<code class="highlighter-rouge">F5</code>进行调试，会弹出命令行窗口显示<code class="highlighter-rouge">hello world</code>输出。至此完成所有设置。</p>
+
+<h2 id="footnotes">Footnotes</h2>
+<p>[^1] <a href="https://www.zhihu.com/question/30315894">知乎</a><br />
+[^2] <a href="https://code.visualstudio.com/docs/cpp/config-mingw">vscode官方文档</a></p>
