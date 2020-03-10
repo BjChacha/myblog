@@ -3,7 +3,7 @@ layout: page
 title: About Me
 permalink: /about/
 ---
-![avatar](images\about_me\avatar.png)
+![avatar](https://bjxx.ltd/images/about_me/avatar.png)
 
 BjChacha
 
