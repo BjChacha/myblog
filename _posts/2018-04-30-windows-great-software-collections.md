@@ -1,11 +1,11 @@
 ---
+title: "Windows 个人软件收藏集"
 toc: true
 layout: post
 description: 不定期更新……
 categories: [collections]
 author: BjChacha
 ---
-# Windows 个人软件收藏集
 
 ## [Sumatra PDF](https://www.sumatrapdfreader.org/free-pdf-reader.html)
 - [开源](https://github.com/sumatrapdfreader/sumatrapdf)的轻量级PDF阅读器
@@ -28,7 +28,7 @@ author: BjChacha
 ## [Office Tool Pro & Lite](https://otp.landian.vip/zh-cn/)
 - 免费的Office快速部署工具
 - 一键下载、安装、激活各种版本Office
-- KMS地址：kms.loli.best
+- KMS地址：上网找吧挺多的
 
 ## [QuickLook](https://www.microsoft.com/zh-cn/p/quicklook/9nv4bs3l1h4s?activetab=pivot:overviewtab)
 - 按空格就可以预览文件内容

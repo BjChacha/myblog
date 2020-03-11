@@ -6,7 +6,6 @@ description: 妈妈再也不用担心我没空间装Visual Studio啦~
 categories: [vscode]
 author: BjChacha
 ---
-# VSCode用于cpp调试的相关设置
 
 ## 0. 前言
 
@@ -139,6 +138,6 @@ author: BjChacha
 
 4.`Shift+Ctrl+B`进行编译；`F5`进行调试，会弹出命令行窗口显示`hello world`输出。至此完成所有设置。
 
-## Footnotes
-[^1] [知乎](https://www.zhihu.com/question/30315894)  
-[^2] [vscode官方文档](https://code.visualstudio.com/docs/cpp/config-mingw)
+## 参考
+[知乎](https://www.zhihu.com/question/30315894)  
+[vscode官方文档](https://code.visualstudio.com/docs/cpp/config-mingw)

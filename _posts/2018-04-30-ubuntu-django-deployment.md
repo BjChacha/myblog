@@ -1,12 +1,11 @@
 ---
+title: 在Ubuntu快速部署Django
 toc: false
 layout: post
 description: 开发5分钟，部署2小时
 categories: [django]
 author: BjChacha
 ---
-# 在Ubuntu快速部署Django
-
 
 ## 配置环境  
 - Ubuntu 16.04-64bit  
