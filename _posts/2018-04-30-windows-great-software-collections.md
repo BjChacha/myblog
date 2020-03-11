@@ -1,6 +1,6 @@
 ---
-toc: false
-badges: true
+toc: true
+layout: post
 description: 不定期更新……
 categories: [collections]
 author: BjChacha

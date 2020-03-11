@@ -1,6 +1,6 @@
 ---
 toc: false
-badges: true
+layout: post
 description: 开发5分钟，部署2小时
 categories: [django]
 author: BjChacha
