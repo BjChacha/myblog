@@ -9,13 +9,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="我的RX480终于可以跑模型了" />
 <meta property="og:description" content="我的RX480终于可以跑模型了" />
-<link rel="canonical" href="https://bjxx.ltd/plaidml/ai/2020/02/25/plaidml-keras-ai.html" />
-<meta property="og:url" content="https://bjxx.ltd/plaidml/ai/2020/02/25/plaidml-keras-ai.html" />
+<link rel="canonical" href="https://bjxx.ltd/plaidml/ai/2020/02/25/using-plaidml-keras-to-ai.html" />
+<meta property="og:url" content="https://bjxx.ltd/plaidml/ai/2020/02/25/using-plaidml-keras-to-ai.html" />
 <meta property="og:site_name" content="BjChacha" />
+<meta property="og:image" content="https://bjxx.ltd/images%5Cposts%5C2020-02-25-using-plaidml-keras-to-ai%5CPlaidML.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-02-25T00:00:00-06:00" />
 <script type="application/ld+json">
-{"description":"我的RX480终于可以跑模型了","@type":"BlogPosting","url":"https://bjxx.ltd/plaidml/ai/2020/02/25/plaidml-keras-ai.html","headline":"使用PlaidML进行GPU模型训练","dateModified":"2020-02-25T00:00:00-06:00","datePublished":"2020-02-25T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://bjxx.ltd/plaidml/ai/2020/02/25/plaidml-keras-ai.html"},"@context":"https://schema.org"}</script>
+{"image":"https://bjxx.ltd/images%5Cposts%5C2020-02-25-using-plaidml-keras-to-ai%5CPlaidML.png","description":"我的RX480终于可以跑模型了","@type":"BlogPosting","url":"https://bjxx.ltd/plaidml/ai/2020/02/25/using-plaidml-keras-to-ai.html","headline":"使用PlaidML进行GPU模型训练","dateModified":"2020-02-25T00:00:00-06:00","datePublished":"2020-02-25T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://bjxx.ltd/plaidml/ai/2020/02/25/using-plaidml-keras-to-ai.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://bjxx.ltd/feed.xml" title="BjChacha" /><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>使用PlaidML进行GPU模型训练 | BjChacha</title>
@@ -24,13 +25,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="我的RX480终于可以跑模型了" />
 <meta property="og:description" content="我的RX480终于可以跑模型了" />
-<link rel="canonical" href="https://bjxx.ltd/plaidml/ai/2020/02/25/plaidml-keras-ai.html" />
-<meta property="og:url" content="https://bjxx.ltd/plaidml/ai/2020/02/25/plaidml-keras-ai.html" />
+<link rel="canonical" href="https://bjxx.ltd/plaidml/ai/2020/02/25/using-plaidml-keras-to-ai.html" />
+<meta property="og:url" content="https://bjxx.ltd/plaidml/ai/2020/02/25/using-plaidml-keras-to-ai.html" />
 <meta property="og:site_name" content="BjChacha" />
+<meta property="og:image" content="https://bjxx.ltd/images%5Cposts%5C2020-02-25-using-plaidml-keras-to-ai%5CPlaidML.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-02-25T00:00:00-06:00" />
 <script type="application/ld+json">
-{"description":"我的RX480终于可以跑模型了","@type":"BlogPosting","url":"https://bjxx.ltd/plaidml/ai/2020/02/25/plaidml-keras-ai.html","headline":"使用PlaidML进行GPU模型训练","dateModified":"2020-02-25T00:00:00-06:00","datePublished":"2020-02-25T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://bjxx.ltd/plaidml/ai/2020/02/25/plaidml-keras-ai.html"},"@context":"https://schema.org"}</script>
+{"image":"https://bjxx.ltd/images%5Cposts%5C2020-02-25-using-plaidml-keras-to-ai%5CPlaidML.png","description":"我的RX480终于可以跑模型了","@type":"BlogPosting","url":"https://bjxx.ltd/plaidml/ai/2020/02/25/using-plaidml-keras-to-ai.html","headline":"使用PlaidML进行GPU模型训练","dateModified":"2020-02-25T00:00:00-06:00","datePublished":"2020-02-25T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://bjxx.ltd/plaidml/ai/2020/02/25/using-plaidml-keras-to-ai.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
@@ -131,11 +133,11 @@ window.onload = wrap_img;
         <div class="pb-5 d-flex flex-wrap flex-justify-end">
           <div class="px-2">
 
-    <a href="https://github.com/BjChacha/myblog/tree/master/_notebooks/2020-02-25-plaidml-keras-ai.ipynb" role="button">
+    <a href="https://github.com/BjChacha/myblog/tree/master/_notebooks/2020-02-25-using-plaidml-keras-to-ai.ipynb" role="button">
 <img class="notebook-badge-image" src="/assets/badges/github.svg" alt="View On GitHub">
     </a>
 </div><div class="px-2">
-    <a href="https://colab.research.google.com/github/BjChacha/myblog/blob/master/_notebooks/2020-02-25-plaidml-keras-ai.ipynb">
+    <a href="https://colab.research.google.com/github/BjChacha/myblog/blob/master/_notebooks/2020-02-25-using-plaidml-keras-to-ai.ipynb">
         <img class="notebook-badge-image" src="/assets/badges/colab.svg" alt="Open In Colab"/>
     </a>
 </div>
@@ -147,7 +149,7 @@ window.onload = wrap_img;
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
-# file to edit: _notebooks/2020-02-25-plaidml-keras-ai.ipynb
+# file to edit: _notebooks/2020-02-25-using-plaidml-keras-to-ai.ipynb
 -->
 
 <div class="container" id="notebook-container">
@@ -450,7 +452,7 @@ training time cost: 124.2 s, accuracy: 0.8858
         theme="github-light"
         crossorigin="anonymous"
         async>
-</script><a class="u-url" href="/plaidml/ai/2020/02/25/plaidml-keras-ai.html" hidden></a>
+</script><a class="u-url" href="/plaidml/ai/2020/02/25/using-plaidml-keras-to-ai.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
