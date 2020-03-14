@@ -1,11 +1,11 @@
 ---
-toc: false
-badges: true
+title: LeetCode 刷题总结
 description: 算法深似海，是祸躲不过
-categories: [vscode]
+toc: false
+hide: true
+categories: [算法]
 author: BjChacha
 ---
-# LeetCode 刷题总结（更新中）
 <!--Format:
 ## 
 * **Description**:
