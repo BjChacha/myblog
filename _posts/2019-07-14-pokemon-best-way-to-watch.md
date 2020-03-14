@@ -5,7 +5,7 @@ toc: true
 comments: true
 layout: post
 categories: [动漫]
-image: images/posts/pm_logo.png
+image: images/posts/2019-07-14-pokemon-best-way-to-watch/pm_logo.png
 author: BjChacha
 ---
 
