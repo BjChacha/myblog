@@ -4,7 +4,7 @@ description: 开发5分钟，部署2小时
 toc: false
 layout: post
 categories: [django]
-image: images\posts\2018-04-30-ubuntu-django-deployment\django_logo.png
+image: images/posts/2018-04-30-ubuntu-django-deployment/django_logo.png
 author: BjChacha
 ---
 
