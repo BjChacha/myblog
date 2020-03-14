@@ -1,8 +1,8 @@
 ---
 title: 在Ubuntu快速部署Django
+description: 开发5分钟，部署2小时
 toc: false
 layout: post
-description: 开发5分钟，部署2小时
 categories: [django]
 author: BjChacha
 ---

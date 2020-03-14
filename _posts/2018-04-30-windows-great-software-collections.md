@@ -1,8 +1,8 @@
 ---
 title: "Windows 个人软件收藏集"
+description: 不定期更新……
 toc: true
 layout: post
-description: 不定期更新……
 categories: [collections]
 author: BjChacha
 ---
