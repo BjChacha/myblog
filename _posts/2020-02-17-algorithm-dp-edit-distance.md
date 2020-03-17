@@ -1,6 +1,6 @@
 ---
-title: [动态规划]编辑距离问题
-description: 动态规划问题
+title: "[动态规划]编辑距离问题"
+description: "动态规划问题"
 toc: false
 comments: true
 categories: [算法]
