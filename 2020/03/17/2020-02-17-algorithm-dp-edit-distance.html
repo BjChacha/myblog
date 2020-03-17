@@ -1,0 +1,135 @@
+<h2 id="0-前言">0. 前言</h2>
+<p>好久没刷leetcode了，加上要准备考研复试，所以决定尝试开个算法系列，每篇解决一道比较经典或者稍有难度的算法题，注重从思路到代码、从无到有的过程。<br />
+其实之前有写一篇类似的刷题总结文章，但只写了题目和代码答案，没有记录思路过程，导致回忆的时候十分痛苦。而且leetcode的答案网上一搜一大把，那篇文章没啥意义，所以决定关掉并重开这个系列。<br />
+在这里建议<strong>不要一卡住就看答案</strong>，很多问题卡个一两天很正常。但自己亲手解决每一道算法题真的会带来很大的成就感，这种正反馈也是后续刷题的重要精神源泉。在这里顺便贴一个我觉得不错的学习参考：<a href="https://labuladong.gitbook.io/algo/">labuladong的算法小抄</a>。<br />
+这是开篇之作，所以废话很多<del>（skr~）</del>马上进入本文主题——一道颇有难度的动规^1问题：<strong>编辑距离</strong>问题（Edit Distance）。</p>
+
+<h2 id="1-问题描述">1. 问题描述</h2>
+<ul>
+  <li>给定两个字符串s1和s2，计算出将s1转换成s2所使用的最少操作数。</li>
+  <li>你可以对一个字符串进行以下三种操作：
+    <ul>
+      <li>插入一个字符</li>
+      <li>删除一个字符</li>
+      <li>替换一个字符</li>
+    </ul>
+  </li>
+  <li>示例1：
+    <ul>
+      <li>输入：s1 = “horse”, s2 = “ros”</li>
+      <li>输出：3</li>
+      <li>解释：
+        <ul>
+          <li>horse -&gt; rorse （将’h’替换为’r’）</li>
+          <li>rorse -&gt; rose （删除’r’）</li>
+          <li>rose -&gt; ros （删除’e’）</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>示例2：
+    <ul>
+      <li>输入：s1 = “intention”, s2 = “execution”</li>
+      <li>输出：5</li>
+      <li>解释：
+        <ul>
+          <li>intention -&gt; inention （删除’t’）</li>
+          <li>inention -&gt; enention （将’i’替换为’e’）</li>
+          <li>enention -&gt; exention （将’n’替换为’x’）</li>
+          <li>exention -&gt; exection （将’n’替换为’c’）</li>
+          <li>exection -&gt; exection （插入’u’）</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="2-思路">2. 思路</h2>
+<p>动态规划是一个好算法，它适合解决<strong>求最值的优化问题</strong>，尤其是对于那些不能很直观地得出方法的问题，第一反应就是考虑用动态规划。动态规划易于实现，只要处理好<strong>分支条件</strong>和<strong>边界条件</strong>，往往就能得出结果。<br />
+<img src="/images/posts/2020-02-17-algorithm-dp-edit-distance/1.png" alt="pic1" />
+但不是所有问题都适用于动态规划。使用动态规划有一个条件，就是问题必须符合<strong>最优子结构</strong>，即<strong>子问题的最优解必须是问题最优解的子集</strong>。比如求全级最高分，可以通过求每班最高分，再从中选最高分。但求全级最大分差就不能这么做了，因为最高分和最低分不一定在同一个班。<br />
+动态规划就是把问题通过递归把问题不断拆分成子问题来求解。显然子问题的优化难度更小，因此递归实质上就是<strong>递归</strong>，但实现的手段不一定是递归，常见的有dp表等。</p>
+
+<h2 id="3-代码">3. 代码</h2>
+<p>回到问题本身，处理两个字符串一般用两个指针各自遍历，这里我们从字符串尾部开始，下面先给出遍历过程的伪代码：</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">i</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="n">to</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">s1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">s2</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+        <span class="n">skip</span>    <span class="c1"># 若字符相同，则不做任何操作
+</span>    <span class="k">else</span><span class="p">:</span>
+        <span class="n">insert</span><span class="p">,</span> <span class="n">delect</span> <span class="ow">or</span> <span class="n">replace</span>   <span class="c1"># 若字符不相同，则从三种操作中选一
+</span></code></pre></div></div>
+<p>这就是动态规划的整体框架，而当中关键就在于“三种操作中选一”。下面我们来讨论一下如何处理这个分支。</p>
+<ul>
+  <li>插入：<br />
+在i指针处插入一个字符后，i指针指向新插入的字符，即i=i+1，j不变。</li>
+  <li>删除：<br />
+在i指针处删除一个字符后，i指针指向前继字符，即i=i-1，j不变。</li>
+  <li>替换：<br />
+在i指针处替换一个字符后，i，j位置均不变。
+剩下还有两种边界需要处理，很简单：</li>
+  <li>i指针先遍历完：<br />
+此时说明s1是s2的后置子串，因此只需把s2余下字符<strong>插入</strong>到s1前面即可。</li>
+  <li>j指针先遍历完：<br />
+此时说明s2是s1的后置子串，因此只需要把s1前面的字符<strong>删除</strong>即可。</li>
+</ul>
+
+<p>现在分支逻辑都理清楚了，可以从上面框架中填充条件。</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">editDistance</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">dp</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span> 
+            <span class="k">return</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span>    <span class="c1"># 插入s2余下字符
+</span>        <span class="k">elif</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span> 
+            <span class="k">return</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>    <span class="c1"># 删除s1余下字符
+</span>        <span class="k">elif</span> <span class="n">s1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">s2</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="n">dp</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 跳过
+</span>        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">min</span><span class="p">(</span>
+                <span class="n">dp</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="c1"># 删除
+</span>                <span class="n">dp</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="c1"># 插入
+</span>                <span class="n">dp</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>    <span class="c1"># 替换
+</span>            <span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">dp</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>到这里上面这段代码已经可以正确求解了，但如果把上面的代码一般是不能通过的，因为太暴力了。<br />
+我们来估算一下时间复杂度：如果每次都执行最后一个分支的话，即<strong>每次执行都最多调用自己三次</strong>，那么整个执行结构就是一个<strong>三叉树</strong>。树的高度取决于字符串的长度。而一个高度为h的三叉数最多有$\frac{3^h-1}{2}$个节点，故$O(n)=3^n$。这个时间复杂度就非常夸张了，所以接下来要想办法优化我们的算法。</p>
+
+<h2 id="优化">优化</h2>
+<p>不作优化的动态规划一般会有很严重的冗余。比如这一题中dp(i-1,j) -&gt;dp(i,j-1)跟dp(i-1,j-1)重复了，即dp(i-1,j-1)的值被求了两次。一旦发现出现路线的重叠，那么整个算法就会有大量的重复调用，非常暴力。<br />
+动态规划的优化就是<strong>去冗余</strong>，也就是给上面那棵三叉树剪枝。最常见就是用备忘录去记录每个节点是否被访问过，或者直接用dp表直接在数组上操作。<br />
+这里我们在原来的基础上加上备忘录。这里操作的主体有两个：指针i和j，因此备忘录是个二维数组memo[i][j]。最后代码如下。</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">minDistance</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">):</span>
+    <span class="n">max_len</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">))</span>
+    <span class="n">memo</span> <span class="o">=</span> <span class="p">[[</span><span class="n">max_len</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+    <span class="k">def</span> <span class="nf">dp</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> 
+            <span class="n">memo</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">j</span>
+        <span class="k">elif</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> 
+            <span class="n">memo</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span>
+        <span class="k">elif</span> <span class="n">s1</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">s2</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">memo</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">memo</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">memo</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">max_len</span> <span class="k">else</span> <span class="n">dp</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># skip
+</span>        <span class="k">else</span><span class="p">:</span>
+            <span class="n">d1</span> <span class="o">=</span> <span class="n">memo</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">memo</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">max_len</span> <span class="k">else</span> <span class="n">dp</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="n">d2</span> <span class="o">=</span> <span class="n">memo</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">memo</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">max_len</span> <span class="k">else</span> <span class="n">dp</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="n">d3</span> <span class="o">=</span> <span class="n">memo</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">memo</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">max_len</span> <span class="k">else</span> <span class="n">dp</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="n">memo</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">d1</span><span class="p">,</span> <span class="n">d2</span><span class="p">,</span> <span class="n">d3</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">memo</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">dp</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="总结">总结</h2>
+<ol>
+  <li>动态规划适合符合最优子结构的最优化问题求解；</li>
+  <li>动态规划可以使用递归或dp表实现，递归简单直观，dp表比较复杂但执行快。</li>
+  <li>快速写出循环体，简单呈现整体框架；</li>
+  <li>动态规划使用递归时需要用备忘录memo进行优化。</li>
+</ol>
+
+<h2 id="引用">引用</h2>
+<p>[^1]即动态规划啦（其实是想test一下fastpages的引用功能</p>
