@@ -79,7 +79,7 @@ author: BjChacha
 
 ---
 ## **XY系列**
-* **[XY]: (https://www.bilibili.com/bangumi/play/ss5762)**
+* **[XY](https://www.bilibili.com/bangumi/play/ss5762)**
   * 001（抵达卡洛斯地方！梦想与冒险的开始!!）——034（森林拳王！摔角鹰人登场!!）
   * **剧场版：精灵宝可梦：破坏之茧与蒂安希**
   * 035（空中对战!?摔角鹰人对烈箭鹰!!）——081（穿越时空的小智！洛托姆的心愿！）
