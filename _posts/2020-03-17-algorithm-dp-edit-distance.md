@@ -3,7 +3,7 @@ title: "[动态规划]编辑距离问题"
 description: "动态规划问题"
 toc: false
 comments: true
-categories: [算法]
+categories: [算法,动态规划]
 author: BjChacha
 ---
 
@@ -69,7 +69,7 @@ for i, j to 0:
 现在分支逻辑都理清楚了，可以从上面框架中填充条件。
 
 ```python
-def editDistance(s1, s2):
+def edit_distance(s1, s2):
     def dp(i, j):
         if i < 0: 
             return j + 1    # 插入s2余下字符
@@ -95,7 +95,7 @@ def editDistance(s1, s2):
 动态规划的优化就是**去冗余**，也就是给上面那棵三叉树剪枝。最常见就是用备忘录去记录每个节点是否被访问过，或者直接用dp表直接在数组上操作。  
 这里我们在原来的基础上加上备忘录。这里操作的主体有两个：指针i和j，因此备忘录是个二维数组memo[i][j]。最后代码如下。
 ```python
-def minDistance(s1, s2):
+def edit_distance(s1, s2):
     max_len = max(len(s1), len(s2))
     memo = [[max_len for _ in range(len(s2) + 1)] for _ in range(len(s1) + 1)]
     def dp(i, j):
