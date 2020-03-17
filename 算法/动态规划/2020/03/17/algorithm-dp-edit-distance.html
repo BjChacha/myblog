@@ -77,7 +77,7 @@
 
 <p>现在分支逻辑都理清楚了，可以从上面框架中填充条件。</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">editDistance</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">):</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">edit_distance</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">dp</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span> 
             <span class="k">return</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span>    <span class="c1"># 插入s2余下字符
@@ -102,7 +102,7 @@
 <p>不作优化的动态规划一般会有很严重的冗余。比如这一题中dp(i-1,j) -&gt;dp(i,j-1)跟dp(i-1,j-1)重复了，即dp(i-1,j-1)的值被求了两次。一旦发现出现路线的重叠，那么整个算法就会有大量的重复调用，非常暴力。<br />
 动态规划的优化就是<strong>去冗余</strong>，也就是给上面那棵三叉树剪枝。最常见就是用备忘录去记录每个节点是否被访问过，或者直接用dp表直接在数组上操作。<br />
 这里我们在原来的基础上加上备忘录。这里操作的主体有两个：指针i和j，因此备忘录是个二维数组memo[i][j]。最后代码如下。</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">minDistance</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">):</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">edit_distance</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">):</span>
     <span class="n">max_len</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">))</span>
     <span class="n">memo</span> <span class="o">=</span> <span class="p">[[</span><span class="n">max_len</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
     <span class="k">def</span> <span class="nf">dp</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">):</span>
