@@ -3,6 +3,7 @@ title: "[动态规划]编辑距离问题"
 description: "动态规划问题"
 toc: false
 comments: true
+layout: post
 categories: [算法,动态规划]
 author: BjChacha
 ---
