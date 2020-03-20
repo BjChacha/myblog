@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://bjxx.ltd/feed.xml" rel="self" type="application/atom+xml" /><link href="https://bjxx.ltd/" rel="alternate" type="text/html" /><updated>2020-03-17T10:52:52-05:00</updated><id>https://bjxx.ltd/feed.xml</id><title type="html">BjChacha</title><subtitle>随便写点东西</subtitle><entry><title type="html">[动态规划]编辑距离问题</title><link href="https://bjxx.ltd/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/17/algorithm-dp-edit-distance.html" rel="alternate" type="text/html" title="[动态规划]编辑距离问题" /><published>2020-03-17T00:00:00-05:00</published><updated>2020-03-17T00:00:00-05:00</updated><id>https://bjxx.ltd/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/17/algorithm-dp-edit-distance</id><content type="html" xml:base="https://bjxx.ltd/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/17/algorithm-dp-edit-distance.html">&lt;h2 id=&quot;0-前言&quot;&gt;0. 前言&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://bjchacha.github.io/myblog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://bjchacha.github.io/myblog/" rel="alternate" type="text/html" /><updated>2020-03-20T04:07:42-05:00</updated><id>https://bjchacha.github.io/myblog/feed.xml</id><title type="html">BjChacha</title><subtitle>随便写点东西</subtitle><entry><title type="html">[动态规划]编辑距离问题</title><link href="https://bjchacha.github.io/myblog/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/17/algorithm-dp-edit-distance.html" rel="alternate" type="text/html" title="[动态规划]编辑距离问题" /><published>2020-03-17T00:00:00-05:00</published><updated>2020-03-17T00:00:00-05:00</updated><id>https://bjchacha.github.io/myblog/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/17/algorithm-dp-edit-distance</id><content type="html" xml:base="https://bjchacha.github.io/myblog/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/17/algorithm-dp-edit-distance.html">&lt;h2 id=&quot;0-前言&quot;&gt;0. 前言&lt;/h2&gt;
 &lt;p&gt;好久没刷leetcode了，加上要准备考研复试，所以决定尝试开个算法系列，每篇解决一道比较经典或者稍有难度的算法题，注重从思路到代码、从无到有的过程。&lt;br /&gt;
 其实之前有写一篇类似的刷题总结文章，但只写了题目和代码答案，没有记录思路过程，导致回忆的时候十分痛苦。而且leetcode的答案网上一搜一大把，那篇文章没啥意义，所以决定关掉并重开这个系列。&lt;br /&gt;
 在这里建议&lt;strong&gt;不要一卡住就看答案&lt;/strong&gt;，很多问题卡个一两天很正常。但自己亲手解决每一道算法题真的会带来很大的成就感，这种正反馈也是后续刷题的重要精神源泉。在这里顺便贴一个我觉得不错的学习参考：&lt;a href=&quot;https://labuladong.gitbook.io/algo/&quot;&gt;labuladong的算法小抄&lt;/a&gt;。&lt;br /&gt;
-这是开篇之作，所以废话很多&lt;del&gt;（skr~）&lt;/del&gt;马上进入本文主题——一道颇有难度的动规[^1]问题：&lt;strong&gt;编辑距离&lt;/strong&gt;问题（Edit Distance）。&lt;/p&gt;
+这是开篇之作，所以废话很多&lt;del&gt;（skr~）&lt;/del&gt;马上进入本文主题——一道颇有难度的动规[^1]问题：&lt;strong&gt;编辑距离&lt;/strong&gt;问题（&lt;a href=&quot;https://leetcode.com/problems/edit-distance/&quot;&gt;72. Edit Distance&lt;/a&gt;）。&lt;/p&gt;
 
 &lt;h2 id=&quot;1-问题描述&quot;&gt;1. 问题描述&lt;/h2&gt;
 &lt;ul&gt;
-  &lt;li&gt;给定两个字符串s1和s2，计算出将s1转换成s2所使用的最少操作数。&lt;/li&gt;
+  &lt;li&gt;给定两个字符串&lt;code class=&quot;highlighter-rouge&quot;&gt;s1&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;s2&lt;/code&gt;，计算出将&lt;code class=&quot;highlighter-rouge&quot;&gt;s1&lt;/code&gt;转换成&lt;code class=&quot;highlighter-rouge&quot;&gt;s2&lt;/code&gt;所使用的最少操作数。&lt;/li&gt;
   &lt;li&gt;你可以对一个字符串进行以下三种操作：
     &lt;ul&gt;
       &lt;li&gt;插入一个字符&lt;/li&gt;
@@ -63,16 +63,16 @@
 &lt;p&gt;这就是动态规划的整体框架，而当中关键就在于“三种操作中选一”。下面我们来讨论一下如何处理这个分支。&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;插入：&lt;br /&gt;
-在i指针处插入一个字符后，i指针指向新插入的字符，即i=i+1，j不变。&lt;/li&gt;
+在i指针处插入一个字符后，i指针指向新插入的字符，即&lt;code class=&quot;highlighter-rouge&quot;&gt;i=i+1&lt;/code&gt;，&lt;code class=&quot;highlighter-rouge&quot;&gt;j&lt;/code&gt;不变。&lt;/li&gt;
   &lt;li&gt;删除：&lt;br /&gt;
-在i指针处删除一个字符后，i指针指向前继字符，即i=i-1，j不变。&lt;/li&gt;
+在i指针处删除一个字符后，i指针指向前继字符，即&lt;code class=&quot;highlighter-rouge&quot;&gt;i=i-1&lt;/code&gt;，&lt;code class=&quot;highlighter-rouge&quot;&gt;j&lt;/code&gt;不变。&lt;/li&gt;
   &lt;li&gt;替换：&lt;br /&gt;
-在i指针处替换一个字符后，i，j位置均不变。
+在i指针处替换一个字符后，&lt;code class=&quot;highlighter-rouge&quot;&gt;i&lt;/code&gt;，&lt;code class=&quot;highlighter-rouge&quot;&gt;j&lt;/code&gt;位置均不变。
 剩下还有两种边界需要处理，很简单：&lt;/li&gt;
-  &lt;li&gt;i指针先遍历完：&lt;br /&gt;
-此时说明s1是s2的后置子串，因此只需把s2余下字符&lt;strong&gt;插入&lt;/strong&gt;到s1前面即可。&lt;/li&gt;
-  &lt;li&gt;j指针先遍历完：&lt;br /&gt;
-此时说明s2是s1的后置子串，因此只需要把s1前面的字符&lt;strong&gt;删除&lt;/strong&gt;即可。&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;i&lt;/code&gt;指针先遍历完：&lt;br /&gt;
+此时说明&lt;code class=&quot;highlighter-rouge&quot;&gt;s1&lt;/code&gt;是&lt;code class=&quot;highlighter-rouge&quot;&gt;s2&lt;/code&gt;的后置子串，因此只需把&lt;code class=&quot;highlighter-rouge&quot;&gt;s2&lt;/code&gt;余下字符&lt;strong&gt;插入&lt;/strong&gt;到s1前面即可。&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;j&lt;/code&gt;指针先遍历完：&lt;br /&gt;
+此时说明&lt;code class=&quot;highlighter-rouge&quot;&gt;s2&lt;/code&gt;是&lt;code class=&quot;highlighter-rouge&quot;&gt;s1&lt;/code&gt;的后置子串，因此只需要把&lt;code class=&quot;highlighter-rouge&quot;&gt;s1&lt;/code&gt;前面的字符&lt;strong&gt;删除&lt;/strong&gt;即可。&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;现在分支逻辑都理清楚了，可以从上面框架中填充条件。&lt;/p&gt;
@@ -101,7 +101,7 @@
 &lt;h2 id=&quot;优化&quot;&gt;优化&lt;/h2&gt;
 &lt;p&gt;不作优化的动态规划一般会有很严重的冗余。比如这一题中dp(i-1,j) -&amp;gt;dp(i,j-1)跟dp(i-1,j-1)重复了，即dp(i-1,j-1)的值被求了两次。一旦发现出现路线的重叠，那么整个算法就会有大量的重复调用，非常暴力。&lt;br /&gt;
 动态规划的优化就是&lt;strong&gt;去冗余&lt;/strong&gt;，也就是给上面那棵三叉树剪枝。最常见就是用备忘录去记录每个节点是否被访问过，或者直接用dp表直接在数组上操作。&lt;br /&gt;
-这里我们在原来的基础上加上备忘录。这里操作的主体有两个：指针i和j，因此备忘录是个二维数组memo[i][j]。最后代码如下。&lt;/p&gt;
+这里我们在原来的基础上加上备忘录。这里操作的主体有两个：指针i和j，因此备忘录是个二维数组memo[i][j]。遍历的最长长度就二维数组的大小，故$O(n)=len(s1)*len(s2)$。最后代码如下。&lt;/p&gt;
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;edit_distance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;max_len&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;memo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max_len&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
@@ -132,7 +132,7 @@
 &lt;/ol&gt;
 
 &lt;h2 id=&quot;引用&quot;&gt;引用&lt;/h2&gt;
-&lt;p&gt;[^1]即动态规划啦（其实是想test一下fastpages的引用功能&lt;/p&gt;</content><author><name>BjChacha</name></author><summary type="html">0. 前言 好久没刷leetcode了，加上要准备考研复试，所以决定尝试开个算法系列，每篇解决一道比较经典或者稍有难度的算法题，注重从思路到代码、从无到有的过程。 其实之前有写一篇类似的刷题总结文章，但只写了题目和代码答案，没有记录思路过程，导致回忆的时候十分痛苦。而且leetcode的答案网上一搜一大把，那篇文章没啥意义，所以决定关掉并重开这个系列。 在这里建议不要一卡住就看答案，很多问题卡个一两天很正常。但自己亲手解决每一道算法题真的会带来很大的成就感，这种正反馈也是后续刷题的重要精神源泉。在这里顺便贴一个我觉得不错的学习参考：labuladong的算法小抄。 这是开篇之作，所以废话很多（skr~）马上进入本文主题——一道颇有难度的动规[^1]问题：编辑距离问题（Edit Distance）。</summary></entry><entry><title type="html">使用PlaidML进行GPU模型训练</title><link href="https://bjxx.ltd/plaidml/ai/2020/02/25/using-plaidml-keras-to-ai.html" rel="alternate" type="text/html" title="使用PlaidML进行GPU模型训练" /><published>2020-02-25T00:00:00-06:00</published><updated>2020-02-25T00:00:00-06:00</updated><id>https://bjxx.ltd/plaidml/ai/2020/02/25/using-plaidml-keras-to-ai</id><content type="html" xml:base="https://bjxx.ltd/plaidml/ai/2020/02/25/using-plaidml-keras-to-ai.html">&lt;!--
+&lt;p&gt;[^1]即动态规划啦（其实是想test一下fastpages的引用功能&lt;/p&gt;</content><author><name>BjChacha</name></author><summary type="html">0. 前言 好久没刷leetcode了，加上要准备考研复试，所以决定尝试开个算法系列，每篇解决一道比较经典或者稍有难度的算法题，注重从思路到代码、从无到有的过程。 其实之前有写一篇类似的刷题总结文章，但只写了题目和代码答案，没有记录思路过程，导致回忆的时候十分痛苦。而且leetcode的答案网上一搜一大把，那篇文章没啥意义，所以决定关掉并重开这个系列。 在这里建议不要一卡住就看答案，很多问题卡个一两天很正常。但自己亲手解决每一道算法题真的会带来很大的成就感，这种正反馈也是后续刷题的重要精神源泉。在这里顺便贴一个我觉得不错的学习参考：labuladong的算法小抄。 这是开篇之作，所以废话很多（skr~）马上进入本文主题——一道颇有难度的动规[^1]问题：编辑距离问题（72. Edit Distance）。</summary></entry><entry><title type="html">使用PlaidML进行GPU模型训练</title><link href="https://bjchacha.github.io/myblog/plaidml/ai/2020/02/25/using-plaidml-keras-to-ai.html" rel="alternate" type="text/html" title="使用PlaidML进行GPU模型训练" /><published>2020-02-25T00:00:00-06:00</published><updated>2020-02-25T00:00:00-06:00</updated><id>https://bjchacha.github.io/myblog/plaidml/ai/2020/02/25/using-plaidml-keras-to-ai</id><content type="html" xml:base="https://bjchacha.github.io/myblog/plaidml/ai/2020/02/25/using-plaidml-keras-to-ai.html">&lt;!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
@@ -427,7 +427,7 @@ training time cost: 124.2 s, accuracy: 0.8858
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://bjxx.ltd/images/posts/2020-02-25-using-plaidml-keras-to-ai/PlaidML.png" /><media:content medium="image" url="https://bjxx.ltd/images/posts/2020-02-25-using-plaidml-keras-to-ai/PlaidML.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">VSCode用于cpp调试的相关设置</title><link href="https://bjxx.ltd/vscode/2020/01/28/vscode-cpp-setting.html" rel="alternate" type="text/html" title="VSCode用于cpp调试的相关设置" /><published>2020-01-28T00:00:00-06:00</published><updated>2020-01-28T00:00:00-06:00</updated><id>https://bjxx.ltd/vscode/2020/01/28/vscode-cpp-setting</id><content type="html" xml:base="https://bjxx.ltd/vscode/2020/01/28/vscode-cpp-setting.html">&lt;h2 id=&quot;0-前言&quot;&gt;0. 前言&lt;/h2&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://bjchacha.github.io/myblog/images/posts/2020-02-25-using-plaidml-keras-to-ai/PlaidML.png" /><media:content medium="image" url="https://bjchacha.github.io/myblog/images/posts/2020-02-25-using-plaidml-keras-to-ai/PlaidML.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">VSCode用于cpp调试的相关设置</title><link href="https://bjchacha.github.io/myblog/vscode/2020/01/28/vscode-cpp-setting.html" rel="alternate" type="text/html" title="VSCode用于cpp调试的相关设置" /><published>2020-01-28T00:00:00-06:00</published><updated>2020-01-28T00:00:00-06:00</updated><id>https://bjchacha.github.io/myblog/vscode/2020/01/28/vscode-cpp-setting</id><content type="html" xml:base="https://bjchacha.github.io/myblog/vscode/2020/01/28/vscode-cpp-setting.html">&lt;h2 id=&quot;0-前言&quot;&gt;0. 前言&lt;/h2&gt;
 
 &lt;p&gt;由于对Cpp的需求比较轻量，用来学习语法和写写算法题之类的，用&lt;code class=&quot;highlighter-rouge&quot;&gt;visual studio&lt;/code&gt;觉得十分臃肿。&lt;code class=&quot;highlighter-rouge&quot;&gt;vscode&lt;/code&gt;是一款非常优秀的代码编辑器，本身不具备任何编译器等IDE功能。需要进行一定的环境准备才能用&lt;code class=&quot;highlighter-rouge&quot;&gt;vscode&lt;/code&gt;进行Cpp代码的编译和调试。&lt;/p&gt;
 
@@ -575,11 +575,11 @@ int main()
 
 &lt;h2 id=&quot;参考&quot;&gt;参考&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://www.zhihu.com/question/30315894&quot;&gt;知乎&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&quot;https://code.visualstudio.com/docs/cpp/config-mingw&quot;&gt;vscode官方文档&lt;/a&gt;&lt;/p&gt;</content><author><name>BjChacha</name></author><summary type="html">0. 前言</summary></entry><entry><title type="html">精灵宝可梦 动画食用方式</title><link href="https://bjxx.ltd/%E5%8A%A8%E6%BC%AB/2019/07/14/pokemon-best-way-to-watch.html" rel="alternate" type="text/html" title="精灵宝可梦 动画食用方式" /><published>2019-07-14T00:00:00-05:00</published><updated>2019-07-14T00:00:00-05:00</updated><id>https://bjxx.ltd/%E5%8A%A8%E6%BC%AB/2019/07/14/pokemon-best-way-to-watch</id><content type="html" xml:base="https://bjxx.ltd/%E5%8A%A8%E6%BC%AB/2019/07/14/pokemon-best-way-to-watch.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+&lt;a href=&quot;https://code.visualstudio.com/docs/cpp/config-mingw&quot;&gt;vscode官方文档&lt;/a&gt;&lt;/p&gt;</content><author><name>BjChacha</name></author><summary type="html">0. 前言</summary></entry><entry><title type="html">精灵宝可梦 动画观看顺序</title><link href="https://bjchacha.github.io/myblog/%E5%8A%A8%E6%BC%AB/2019/07/14/pokemon-best-way-to-watch.html" rel="alternate" type="text/html" title="精灵宝可梦 动画观看顺序" /><published>2019-07-14T00:00:00-05:00</published><updated>2019-07-14T00:00:00-05:00</updated><id>https://bjchacha.github.io/myblog/%E5%8A%A8%E6%BC%AB/2019/07/14/pokemon-best-way-to-watch</id><content type="html" xml:base="https://bjchacha.github.io/myblog/%E5%8A%A8%E6%BC%AB/2019/07/14/pokemon-best-way-to-watch.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;自用，不包括特别篇和其他小剧场。&lt;/li&gt;
-  &lt;li&gt;tv也就图个响，正宗还得看漫画特别篇（滑稽&lt;/li&gt;
-  &lt;li&gt;摘自&lt;a href=&quot;https://www.zhihu.com/question/40409084&quot;&gt;知乎&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;没看过漫画的强烈推荐特别篇。&lt;/li&gt;
+  &lt;li&gt;摘自&lt;a href=&quot;https://www.zhihu.com/question/40409084&quot;&gt;知乎&lt;/a&gt;，本文也会不定期更新。&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -710,7 +710,7 @@ int main()
   &lt;li&gt;&lt;strong&gt;剧场版：精灵宝可梦：大家的物语&lt;/strong&gt;&lt;/li&gt;
   &lt;li&gt;082（跳舞，跳舞进化吗？）——至今&lt;/li&gt;
   &lt;li&gt;待续……&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>BjChacha</name></author><summary type="html">前言 自用，不包括特别篇和其他小剧场。 tv也就图个响，正宗还得看漫画特别篇（滑稽 摘自知乎</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://bjxx.ltd/images/posts/2019-07-14-pokemon-best-way-to-watch/pm_logo.png" /><media:content medium="image" url="https://bjxx.ltd/images/posts/2019-07-14-pokemon-best-way-to-watch/pm_logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">LeetCode 刷题总结</title><link href="https://bjxx.ltd/%E7%AE%97%E6%B3%95/2019/05/15/leetcode-practise.html" rel="alternate" type="text/html" title="LeetCode 刷题总结" /><published>2019-05-15T00:00:00-05:00</published><updated>2019-05-15T00:00:00-05:00</updated><id>https://bjxx.ltd/%E7%AE%97%E6%B3%95/2019/05/15/leetcode-practise</id><content type="html" xml:base="https://bjxx.ltd/%E7%AE%97%E6%B3%95/2019/05/15/leetcode-practise.html">&lt;!--Format:
+&lt;/ul&gt;</content><author><name>BjChacha</name></author><summary type="html">前言 自用，不包括特别篇和其他小剧场。 没看过漫画的强烈推荐特别篇。 摘自知乎，本文也会不定期更新。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://bjchacha.github.io/myblog/images/posts/2019-07-14-pokemon-best-way-to-watch/pm_logo.png" /><media:content medium="image" url="https://bjchacha.github.io/myblog/images/posts/2019-07-14-pokemon-best-way-to-watch/pm_logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">LeetCode 刷题总结</title><link href="https://bjchacha.github.io/myblog/%E7%AE%97%E6%B3%95/2019/05/15/leetcode-practise.html" rel="alternate" type="text/html" title="LeetCode 刷题总结" /><published>2019-05-15T00:00:00-05:00</published><updated>2019-05-15T00:00:00-05:00</updated><id>https://bjchacha.github.io/myblog/%E7%AE%97%E6%B3%95/2019/05/15/leetcode-practise</id><content type="html" xml:base="https://bjchacha.github.io/myblog/%E7%AE%97%E6%B3%95/2019/05/15/leetcode-practise.html">&lt;!--Format:
 ## 
 * **Description**:
   * 
@@ -1880,7 +1880,7 @@ Y   I   R
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;hr /&gt;</content><author><name>BjChacha</name></author><summary type="html">&amp;lt;!–Format: ## Description: Analysis: 时间复杂度：$O()$ 空间复杂度：$O()$ Analysis: // Runtime: ms, beats % // Memory: MB, beats % code here</summary></entry><entry><title type="html">Windows 个人软件收藏集</title><link href="https://bjxx.ltd/collections/2018/04/30/windows-great-software-collections.html" rel="alternate" type="text/html" title="Windows 个人软件收藏集" /><published>2018-04-30T00:00:00-05:00</published><updated>2018-04-30T00:00:00-05:00</updated><id>https://bjxx.ltd/collections/2018/04/30/windows-great-software-collections</id><content type="html" xml:base="https://bjxx.ltd/collections/2018/04/30/windows-great-software-collections.html">&lt;h2 id=&quot;sumatra-pdf&quot;&gt;&lt;a href=&quot;https://www.sumatrapdfreader.org/free-pdf-reader.html&quot;&gt;Sumatra PDF&lt;/a&gt;&lt;/h2&gt;
+&lt;hr /&gt;</content><author><name>BjChacha</name></author><summary type="html">&amp;lt;!–Format: ## Description: Analysis: 时间复杂度：$O()$ 空间复杂度：$O()$ Analysis: // Runtime: ms, beats % // Memory: MB, beats % code here</summary></entry><entry><title type="html">Windows 个人软件收藏集</title><link href="https://bjchacha.github.io/myblog/collections/2018/04/30/windows-great-software-collections.html" rel="alternate" type="text/html" title="Windows 个人软件收藏集" /><published>2018-04-30T00:00:00-05:00</published><updated>2018-04-30T00:00:00-05:00</updated><id>https://bjchacha.github.io/myblog/collections/2018/04/30/windows-great-software-collections</id><content type="html" xml:base="https://bjchacha.github.io/myblog/collections/2018/04/30/windows-great-software-collections.html">&lt;h2 id=&quot;sumatra-pdf&quot;&gt;&lt;a href=&quot;https://www.sumatrapdfreader.org/free-pdf-reader.html&quot;&gt;Sumatra PDF&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/sumatrapdfreader/sumatrapdf&quot;&gt;开源&lt;/a&gt;的轻量级PDF阅读器&lt;/li&gt;
   &lt;li&gt;适合追求轻量PDF阅读体验的用户&lt;/li&gt;
@@ -1929,7 +1929,7 @@ Y   I   R
   &lt;li&gt;还有很多强大的功能&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;待续……&lt;/p&gt;</content><author><name>BjChacha</name></author><summary type="html">Sumatra PDF 开源的轻量级PDF阅读器 适合追求轻量PDF阅读体验的用户</summary></entry><entry><title type="html">在Ubuntu快速部署Django</title><link href="https://bjxx.ltd/django/2018/04/30/ubuntu-django-deployment.html" rel="alternate" type="text/html" title="在Ubuntu快速部署Django" /><published>2018-04-30T00:00:00-05:00</published><updated>2018-04-30T00:00:00-05:00</updated><id>https://bjxx.ltd/django/2018/04/30/ubuntu-django-deployment</id><content type="html" xml:base="https://bjxx.ltd/django/2018/04/30/ubuntu-django-deployment.html">&lt;h2 id=&quot;配置环境&quot;&gt;配置环境&lt;/h2&gt;
+&lt;p&gt;待续……&lt;/p&gt;</content><author><name>BjChacha</name></author><summary type="html">Sumatra PDF 开源的轻量级PDF阅读器 适合追求轻量PDF阅读体验的用户</summary></entry><entry><title type="html">在Ubuntu快速部署Django</title><link href="https://bjchacha.github.io/myblog/django/2018/04/30/ubuntu-django-deployment.html" rel="alternate" type="text/html" title="在Ubuntu快速部署Django" /><published>2018-04-30T00:00:00-05:00</published><updated>2018-04-30T00:00:00-05:00</updated><id>https://bjchacha.github.io/myblog/django/2018/04/30/ubuntu-django-deployment</id><content type="html" xml:base="https://bjchacha.github.io/myblog/django/2018/04/30/ubuntu-django-deployment.html">&lt;h2 id=&quot;配置环境&quot;&gt;配置环境&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;Ubuntu 16.04-64bit&lt;/li&gt;
   &lt;li&gt;Python 3.5&lt;/li&gt;
@@ -2089,4 +2089,4 @@ uwsgi /etc/uwsgi/sites/mysite.ini -d /home/mysite/mysite.log&lt;/p&gt;
 
 &lt;hr /&gt;
 &lt;h2 id=&quot;最终步-欢呼吧&quot;&gt;&lt;strong&gt;最终步 欢呼吧！&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p/d6f9138fab7b&quot;&gt;来源&lt;/a&gt;&lt;/p&gt;</content><author><name>BjChacha</name></author><summary type="html">配置环境 Ubuntu 16.04-64bit Python 3.5 Django 2.0.4</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://bjxx.ltd/images/posts/2018-04-30-ubuntu-django-deployment/django_logo.png" /><media:content medium="image" url="https://bjxx.ltd/images/posts/2018-04-30-ubuntu-django-deployment/django_logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;&lt;a href=&quot;https://www.jianshu.com/p/d6f9138fab7b&quot;&gt;来源&lt;/a&gt;&lt;/p&gt;</content><author><name>BjChacha</name></author><summary type="html">配置环境 Ubuntu 16.04-64bit Python 3.5 Django 2.0.4</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://bjchacha.github.io/myblog/images/posts/2018-04-30-ubuntu-django-deployment/django_logo.png" /><media:content medium="image" url="https://bjchacha.github.io/myblog/images/posts/2018-04-30-ubuntu-django-deployment/django_logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

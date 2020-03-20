@@ -10,21 +10,21 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="动态规划问题" />
 <meta property="og:description" content="动态规划问题" />
-<link rel="canonical" href="https://bjxx.ltd/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/17/algorithm-dp-edit-distance.html" />
-<meta property="og:url" content="https://bjxx.ltd/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/17/algorithm-dp-edit-distance.html" />
+<link rel="canonical" href="https://bjchacha.github.io/myblog/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/17/algorithm-dp-edit-distance.html" />
+<meta property="og:url" content="https://bjchacha.github.io/myblog/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/17/algorithm-dp-edit-distance.html" />
 <meta property="og:site_name" content="BjChacha" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-03-17T00:00:00-05:00" />
 <script type="application/ld+json">
-{"author":{"@type":"Person","name":"BjChacha"},"description":"动态规划问题","mainEntityOfPage":{"@type":"WebPage","@id":"https://bjxx.ltd/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/17/algorithm-dp-edit-distance.html"},"@type":"BlogPosting","url":"https://bjxx.ltd/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/17/algorithm-dp-edit-distance.html","headline":"[动态规划]编辑距离问题","dateModified":"2020-03-17T00:00:00-05:00","datePublished":"2020-03-17T00:00:00-05:00","@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"BjChacha"},"description":"动态规划问题","mainEntityOfPage":{"@type":"WebPage","@id":"https://bjchacha.github.io/myblog/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/17/algorithm-dp-edit-distance.html"},"@type":"BlogPosting","url":"https://bjchacha.github.io/myblog/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/17/algorithm-dp-edit-distance.html","headline":"[动态规划]编辑距离问题","dateModified":"2020-03-17T00:00:00-05:00","datePublished":"2020-03-17T00:00:00-05:00","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://bjxx.ltd/feed.xml" title="BjChacha" /><!-- the google_analytics_id gets auto inserted from the config file -->
+<link rel="stylesheet" href="/myblog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://bjchacha.github.io/myblog/feed.xml" title="BjChacha" /><!-- the google_analytics_id gets auto inserted from the config file -->
 
 
 
 <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-160825107-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
 
-<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<link rel="shortcut icon" type="image/x-icon" href="/myblog/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>[动态规划]编辑距离问题 | BjChacha</title>
 <meta name="generator" content="Jekyll v4.0.0" />
 <meta property="og:title" content="[动态规划]编辑距离问题" />
@@ -32,17 +32,17 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="动态规划问题" />
 <meta property="og:description" content="动态规划问题" />
-<link rel="canonical" href="https://bjxx.ltd/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/17/algorithm-dp-edit-distance.html" />
-<meta property="og:url" content="https://bjxx.ltd/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/17/algorithm-dp-edit-distance.html" />
+<link rel="canonical" href="https://bjchacha.github.io/myblog/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/17/algorithm-dp-edit-distance.html" />
+<meta property="og:url" content="https://bjchacha.github.io/myblog/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/17/algorithm-dp-edit-distance.html" />
 <meta property="og:site_name" content="BjChacha" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-03-17T00:00:00-05:00" />
 <script type="application/ld+json">
-{"author":{"@type":"Person","name":"BjChacha"},"description":"动态规划问题","mainEntityOfPage":{"@type":"WebPage","@id":"https://bjxx.ltd/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/17/algorithm-dp-edit-distance.html"},"@type":"BlogPosting","url":"https://bjxx.ltd/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/17/algorithm-dp-edit-distance.html","headline":"[动态规划]编辑距离问题","dateModified":"2020-03-17T00:00:00-05:00","datePublished":"2020-03-17T00:00:00-05:00","@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"BjChacha"},"description":"动态规划问题","mainEntityOfPage":{"@type":"WebPage","@id":"https://bjchacha.github.io/myblog/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/17/algorithm-dp-edit-distance.html"},"@type":"BlogPosting","url":"https://bjchacha.github.io/myblog/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/17/algorithm-dp-edit-distance.html","headline":"[动态规划]编辑距离问题","dateModified":"2020-03-17T00:00:00-05:00","datePublished":"2020-03-17T00:00:00-05:00","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
-<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://bjxx.ltd/feed.xml" title="BjChacha" /><!-- the google_analytics_id gets auto inserted from the config file -->
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://bjchacha.github.io/myblog/feed.xml" title="BjChacha" /><!-- the google_analytics_id gets auto inserted from the config file -->
 
 
 
@@ -97,7 +97,7 @@ window.onload = wrap_img;
 </script>
 </head><body><header class="site-header">
 
-  <div class="wrapper"><a class="site-title" rel="author" href="/">BjChacha</a><nav class="site-nav">
+  <div class="wrapper"><a class="site-title" rel="author" href="/myblog/">BjChacha</a><nav class="site-nav">
         <input type="checkbox" id="nav-trigger" class="nav-trigger" />
         <label for="nav-trigger">
           <span class="menu-icon">
@@ -107,7 +107,7 @@ window.onload = wrap_img;
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/about/">About Me</a><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a></div>
+        <div class="trigger"><a class="page-link" href="/myblog/about/">About Me</a><a class="page-link" href="/myblog/search/">Search</a><a class="page-link" href="/myblog/categories/">Tags</a></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
@@ -130,10 +130,10 @@ window.onload = wrap_img;
     
       <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
       
-        <a class="category-tags-link" href="/categories/#算法">算法</a>
+        <a class="category-tags-link" href="/myblog/categories/#算法">算法</a>
         &nbsp;
       
-        <a class="category-tags-link" href="/categories/#动态规划">动态规划</a>
+        <a class="category-tags-link" href="/myblog/categories/#动态规划">动态规划</a>
         
       
       </p>
@@ -146,11 +146,11 @@ window.onload = wrap_img;
 <p>好久没刷leetcode了，加上要准备考研复试，所以决定尝试开个算法系列，每篇解决一道比较经典或者稍有难度的算法题，注重从思路到代码、从无到有的过程。<br />
 其实之前有写一篇类似的刷题总结文章，但只写了题目和代码答案，没有记录思路过程，导致回忆的时候十分痛苦。而且leetcode的答案网上一搜一大把，那篇文章没啥意义，所以决定关掉并重开这个系列。<br />
 在这里建议<strong>不要一卡住就看答案</strong>，很多问题卡个一两天很正常。但自己亲手解决每一道算法题真的会带来很大的成就感，这种正反馈也是后续刷题的重要精神源泉。在这里顺便贴一个我觉得不错的学习参考：<a href="https://labuladong.gitbook.io/algo/">labuladong的算法小抄</a>。<br />
-这是开篇之作，所以废话很多<del>（skr~）</del>马上进入本文主题——一道颇有难度的动规[^1]问题：<strong>编辑距离</strong>问题（Edit Distance）。</p>
+这是开篇之作，所以废话很多<del>（skr~）</del>马上进入本文主题——一道颇有难度的动规[^1]问题：<strong>编辑距离</strong>问题（<a href="https://leetcode.com/problems/edit-distance/">72. Edit Distance</a>）。</p>
 
 <h2 id="1-问题描述">1. 问题描述</h2>
 <ul>
-  <li>给定两个字符串s1和s2，计算出将s1转换成s2所使用的最少操作数。</li>
+  <li>给定两个字符串<code class="highlighter-rouge">s1</code>和<code class="highlighter-rouge">s2</code>，计算出将<code class="highlighter-rouge">s1</code>转换成<code class="highlighter-rouge">s2</code>所使用的最少操作数。</li>
   <li>你可以对一个字符串进行以下三种操作：
     <ul>
       <li>插入一个字符</li>
@@ -207,16 +207,16 @@ window.onload = wrap_img;
 <p>这就是动态规划的整体框架，而当中关键就在于“三种操作中选一”。下面我们来讨论一下如何处理这个分支。</p>
 <ul>
   <li>插入：<br />
-在i指针处插入一个字符后，i指针指向新插入的字符，即i=i+1，j不变。</li>
+在i指针处插入一个字符后，i指针指向新插入的字符，即<code class="highlighter-rouge">i=i+1</code>，<code class="highlighter-rouge">j</code>不变。</li>
   <li>删除：<br />
-在i指针处删除一个字符后，i指针指向前继字符，即i=i-1，j不变。</li>
+在i指针处删除一个字符后，i指针指向前继字符，即<code class="highlighter-rouge">i=i-1</code>，<code class="highlighter-rouge">j</code>不变。</li>
   <li>替换：<br />
-在i指针处替换一个字符后，i，j位置均不变。
+在i指针处替换一个字符后，<code class="highlighter-rouge">i</code>，<code class="highlighter-rouge">j</code>位置均不变。
 剩下还有两种边界需要处理，很简单：</li>
-  <li>i指针先遍历完：<br />
-此时说明s1是s2的后置子串，因此只需把s2余下字符<strong>插入</strong>到s1前面即可。</li>
-  <li>j指针先遍历完：<br />
-此时说明s2是s1的后置子串，因此只需要把s1前面的字符<strong>删除</strong>即可。</li>
+  <li><code class="highlighter-rouge">i</code>指针先遍历完：<br />
+此时说明<code class="highlighter-rouge">s1</code>是<code class="highlighter-rouge">s2</code>的后置子串，因此只需把<code class="highlighter-rouge">s2</code>余下字符<strong>插入</strong>到s1前面即可。</li>
+  <li><code class="highlighter-rouge">j</code>指针先遍历完：<br />
+此时说明<code class="highlighter-rouge">s2</code>是<code class="highlighter-rouge">s1</code>的后置子串，因此只需要把<code class="highlighter-rouge">s1</code>前面的字符<strong>删除</strong>即可。</li>
 </ul>
 
 <p>现在分支逻辑都理清楚了，可以从上面框架中填充条件。</p>
@@ -245,7 +245,7 @@ window.onload = wrap_img;
 <h2 id="优化">优化</h2>
 <p>不作优化的动态规划一般会有很严重的冗余。比如这一题中dp(i-1,j) -&gt;dp(i,j-1)跟dp(i-1,j-1)重复了，即dp(i-1,j-1)的值被求了两次。一旦发现出现路线的重叠，那么整个算法就会有大量的重复调用，非常暴力。<br />
 动态规划的优化就是<strong>去冗余</strong>，也就是给上面那棵三叉树剪枝。最常见就是用备忘录去记录每个节点是否被访问过，或者直接用dp表直接在数组上操作。<br />
-这里我们在原来的基础上加上备忘录。这里操作的主体有两个：指针i和j，因此备忘录是个二维数组memo[i][j]。最后代码如下。</p>
+这里我们在原来的基础上加上备忘录。这里操作的主体有两个：指针i和j，因此备忘录是个二维数组memo[i][j]。遍历的最长长度就二维数组的大小，故$O(n)=len(s1)*len(s2)$。最后代码如下。</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">edit_distance</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">):</span>
     <span class="n">max_len</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">))</span>
     <span class="n">memo</span> <span class="o">=</span> <span class="p">[[</span><span class="n">max_len</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
@@ -286,20 +286,20 @@ window.onload = wrap_img;
         theme="github-light"
         crossorigin="anonymous"
         async>
-</script><a class="u-url" href="/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/17/algorithm-dp-edit-distance.html" hidden></a>
+</script><a class="u-url" href="/myblog/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/17/algorithm-dp-edit-distance.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
-  <data class="u-url" href="/"></data>
+  <data class="u-url" href="/myblog/"></data>
 
   <div class="wrapper">
 
     <div class="footer-col-wrapper">
       <div class="footer-col">
         <p class="feed-subscribe">
-          <a href="/feed.xml">
+          <a href="/myblog/feed.xml">
             <svg class="svg-icon orange">
-              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+              <use xlink:href="/myblog/assets/minima-social-icons.svg#rss"></use>
             </svg><span>Subscribe</span>
           </a>
         </p>
@@ -309,7 +309,7 @@ window.onload = wrap_img;
       </div>
     </div>
 
-    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/BjChacha" title="BjChacha"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/BjChacha" title="BjChacha"><svg class="svg-icon grey"><use xlink:href="/myblog/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
 </div>
 
   </div>
