@@ -124,4 +124,4 @@ def edit_distance(s1, s2):
 4. 动态规划使用递归时需要用备忘录memo进行优化。
 
 ## 引用
-[^1]即动态规划啦（其实是想test一下fastpages的引用功能
+[^1]: 即动态规划啦（其实是想test一下fastpages的引用功能
