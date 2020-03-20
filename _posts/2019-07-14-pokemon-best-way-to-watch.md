@@ -1,5 +1,5 @@
 ---
-title: "精灵宝可梦 动画食用方式"
+title: "精灵宝可梦 动画观看顺序"
 description: 童年补完计划
 toc: true
 comments: true
@@ -11,8 +11,8 @@ author: BjChacha
 
 ## 前言
 * 自用，不包括特别篇和其他小剧场。
-* tv也就图个响，正宗还得看漫画特别篇（滑稽
-* 摘自[知乎](https://www.zhihu.com/question/40409084)
+* 没看过漫画的强烈推荐特别篇。
+* 摘自[知乎](https://www.zhihu.com/question/40409084)，本文也会不定期更新。
 
 ---
 ## **[无印篇（EP,OP）](https://www.bilibili.com/bangumi/play/ep97641)**
