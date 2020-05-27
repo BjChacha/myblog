@@ -54,7 +54,6 @@ author: BjChacha
 > sudo ./configure  
 > sudo make altinstall  
 
-(可选)最后，进入`root`，简化后面的部分操作
 ---
 ## **第三步 安装项目依赖项**  
 > pip3 install -r requirements.txt  
@@ -130,7 +129,8 @@ author: BjChacha
 > service nginx configtest  
 
 (可能需要)删除nginx默认模板
-> rm -r /etc/nginx/sites-available/default  
+> rm -r /etc/nginx/sites-available/default
+  
 ---
 ## **第七步 启动服务**
 > service nginx restart  
