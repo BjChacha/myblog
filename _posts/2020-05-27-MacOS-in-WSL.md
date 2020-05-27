@@ -2,7 +2,7 @@
 title: 在WSL中安装MacOS虚拟机
 description: 圆了我的苹果梦
 toc: true
-hide: true
+hide: false
 categories: [WSL]
 author: BjChacha
 ---
