@@ -195,7 +195,7 @@ sudo ./configure<br />
 sudo make altinstall</p>
 </blockquote>
 
-<h2 id="可选最后进入root简化后面的部分操作">(可选)最后，进入<code class="highlighter-rouge">root</code>，简化后面的部分操作</h2>
+<hr />
 <h2 id="第三步-安装项目依赖项"><strong>第三步 安装项目依赖项</strong></h2>
 <blockquote>
   <p>pip3 install -r requirements.txt</p>
@@ -291,8 +291,12 @@ service nginx configtest</p>
 
 <p>(可能需要)删除nginx默认模板</p>
 <blockquote>
-  <h2 id="rm--r-etcnginxsites-availabledefault">rm -r /etc/nginx/sites-available/default</h2>
-  <h2 id="第七步-启动服务"><strong>第七步 启动服务</strong></h2>
+  <p>rm -r /etc/nginx/sites-available/default</p>
+</blockquote>
+
+<hr />
+<h2 id="第七步-启动服务"><strong>第七步 启动服务</strong></h2>
+<blockquote>
   <p>service nginx restart<br />
 uwsgi /etc/uwsgi/sites/mysite.ini -d /home/mysite/mysite.log</p>
 </blockquote>

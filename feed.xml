@@ -1,4 +1,33 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://bjchacha.github.io/myblog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://bjchacha.github.io/myblog/" rel="alternate" type="text/html" /><updated>2020-05-26T22:32:12-05:00</updated><id>https://bjchacha.github.io/myblog/feed.xml</id><title type="html">BjChacha</title><subtitle>随便写点东西</subtitle><entry><title type="html">[动态规划]0-1背包问题</title><link href="https://bjchacha.github.io/myblog/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/20/algorithm-dp-0-1-knapsack.html" rel="alternate" type="text/html" title="[动态规划]0-1背包问题" /><published>2020-03-20T00:00:00-05:00</published><updated>2020-03-20T00:00:00-05:00</updated><id>https://bjchacha.github.io/myblog/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/20/algorithm-dp-0-1-knapsack</id><content type="html" xml:base="https://bjchacha.github.io/myblog/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/20/algorithm-dp-0-1-knapsack.html">&lt;h2 id=&quot;1-问题描述&quot;&gt;1. 问题描述&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://bjchacha.github.io/myblog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://bjchacha.github.io/myblog/" rel="alternate" type="text/html" /><updated>2020-05-27T00:48:34-05:00</updated><id>https://bjchacha.github.io/myblog/feed.xml</id><title type="html">BjChacha</title><subtitle>随便写点东西</subtitle><entry><title type="html">在WSL中安装MacOS虚拟机</title><link href="https://bjchacha.github.io/myblog/wsl/2020/05/27/MacOS-in-WSL.html" rel="alternate" type="text/html" title="在WSL中安装MacOS虚拟机" /><published>2020-05-27T00:00:00-05:00</published><updated>2020-05-27T00:00:00-05:00</updated><id>https://bjchacha.github.io/myblog/wsl/2020/05/27/MacOS-in-WSL</id><content type="html" xml:base="https://bjchacha.github.io/myblog/wsl/2020/05/27/MacOS-in-WSL.html">&lt;h2 id=&quot;0-前言&quot;&gt;0. 前言&lt;/h2&gt;
+&lt;p&gt;在github上发现有大佬做了个&lt;a href=&quot;https://github.com/myspaghetti/macos-virtualbox&quot;&gt;脚本&lt;/a&gt;，可以&lt;strong&gt;傻瓜式&lt;/strong&gt;创建MacOS虚拟机。一直很佩服这些做这种便捷易懂的教程的作者，真的希望自己也有能力做这些事情。&lt;/p&gt;
+
+&lt;h2 id=&quot;1-环境&quot;&gt;1. 环境&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.microsoft.com/en-us/windows/wsl/install-win10&quot;&gt;WSL&lt;/a&gt; (Ubuntu)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.virtualbox.org/wiki/Downloads&quot;&gt;VirtualBox&lt;/a&gt; 6.1.6 or higher &lt;strong&gt;with Extension Pack&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;2-进入wsl&quot;&gt;2. 进入WSL&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;打开Ubuntu终端，首先安装必要的依赖项:
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; sudo apt-get install coreutils gzip unzip xxd wget  
+ sudo apt-get update -y  
+ sudo apt-get install dmg2img
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;下载大佬的&lt;a href=&quot;https://raw.githubusercontent.com/myspaghetti/macos-virtualbox/master/macos-guest-virtualbox.sh&quot;&gt;脚本&lt;/a&gt;，并在Ubuntu终端中运行。
+    &lt;blockquote&gt;
+      &lt;p&gt;WSL的默认路径是Windows下的用户文件夹，如C:\Users\username，cd几下就能定位到Windows的文件。&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;另外提示一下，建议硬盘可用容量50G左右。&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;跟着大佬的脚本的提示一步步走。&lt;strong&gt;一定要看脚本提示&lt;/strong&gt;，因为进入安装界面后还是需要脚本的自动化操作。期间虚拟机会重启几次，等待脚本完全结束后就可以自己操作了。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;3-凑数用&quot;&gt;3. 凑数用&lt;/h2&gt;</content><author><name>BjChacha</name></author><summary type="html">0. 前言 在github上发现有大佬做了个脚本，可以傻瓜式创建MacOS虚拟机。一直很佩服这些做这种便捷易懂的教程的作者，真的希望自己也有能力做这些事情。</summary></entry><entry><title type="html">[动态规划]0-1背包问题</title><link href="https://bjchacha.github.io/myblog/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/20/algorithm-dp-0-1-knapsack.html" rel="alternate" type="text/html" title="[动态规划]0-1背包问题" /><published>2020-03-20T00:00:00-05:00</published><updated>2020-03-20T00:00:00-05:00</updated><id>https://bjchacha.github.io/myblog/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/20/algorithm-dp-0-1-knapsack</id><content type="html" xml:base="https://bjchacha.github.io/myblog/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/20/algorithm-dp-0-1-knapsack.html">&lt;h2 id=&quot;1-问题描述&quot;&gt;1. 问题描述&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;给定一个可承重&lt;code class=&quot;highlighter-rouge&quot;&gt;W&lt;/code&gt;的背包和&lt;code class=&quot;highlighter-rouge&quot;&gt;N&lt;/code&gt;个物品，其中第&lt;code class=&quot;highlighter-rouge&quot;&gt;i&lt;/code&gt;个物品的重量为&lt;code class=&quot;highlighter-rouge&quot;&gt;wt[i]&lt;/code&gt;，价值为&lt;code class=&quot;highlighter-rouge&quot;&gt;val[i]&lt;/code&gt;。求背包可承载物品的最大价值。&lt;/li&gt;
   &lt;li&gt;示例：
@@ -2028,7 +2057,7 @@ sudo ./configure&lt;br /&gt;
 sudo make altinstall&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h2 id=&quot;可选最后进入root简化后面的部分操作&quot;&gt;(可选)最后，进入&lt;code class=&quot;highlighter-rouge&quot;&gt;root&lt;/code&gt;，简化后面的部分操作&lt;/h2&gt;
+&lt;hr /&gt;
 &lt;h2 id=&quot;第三步-安装项目依赖项&quot;&gt;&lt;strong&gt;第三步 安装项目依赖项&lt;/strong&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
   &lt;p&gt;pip3 install -r requirements.txt&lt;/p&gt;
@@ -2124,8 +2153,12 @@ service nginx configtest&lt;/p&gt;
 
 &lt;p&gt;(可能需要)删除nginx默认模板&lt;/p&gt;
 &lt;blockquote&gt;
-  &lt;h2 id=&quot;rm--r-etcnginxsites-availabledefault&quot;&gt;rm -r /etc/nginx/sites-available/default&lt;/h2&gt;
-  &lt;h2 id=&quot;第七步-启动服务&quot;&gt;&lt;strong&gt;第七步 启动服务&lt;/strong&gt;&lt;/h2&gt;
+  &lt;p&gt;rm -r /etc/nginx/sites-available/default&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;第七步-启动服务&quot;&gt;&lt;strong&gt;第七步 启动服务&lt;/strong&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
   &lt;p&gt;service nginx restart&lt;br /&gt;
 uwsgi /etc/uwsgi/sites/mysite.ini -d /home/mysite/mysite.log&lt;/p&gt;
 &lt;/blockquote&gt;

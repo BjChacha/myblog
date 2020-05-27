@@ -1,0 +1,30 @@
+<h2 id="0-前言">0. 前言</h2>
+<p>在github上发现有大佬做了个<a href="https://github.com/myspaghetti/macos-virtualbox">脚本</a>，可以<strong>傻瓜式</strong>创建MacOS虚拟机。一直很佩服这些做这种便捷易懂的教程的作者，真的希望自己也有能力做这些事情。</p>
+
+<h2 id="1-环境">1. 环境</h2>
+<ul>
+  <li><a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">WSL</a> (Ubuntu)</li>
+  <li><a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a> 6.1.6 or higher <strong>with Extension Pack</strong></li>
+</ul>
+
+<h2 id="2-进入wsl">2. 进入WSL</h2>
+<ol>
+  <li>打开Ubuntu终端，首先安装必要的依赖项:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> sudo apt-get install coreutils gzip unzip xxd wget  
+ sudo apt-get update -y  
+ sudo apt-get install dmg2img
+</code></pre></div>    </div>
+  </li>
+  <li>下载大佬的<a href="https://raw.githubusercontent.com/myspaghetti/macos-virtualbox/master/macos-guest-virtualbox.sh">脚本</a>，并在Ubuntu终端中运行。
+    <blockquote>
+      <p>WSL的默认路径是Windows下的用户文件夹，如C:\Users\username，cd几下就能定位到Windows的文件。</p>
+    </blockquote>
+
+    <blockquote>
+      <p>另外提示一下，建议硬盘可用容量50G左右。</p>
+    </blockquote>
+  </li>
+  <li>跟着大佬的脚本的提示一步步走。<strong>一定要看脚本提示</strong>，因为进入安装界面后还是需要脚本的自动化操作。期间虚拟机会重启几次，等待脚本完全结束后就可以自己操作了。</li>
+</ol>
+
+<h2 id="3-凑数用">3. 凑数用</h2>
