@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://bjchacha.github.io/myblog/categories/" />
 <meta property="og:site_name" content="BjChacha" />
 <script type="application/ld+json">
-{"description":"随便写点东西","@type":"WebPage","url":"https://bjchacha.github.io/myblog/categories/","headline":"Tags","@context":"https://schema.org"}</script>
+{"headline":"Tags","description":"随便写点东西","@type":"WebPage","url":"https://bjchacha.github.io/myblog/categories/","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/myblog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://bjchacha.github.io/myblog/feed.xml" title="BjChacha" /><!-- the google_analytics_id gets auto inserted from the config file -->
 
@@ -32,7 +32,7 @@
 <meta property="og:url" content="https://bjchacha.github.io/myblog/categories/" />
 <meta property="og:site_name" content="BjChacha" />
 <script type="application/ld+json">
-{"description":"随便写点东西","@type":"WebPage","url":"https://bjchacha.github.io/myblog/categories/","headline":"Tags","@context":"https://schema.org"}</script>
+{"headline":"Tags","description":"随便写点东西","@type":"WebPage","url":"https://bjchacha.github.io/myblog/categories/","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
@@ -44,9 +44,9 @@
 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
-    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
     <script>
     document.addEventListener("DOMContentLoaded", function() {
         renderMathInElement( document.body, {
@@ -65,7 +65,7 @@ function wrap_img(fn) {
     if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
         var elements = document.querySelectorAll(".post img");
         Array.prototype.forEach.call(elements, function(el, i) {
-            if (el.getAttribute("title")) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
                 const caption = document.createElement('figcaption');
                 var node = document.createTextNode(el.getAttribute("title"));
                 caption.appendChild(node);
@@ -108,119 +108,100 @@ window.onload = wrap_img;
       <div class="wrapper">
         <div class="home">
 
+
 <h2>Contents</h2>
 
+  
+  
+  
 
-<ul>
+  <ul>
+  
+    <li><a href="#ai">ai</a></li>
+  
+    <li><a href="#collections">collections</a></li>
+  
+    <li><a href="#django">django</a></li>
+  
+    <li><a href="#plaidml">plaidml</a></li>
+  
+    <li><a href="#vscode">vscode</a></li>
+  
+    <li><a href="#动态规划">动态规划</a></li>
+  
+    <li><a href="#动漫">动漫</a></li>
+  
+    <li><a href="#算法">算法</a></li>
+  
+  </ul>
 
   
-  <li><a href="#django">django</a></li>
-
+      <h3 id ="ai"><i class="fas fa-tags category-tags-icon"></i></i> ai</h3>
+      <a name="ai"></a>
+      <article class="archive-item">
+        <p class="post-meta post-meta-title"><a class="page-meta" href="/myblog/plaidml/ai/2020/02/25/using-plaidml-keras-to-ai.html">使用PlaidML进行GPU模型训练</a>  • Feb 25, 2020</p>
+      </article>
+      
   
-  <li><a href="#collections">collections</a></li>
-
+      <h3 id ="collections"><i class="fas fa-tags category-tags-icon"></i></i> collections</h3>
+      <a name="collections"></a>
+      <article class="archive-item">
+        <p class="post-meta post-meta-title"><a class="page-meta" href="/myblog/collections/2018/04/30/windows-great-software-collections.html">Windows 个人软件收藏集</a>  • Apr 30, 2018</p>
+      </article>
+      
   
-  <li><a href="#算法">算法</a></li>
-
+      <h3 id ="django"><i class="fas fa-tags category-tags-icon"></i></i> django</h3>
+      <a name="django"></a>
+      <article class="archive-item">
+        <p class="post-meta post-meta-title"><a class="page-meta" href="/myblog/django/2018/04/30/ubuntu-django-deployment.html">在Ubuntu快速部署Django</a>  • Apr 30, 2018</p>
+      </article>
+      
   
-  <li><a href="#动漫">动漫</a></li>
-
+      <h3 id ="plaidml"><i class="fas fa-tags category-tags-icon"></i></i> plaidml</h3>
+      <a name="plaidml"></a>
+      <article class="archive-item">
+        <p class="post-meta post-meta-title"><a class="page-meta" href="/myblog/plaidml/ai/2020/02/25/using-plaidml-keras-to-ai.html">使用PlaidML进行GPU模型训练</a>  • Feb 25, 2020</p>
+      </article>
+      
   
-  <li><a href="#vscode">vscode</a></li>
-
+      <h3 id ="vscode"><i class="fas fa-tags category-tags-icon"></i></i> vscode</h3>
+      <a name="vscode"></a>
+      <article class="archive-item">
+        <p class="post-meta post-meta-title"><a class="page-meta" href="/myblog/vscode/2020/01/28/vscode-cpp-setting.html">VSCode用于cpp调试的相关设置</a>  • Jan 28, 2020</p>
+      </article>
+      
   
-  <li><a href="#plaidml">plaidml</a></li>
-
+      <h3 id ="动态规划"><i class="fas fa-tags category-tags-icon"></i></i> 动态规划</h3>
+      <a name="动态规划"></a>
+      <article class="archive-item">
+        <p class="post-meta post-meta-title"><a class="page-meta" href="/myblog/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/20/algorithm-dp-0-1-knapsack.html">[动态规划]0-1背包问题</a>  • Mar 20, 2020</p>
+      </article>
+      <article class="archive-item">
+        <p class="post-meta post-meta-title"><a class="page-meta" href="/myblog/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/17/algorithm-dp-edit-distance.html">[动态规划]编辑距离问题</a>  • Mar 17, 2020</p>
+      </article>
+      
   
-  <li><a href="#ai">ai</a></li>
-
+      <h3 id ="动漫"><i class="fas fa-tags category-tags-icon"></i></i> 动漫</h3>
+      <a name="动漫"></a>
+      <article class="archive-item">
+        <p class="post-meta post-meta-title"><a class="page-meta" href="/myblog/%E5%8A%A8%E6%BC%AB/2019/07/14/pokemon-best-way-to-watch.html">精灵宝可梦 动画观看顺序</a>  • Jul 14, 2019</p>
+      </article>
+      
   
-  <li><a href="#动态规划">动态规划</a></li>
+      <h3 id ="算法"><i class="fas fa-tags category-tags-icon"></i></i> 算法</h3>
+      <a name="算法"></a>
+      <article class="archive-item">
+        <p class="post-meta post-meta-title"><a class="page-meta" href="/myblog/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/20/algorithm-dp-0-1-knapsack.html">[动态规划]0-1背包问题</a>  • Mar 20, 2020</p>
+      </article>
+      <article class="archive-item">
+        <p class="post-meta post-meta-title"><a class="page-meta" href="/myblog/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/17/algorithm-dp-edit-distance.html">[动态规划]编辑距离问题</a>  • Mar 17, 2020</p>
+      </article>
+      <article class="archive-item">
+        <p class="post-meta post-meta-title"><a class="page-meta" href="/myblog/%E7%AE%97%E6%B3%95/2019/05/15/leetcode-practise.html">LeetCode 刷题总结</a>  • May 15, 2019</p>
+      </article>
+      
+  
 
-</ul>
-
-
-
-    
-
-    <h3 id ="django"><i class="fas fa-tags category-tags-icon"></i></i> django</h3>
-    <a name="django"></a>
-    <article class="archive-item">
-      <p class="post-meta post-meta-title"><a class="page-meta" href="/myblog/django/2018/04/30/ubuntu-django-deployment.html">在Ubuntu快速部署Django</a>  • Apr 30, 2018</p>
-    </article>
-    
-
-    
-
-    <h3 id ="collections"><i class="fas fa-tags category-tags-icon"></i></i> collections</h3>
-    <a name="collections"></a>
-    <article class="archive-item">
-      <p class="post-meta post-meta-title"><a class="page-meta" href="/myblog/collections/2018/04/30/windows-great-software-collections.html">Windows 个人软件收藏集</a>  • Apr 30, 2018</p>
-    </article>
-    
-
-    
-
-    <h3 id ="算法"><i class="fas fa-tags category-tags-icon"></i></i> 算法</h3>
-    <a name="算法"></a>
-    <article class="archive-item">
-      <p class="post-meta post-meta-title"><a class="page-meta" href="/myblog/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/20/algorithm-dp-0-1-knapsack.html">[动态规划]0-1背包问题</a>  • Mar 20, 2020</p>
-    </article>
-    <article class="archive-item">
-      <p class="post-meta post-meta-title"><a class="page-meta" href="/myblog/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/17/algorithm-dp-edit-distance.html">[动态规划]编辑距离问题</a>  • Mar 17, 2020</p>
-    </article>
-    <article class="archive-item">
-      <p class="post-meta post-meta-title"><a class="page-meta" href="/myblog/%E7%AE%97%E6%B3%95/2019/05/15/leetcode-practise.html">LeetCode 刷题总结</a>  • May 15, 2019</p>
-    </article>
-    
-
-    
-
-    <h3 id ="动漫"><i class="fas fa-tags category-tags-icon"></i></i> 动漫</h3>
-    <a name="动漫"></a>
-    <article class="archive-item">
-      <p class="post-meta post-meta-title"><a class="page-meta" href="/myblog/%E5%8A%A8%E6%BC%AB/2019/07/14/pokemon-best-way-to-watch.html">精灵宝可梦 动画观看顺序</a>  • Jul 14, 2019</p>
-    </article>
-    
-
-    
-
-    <h3 id ="vscode"><i class="fas fa-tags category-tags-icon"></i></i> vscode</h3>
-    <a name="vscode"></a>
-    <article class="archive-item">
-      <p class="post-meta post-meta-title"><a class="page-meta" href="/myblog/vscode/2020/01/28/vscode-cpp-setting.html">VSCode用于cpp调试的相关设置</a>  • Jan 28, 2020</p>
-    </article>
-    
-
-    
-
-    <h3 id ="plaidml"><i class="fas fa-tags category-tags-icon"></i></i> plaidml</h3>
-    <a name="plaidml"></a>
-    <article class="archive-item">
-      <p class="post-meta post-meta-title"><a class="page-meta" href="/myblog/plaidml/ai/2020/02/25/using-plaidml-keras-to-ai.html">使用PlaidML进行GPU模型训练</a>  • Feb 25, 2020</p>
-    </article>
-    
-
-    
-
-    <h3 id ="ai"><i class="fas fa-tags category-tags-icon"></i></i> ai</h3>
-    <a name="ai"></a>
-    <article class="archive-item">
-      <p class="post-meta post-meta-title"><a class="page-meta" href="/myblog/plaidml/ai/2020/02/25/using-plaidml-keras-to-ai.html">使用PlaidML进行GPU模型训练</a>  • Feb 25, 2020</p>
-    </article>
-    
-
-    
-
-    <h3 id ="动态规划"><i class="fas fa-tags category-tags-icon"></i></i> 动态规划</h3>
-    <a name="动态规划"></a>
-    <article class="archive-item">
-      <p class="post-meta post-meta-title"><a class="page-meta" href="/myblog/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/20/algorithm-dp-0-1-knapsack.html">[动态规划]0-1背包问题</a>  • Mar 20, 2020</p>
-    </article>
-    <article class="archive-item">
-      <p class="post-meta post-meta-title"><a class="page-meta" href="/myblog/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2020/03/17/algorithm-dp-edit-distance.html">[动态规划]编辑距离问题</a>  • Mar 17, 2020</p>
-    </article>
-    
 
 
 
