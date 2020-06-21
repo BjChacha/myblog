@@ -9,14 +9,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="我的RX480终于可以跑模型了" />
 <meta property="og:description" content="我的RX480终于可以跑模型了" />
-<link rel="canonical" href="https://bjchacha.github.io/myblog/plaidml/ai/2020/02/25/using-plaidml-keras-to-ai.html" />
-<meta property="og:url" content="https://bjchacha.github.io/myblog/plaidml/ai/2020/02/25/using-plaidml-keras-to-ai.html" />
+<link rel="canonical" href="https://bjchacha.github.io/myblog/ai/2020/02/25/using-plaidml-keras-to-ai.html" />
+<meta property="og:url" content="https://bjchacha.github.io/myblog/ai/2020/02/25/using-plaidml-keras-to-ai.html" />
 <meta property="og:site_name" content="BjChacha" />
 <meta property="og:image" content="https://bjchacha.github.io/myblog/images/posts/2020-02-25-using-plaidml-keras-to-ai/PlaidML.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-02-25T00:00:00-06:00" />
 <script type="application/ld+json">
-{"headline":"使用PlaidML进行GPU模型训练","dateModified":"2020-02-25T00:00:00-06:00","datePublished":"2020-02-25T00:00:00-06:00","description":"我的RX480终于可以跑模型了","mainEntityOfPage":{"@type":"WebPage","@id":"https://bjchacha.github.io/myblog/plaidml/ai/2020/02/25/using-plaidml-keras-to-ai.html"},"@type":"BlogPosting","image":"https://bjchacha.github.io/myblog/images/posts/2020-02-25-using-plaidml-keras-to-ai/PlaidML.png","url":"https://bjchacha.github.io/myblog/plaidml/ai/2020/02/25/using-plaidml-keras-to-ai.html","@context":"https://schema.org"}</script>
+{"headline":"使用PlaidML进行GPU模型训练","dateModified":"2020-02-25T00:00:00-06:00","datePublished":"2020-02-25T00:00:00-06:00","description":"我的RX480终于可以跑模型了","mainEntityOfPage":{"@type":"WebPage","@id":"https://bjchacha.github.io/myblog/ai/2020/02/25/using-plaidml-keras-to-ai.html"},"@type":"BlogPosting","image":"https://bjchacha.github.io/myblog/images/posts/2020-02-25-using-plaidml-keras-to-ai/PlaidML.png","url":"https://bjchacha.github.io/myblog/ai/2020/02/25/using-plaidml-keras-to-ai.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/myblog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://bjchacha.github.io/myblog/feed.xml" title="BjChacha" /><!-- the google_analytics_id gets auto inserted from the config file -->
 
@@ -31,14 +31,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="我的RX480终于可以跑模型了" />
 <meta property="og:description" content="我的RX480终于可以跑模型了" />
-<link rel="canonical" href="https://bjchacha.github.io/myblog/plaidml/ai/2020/02/25/using-plaidml-keras-to-ai.html" />
-<meta property="og:url" content="https://bjchacha.github.io/myblog/plaidml/ai/2020/02/25/using-plaidml-keras-to-ai.html" />
+<link rel="canonical" href="https://bjchacha.github.io/myblog/ai/2020/02/25/using-plaidml-keras-to-ai.html" />
+<meta property="og:url" content="https://bjchacha.github.io/myblog/ai/2020/02/25/using-plaidml-keras-to-ai.html" />
 <meta property="og:site_name" content="BjChacha" />
 <meta property="og:image" content="https://bjchacha.github.io/myblog/images/posts/2020-02-25-using-plaidml-keras-to-ai/PlaidML.png" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-02-25T00:00:00-06:00" />
 <script type="application/ld+json">
-{"headline":"使用PlaidML进行GPU模型训练","dateModified":"2020-02-25T00:00:00-06:00","datePublished":"2020-02-25T00:00:00-06:00","description":"我的RX480终于可以跑模型了","mainEntityOfPage":{"@type":"WebPage","@id":"https://bjchacha.github.io/myblog/plaidml/ai/2020/02/25/using-plaidml-keras-to-ai.html"},"@type":"BlogPosting","image":"https://bjchacha.github.io/myblog/images/posts/2020-02-25-using-plaidml-keras-to-ai/PlaidML.png","url":"https://bjchacha.github.io/myblog/plaidml/ai/2020/02/25/using-plaidml-keras-to-ai.html","@context":"https://schema.org"}</script>
+{"headline":"使用PlaidML进行GPU模型训练","dateModified":"2020-02-25T00:00:00-06:00","datePublished":"2020-02-25T00:00:00-06:00","description":"我的RX480终于可以跑模型了","mainEntityOfPage":{"@type":"WebPage","@id":"https://bjchacha.github.io/myblog/ai/2020/02/25/using-plaidml-keras-to-ai.html"},"@type":"BlogPosting","image":"https://bjchacha.github.io/myblog/images/posts/2020-02-25-using-plaidml-keras-to-ai/PlaidML.png","url":"https://bjchacha.github.io/myblog/ai/2020/02/25/using-plaidml-keras-to-ai.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
@@ -127,9 +127,6 @@ window.onload = wrap_img;
 
     
       <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
-      
-        <a class="category-tags-link" href="/myblog/categories/#plaidml">plaidml</a>
-        &nbsp;
       
         <a class="category-tags-link" href="/myblog/categories/#ai">ai</a>
         
@@ -435,9 +432,9 @@ training time cost: 124.2 s, accuracy: 0.8858
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="&#30058;&#22806;&#65306;&#20026;&#20160;&#20040;&#19981;&#38382;&#38382;&#31070;&#22855;&#30340;Colab&#21602;&#65311;">&#30058;&#22806;&#65306;&#20026;&#20160;&#20040;&#19981;&#38382;&#38382;&#31070;&#22855;&#30340;Colab&#21602;&#65311;<a class="anchor-link" href="#&#30058;&#22806;&#65306;&#20026;&#20160;&#20040;&#19981;&#38382;&#38382;&#31070;&#22855;&#30340;Colab&#21602;&#65311;"> </a></h2><p>不试不知道，试了才知道。上面代码在使用了GPU的Colab下跑，结果输出：</p>
-<blockquote><p>training time cost:50.0 s, accuracy: 0.9147<br />
-最后知道真相的我眼泪流下来，手上PlaidML突然就不香了。</p>
+<blockquote><p>training time cost:50.0 s, accuracy: 0.9147</p>
 </blockquote>
+<p>最后知道真相的我眼泪流下来，手上PlaidML突然就不香了。</p>
 
 </div>
 </div>
@@ -454,7 +451,7 @@ training time cost: 124.2 s, accuracy: 0.8858
         theme="github-light"
         crossorigin="anonymous"
         async>
-</script><a class="u-url" href="/myblog/plaidml/ai/2020/02/25/using-plaidml-keras-to-ai.html" hidden></a>
+</script><a class="u-url" href="/myblog/ai/2020/02/25/using-plaidml-keras-to-ai.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
