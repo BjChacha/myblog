@@ -7,11 +7,3 @@ layout: post
 categories: [deep learning]
 author: BjChacha
 ---
-
-## Sigmoid
-
-## ReLU
-
-## Softmax
-
-## LRN
