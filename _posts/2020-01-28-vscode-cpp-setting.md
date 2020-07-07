@@ -65,7 +65,7 @@ author: BjChacha
             ]
         }
 
-- *task.json*
+- *tasks.json*
 
         {
             "version": "2.0.0",
