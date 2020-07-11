@@ -129,7 +129,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activesupport (>= 6.0.3.1)
   faraday (< 1.0)
   jekyll (~> 4.0.0)
   jekyll-feed (~> 0.12)
