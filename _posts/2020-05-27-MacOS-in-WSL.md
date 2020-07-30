@@ -4,7 +4,7 @@ description: 圆了我的苹果梦
 toc: true
 hide: false
 layout: post
-categories: [WSL]
+categories: [wsl]
 author: BjChacha
 ---
 
