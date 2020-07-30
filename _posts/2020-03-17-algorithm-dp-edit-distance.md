@@ -4,7 +4,7 @@ description: "动态规划问题"
 toc: false
 comments: true
 layout: post
-categories: [算法,动态规划]
+categories: [algorithm]
 author: BjChacha
 ---
 

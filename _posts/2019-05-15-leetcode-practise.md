@@ -3,7 +3,7 @@ title: LeetCode 刷题总结
 description: 算法深似海，是祸躲不过
 toc: false
 hide: true
-categories: [算法]
+categories: [algorithm]
 author: BjChacha
 ---
 <!--Format:

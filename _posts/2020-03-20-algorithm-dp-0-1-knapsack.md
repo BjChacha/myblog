@@ -4,7 +4,7 @@ description: "经典又简单的动规问题"
 toc: false
 comments: true
 layout: post
-categories: [算法,动态规划]
+categories: [algorithm]
 author: BjChacha
 ---
 
