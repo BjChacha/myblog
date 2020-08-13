@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>【译】深度学习中的那些重要想法——历史简要回顾 | BjChacha</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="【译】深度学习中的那些重要想法——历史简要回顾" />
+<meta name="author" content="Denny Britz" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="回顾深度学习中经住时间考验的想法，涵盖大量理解现代深度学习研究的必要知识。如果刚入门深度学习，这是个不错的起点。" />
+<meta property="og:description" content="回顾深度学习中经住时间考验的想法，涵盖大量理解现代深度学习研究的必要知识。如果刚入门深度学习，这是个不错的起点。" />
+<link rel="canonical" href="https://bjchacha.github.io/myblog/%E7%BF%BB%E8%AF%91,%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/08/13/trans-a-brief-historical-review-of-deep-learning.html" />
+<meta property="og:url" content="https://bjchacha.github.io/myblog/%E7%BF%BB%E8%AF%91,%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/08/13/trans-a-brief-historical-review-of-deep-learning.html" />
+<meta property="og:site_name" content="BjChacha" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-08-13T00:00:00-05:00" />
+<script type="application/ld+json">
+{"headline":"【译】深度学习中的那些重要想法——历史简要回顾","dateModified":"2020-08-13T00:00:00-05:00","datePublished":"2020-08-13T00:00:00-05:00","description":"回顾深度学习中经住时间考验的想法，涵盖大量理解现代深度学习研究的必要知识。如果刚入门深度学习，这是个不错的起点。","author":{"@type":"Person","name":"Denny Britz"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bjchacha.github.io/myblog/%E7%BF%BB%E8%AF%91,%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/08/13/trans-a-brief-historical-review-of-deep-learning.html"},"@type":"BlogPosting","url":"https://bjchacha.github.io/myblog/%E7%BF%BB%E8%AF%91,%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/08/13/trans-a-brief-historical-review-of-deep-learning.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/myblog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://bjchacha.github.io/myblog/feed.xml" title="BjChacha" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-160825107-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+<link rel="shortcut icon" type="image/x-icon" href="/myblog/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>【译】深度学习中的那些重要想法——历史简要回顾 | BjChacha</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="【译】深度学习中的那些重要想法——历史简要回顾" />
+<meta name="author" content="Denny Britz" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="回顾深度学习中经住时间考验的想法，涵盖大量理解现代深度学习研究的必要知识。如果刚入门深度学习，这是个不错的起点。" />
+<meta property="og:description" content="回顾深度学习中经住时间考验的想法，涵盖大量理解现代深度学习研究的必要知识。如果刚入门深度学习，这是个不错的起点。" />
+<link rel="canonical" href="https://bjchacha.github.io/myblog/%E7%BF%BB%E8%AF%91,%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/08/13/trans-a-brief-historical-review-of-deep-learning.html" />
+<meta property="og:url" content="https://bjchacha.github.io/myblog/%E7%BF%BB%E8%AF%91,%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/08/13/trans-a-brief-historical-review-of-deep-learning.html" />
+<meta property="og:site_name" content="BjChacha" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-08-13T00:00:00-05:00" />
+<script type="application/ld+json">
+{"headline":"【译】深度学习中的那些重要想法——历史简要回顾","dateModified":"2020-08-13T00:00:00-05:00","datePublished":"2020-08-13T00:00:00-05:00","description":"回顾深度学习中经住时间考验的想法，涵盖大量理解现代深度学习研究的必要知识。如果刚入门深度学习，这是个不错的起点。","author":{"@type":"Person","name":"Denny Britz"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://bjchacha.github.io/myblog/%E7%BF%BB%E8%AF%91,%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/08/13/trans-a-brief-historical-review-of-deep-learning.html"},"@type":"BlogPosting","url":"https://bjchacha.github.io/myblog/%E7%BF%BB%E8%AF%91,%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/08/13/trans-a-brief-historical-review-of-deep-learning.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://bjchacha.github.io/myblog/feed.xml" title="BjChacha" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-160825107-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/myblog/">BjChacha</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/myblog/about/">About Me</a><a class="page-link" href="/myblog/search/">Search</a><a class="page-link" href="/myblog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">【译】深度学习中的那些重要想法——历史简要回顾</h1><p class="page-description">回顾深度学习中经住时间考验的想法，涵盖大量理解现代深度学习研究的必要知识。如果刚入门深度学习，这是个不错的起点。</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-08-13T00:00:00-05:00" itemprop="datePublished">
+        Aug 13, 2020
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Denny Britz</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      2 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/myblog/categories/#翻译，深度学习">翻译，深度学习</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#2012---用alexnet和dropout处理imagenet">2012 - 用AlexNet和Dropout处理ImageNet</a></li>
+<li class="toc-entry toc-h2"><a href="#2013---用深度强化学习玩雅达利">2013 - 用深度强化学习玩雅达利</a></li>
+<li class="toc-entry toc-h2"><a href="#2014---采用注意力的编码器-解码器网络">2014 - 采用注意力的“编码器-解码器”网络</a></li>
+<li class="toc-entry toc-h2"><a href="#2014---adam优化器">2014 - Adam优化器</a></li>
+<li class="toc-entry toc-h2"><a href="#20142015---生成对抗网络gans">2014/2015 - 生成对抗网络（GANs）</a></li>
+<li class="toc-entry toc-h2"><a href="#2015---残差网络resnet">2015 - 残差网络（ResNet）</a></li>
+<li class="toc-entry toc-h2"><a href="#2017---transformers">2017 - Transformers</a></li>
+<li class="toc-entry toc-h2"><a href="#2018---bert-和微调的nlp模型">2018 - BERT 和微调的NLP模型</a></li>
+<li class="toc-entry toc-h2"><a href="#20192020及以后---大型语言模型自监督学习">2019/2020及以后 - 大型语言模型、自监督学习？</a></li>
+<li class="toc-entry toc-h2"><a href="#这里还有">这里还有……</a></li>
+</ul><p>翻译自<a href="https://dennybritz.com/blog/deep-learning-most-important-ideas/">原文</a></p>
+
+<p>深度学习这个领域瞬息，大量研究论文和想法会让人不知所措。即便是经验老道的研究员也很难跟公关(company PR)说真正的突破是什么。本文的目的是回顾那些<strong>经得住时间考验</strong>的想法，且这些想法也许更加靠谱。这些想法以及其发展被反复使用，堪称劳模。</p>
+
+<p>如果你是今天才开始接触深度学习，理解和实现这当中每一项技术会给你带来很好的基础，去理解近期的研究以及着手于自己的项目。这是最好的入门方式。而且按历史先后顺序来学习，能更好地理解当前技术出自哪里、为何出现。<strong>换言之，这里会列出尽量少的且必要的知识，去理解现代深度学习的研究。</strong></p>
+
+<p>深度学习的一个独特之处是它的应用（计算机视觉、自然语言、语音处理、强化学习等）都共同涉及到大多数技术，就像CV（计算机视觉）领域的专家可以很快地着手NLP（自然语言处理）研究。具体的网络结构会有所不同，但概念、方法，甚至代码都是几近相同的。这里会尝试列出不同领域的想法，但关于这个需要注意几点：</p>
+
+<ul>
+  <li>
+    <p>本文目标不是剖析这些技术，也不会给出代码。冗长复杂的论文浓缩成一段并不是件简单的事。相反，这里会给出每个技术的概况、它的历史上下文，和论文及其实现的链接。这里<em>极力</em>推荐用<code class="highlighter-rouge">PyTorch</code>从零开始复现这些论文的成果，而不是在已有代码基础上改或者采用高级库。</p>
+  </li>
+  <li>
+    <p>这个列表是基于作者的知识，有很多令人兴奋的子领域，作者尚未接触。本文会集中在上面提到的那些领域，毕竟大多数人也是更加关注这些。</p>
+  </li>
+  <li>
+    <p>本文只讨论一些官方/半官方的可用的开源实现。有些研究很难复现，因为涉及很大的工程挑战，比如<code class="highlighter-rouge">DeepMind</code>的<code class="highlighter-rouge">AlphaGo</code>和<code class="highlighter-rouge">OpenAI</code>的<code class="highlighter-rouge">Dota2 AI</code>。</p>
+  </li>
+  <li>
+    <p>有些技术会在同一时间内公布，而这里不会一一列出。全面不是本文的目的，照顾新手才是，所以要挑那些涵盖域较广的想法。比如，目前有上百种GAN的变体，但要理解GAN的概念，随便学哪个都行。</p>
+  </li>
+</ul>
+
+<h2 id="2012---用alexnet和dropout处理imagenet">
+<a class="anchor" href="#2012---%E7%94%A8alexnet%E5%92%8Cdropout%E5%A4%84%E7%90%86imagenet" aria-hidden="true"><span class="octicon octicon-link"></span></a>2012 - 用AlexNet和Dropout处理ImageNet</h2>
+
+<p><strong>论文:</strong></p>
+
+<ul>
+  <li>
+    <p><a href="https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks">ImageNet Classification with Deep Convolutional Neural Networks (2012)</a></p>
+  </li>
+  <li>
+    <p><a href="https://arxiv.org/abs/1207.0580">Improving neural networks by preventing co-adaptation of feature detectors (2012)</a></p>
+  </li>
+  <li>
+    <p><a href="https://arxiv.org/abs/1404.5997">One weird trick for parallelizing convolutional neural networks (2014)</a></p>
+  </li>
+</ul>
+
+<p><strong>实现：</strong></p>
+
+<ul>
+  <li>
+    <p><a href="https://pytorch.org/hub/pytorch_vision_alexnet">AlexNet in PyTorch</a></p>
+  </li>
+  <li>
+    <p><a href="https://github.com/tensorflow/models/blob/master/research/slim/nets/alexnet.py">AlexNet in TensorFlow</a></p>
+  </li>
+</ul>
+
+<p><img src="https://dennybritz.com/assets/deep-learning-most-important-ideas/alexnet-full.png" alt="" title="Source: https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks"></p>
+
+<p>AlexNet被认为近期深度学习和人工智能爆发时期的代表，它是之前出自Yann LeCun之手的LeNet基础上发展来的深度卷积神经网络。得益于GPU的强大算力和先进的算法，Alexnet在ImageNet数据集分类问题上击败了当时的所有方法，证明了神经网络确实可行。AlexNet也是第一个使用Dropout的网络，而如今Dropout成为了提升深度学习模型泛化能力的关键组件。</p>
+
+<p>AlexNet的结构、卷积层序列、ReLU激活函数和最大池化层，成为了后来CV构架拓展和建立的公认标准。如今像PyTorch的软件库非常强大，加上对比近期的网络结构，AlexNet显然更加简单，所以可以通过几行代码就可以实现AlexNet。但值得注意的是，包括上面链接，很多AlexNet的实现多多少少会有些区别，具体可以看<a href="https://arxiv.org/abs/1404.5997">One weird trick for parallelizing convolutional neural networks</a>。</p>
+
+<h2 id="2013---用深度强化学习玩雅达利">
+<a class="anchor" href="#2013---%E7%94%A8%E6%B7%B1%E5%BA%A6%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%8E%A9%E9%9B%85%E8%BE%BE%E5%88%A9" aria-hidden="true"><span class="octicon octicon-link"></span></a>2013 - 用深度强化学习玩雅达利</h2>
+
+<p><strong>论文：</strong></p>
+
+<ul>
+  <li><a href="https://arxiv.org/abs/1312.5602">Playing Atari with Deep Reinforcement Learning (2013)</a></li>
+</ul>
+
+<p><strong>实现：</strong></p>
+
+<ul>
+  <li>
+    <p><a href="https://pytorch.org/tutorials/intermediate/reinforcement_q_learning.html">DQN in PyTorch</a></p>
+  </li>
+  <li>
+    <p><a href="https://www.tensorflow.org/agents/tutorials/1_dqn_tutorial">DQN in TensorFlow</a></p>
+  </li>
+</ul>
+
+<p><img src="https://dennybritz.com/assets/deep-learning-most-important-ideas/deep-q-learning-value.png" alt="" title="Source: https://deepmind.com/research/publications/human-level-control-through-deep-reinforcement-learning"></p>
+
+<p>基于近期图像识别的重大突破和显卡的快速发展，DeepMind的一个团队设法训练一个网络，通过输入原生像素来玩雅达利游戏。更厉害的是，在没有告知任何游戏规则的前提下，用<em>相同</em>的神经网络结构去学习7种不同的游戏，充分展现了这方法的泛化能力。</p>
+
+<p>强化学习不同于像图像分类的监督学习，前者需要一个代理在一定时间步骤内获得最大奖励（比如赢得比赛），而不是预测一个标签。因为代理直接与环境交互，且每个动作都会影响环境，所以训练样本不是独立同分布。这使得许多机器学习模型的训练不稳定，这可以通过经验回放（experience replay）解决。</p>
+
+<p>尽管这方面没有算法上特别瞩目的革新，但这项研究巧妙地将现有的技术结合起来，包括GPU上训练的卷积神经网络和经验回访，加上一点数据处理的技巧，就能达到出乎意料的出色效果。这给了人们相当的自信，去挑战用深度强化学习解决更复杂的任务，比如<a href="https://deepmind.com/research/case-studies/alphago-the-story-so-far">围棋</a>、<a href="https://openai.com/projects/five/">Dota 2</a>、<a href="https://deepmind.com/blog/article/alphastar-mastering-real-time-strategy-game-starcraft-ii">星际争霸2</a>等等。</p>
+
+<p>此后，雅达利游戏已经称为强化学习研究的标准基准。最初的方法只是达到在7款游戏上击败人类，但多年来的发展和进步，现在的方法开始在更多的游戏上击败人类。尤其一款以需要长期规划著名的游戏叫《蒙特祖玛的复仇》（ Montezuma’s Revenge），被认为是最难解决的问题。直到最近，这些技术才在全部57款游戏中击败人类。</p>
+
+<h2 id="2014---采用注意力的编码器-解码器网络">
+<a class="anchor" href="#2014---%E9%87%87%E7%94%A8%E6%B3%A8%E6%84%8F%E5%8A%9B%E7%9A%84%E7%BC%96%E7%A0%81%E5%99%A8-%E8%A7%A3%E7%A0%81%E5%99%A8%E7%BD%91%E7%BB%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>2014 - 采用注意力的“编码器-解码器”网络</h2>
+
+<p><strong>论文：</strong></p>
+
+<ul>
+  <li>
+    <p><a href="https://arxiv.org/abs/1409.3215">Sequence to Sequence Learning with Neural Networks</a></p>
+  </li>
+  <li>
+    <p><a href="https://arxiv.org/abs/1409.0473">Neural Machine Translation by Jointly Learning to Align and Translate</a></p>
+  </li>
+</ul>
+
+<p><strong>实现：</strong></p>
+
+<ul>
+  <li>
+    <p><a href="https://pytorch.org/tutorials/intermediate/seq2seq_translation_tutorial.html#">Seq2Seq with Attention in PyTorch</a></p>
+  </li>
+  <li>
+    <p><a href="https://www.tensorflow.org/addons/tutorials/networks_seq2seq_nmt">Seq2Seq with Attention in TensorFlow</a></p>
+  </li>
+</ul>
+
+<p><img src="https://dennybritz.com/assets/deep-learning-most-important-ideas/seq2seq-cn.gif" alt="" title="Source: https://ai.googleblog.com/2017/04/introducing-tf-seq2seq-open-source.html"></p>
+
+<p>深度学习最令人印象深刻的成果大多集中在由卷积神经网络驱动的视觉相关的任务。尽管NLP社区已经使用了LSTM和编码器-解码器结构，在<a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/">语言模型</a>和翻译上取得了成功，但直到注意力机制的出现，该领域开始表现得出奇地好。</p>
+
+<p>当处理语言时，每个符号（如字母、单词、符号），会被输入到循环网络（如LSTM）中，并保留先前输入的部分记忆。换句话说，一个句子就像一段时序序列，而每个符号就是一个时步。这些循环模型通常很难解决时间间隔长的依赖关系。当处理一段序列时，它们容易“忘记”早期的输入，因为梯度需要传递很多个时步。因此通过梯度优化这些模型很困难。</p>
+
+<p>新的注意力机制会减轻这种问题。它为网络引入一种“快捷连接”（shortcut connections）的选择，自适应地反馈到早期的时步中。这些连接允许网络在作输出时决定哪些输入是重要的。最典型的例子就是翻译：每当输出一个单词，它通常都对应到一个或多个特定的输入单词。</p>
+
+<h2 id="2014---adam优化器">
+<a class="anchor" href="#2014---adam%E4%BC%98%E5%8C%96%E5%99%A8" aria-hidden="true"><span class="octicon octicon-link"></span></a>2014 - Adam优化器</h2>
+
+<p><strong>论文：</strong></p>
+
+<ul>
+  <li><a href="https://arxiv.org/abs/1412.6980">Adam: A Method for Stochastic Optimization </a></li>
+</ul>
+
+<p><strong>实现：</strong></p>
+
+<ul>
+  <li>
+    <p><a href="https://d2l.ai/chapter_optimization/adam.html">Implementing Adam in Python</a></p>
+  </li>
+  <li>
+    <p><a href="https://pytorch.org/docs/master/_modules/torch/optim/adam.html">PyTorch Adam implementation</a></p>
+  </li>
+  <li>
+    <p><a href="https://github.com/tensorflow/tensorflow/blob/v2.2.0/tensorflow/python/keras/optimizer_v2/adam.py#L32-L281">TensorFlow Adam implementation</a></p>
+  </li>
+</ul>
+
+<p><img src="https://dennybritz.com/assets/deep-learning-most-important-ideas/optimizer-benchmark.png" alt="" title="Source: http://arxiv.org/abs/1910.11758"></p>
+
+<p>神经网络是使用优化器，通过最小化损失函数（如平均分类误差）来训练的。优化器负责调整网络的参数，使网络学习达到目标。大部分优化器都是<a href="https://ruder.io/optimizing-gradient-descent/">基于随机梯度下降（SGD）的各种变种</a>。然而这些优化器本身都包含了比如学习率的可调参数。设置合理不仅可以减少训练时间，还能将结果收敛到一个更好的局部最优点。</p>
+
+<p>大型研究院通常通过高成本的超参数搜寻算法，伴随着复杂的学习率调度器，来找出简单但对超参数敏感的优化器（比如SGD）中最好的一个。即使有时候效果确实会超过现有基准，但是通过大量的资金“砸”出来的。这种细节一般在学术论文中忽略不提，因此对于那些预算没那么足的研究者会无法优化他们的优化器，从而陷入糟糕的结果中。</p>
+
+<p>Adam优化器主张用梯度的一阶矩和二阶矩来自动调整学习率。调整后的结果具有较好的鲁棒性，且对超参数的选择不那么敏感。换言之，Adam不需要像其他优化器那样大费周章地进行调整即可使用。尽管“完全体”的SGD效果会更好，Adam让研究更加通畅，因为如果出了问题，首先可以先排除优化器的锅。</p>
+
+<h2 id="20142015---生成对抗网络gans">
+<a class="anchor" href="#20142015---%E7%94%9F%E6%88%90%E5%AF%B9%E6%8A%97%E7%BD%91%E7%BB%9Cgans" aria-hidden="true"><span class="octicon octicon-link"></span></a>2014/2015 - 生成对抗网络（GANs）</h2>
+
+<p><strong>论文：</strong></p>
+
+<ul>
+  <li>
+    <p><a href="https://arxiv.org/abs/1406.2661">Generative Adversarial Networks</a></p>
+  </li>
+  <li>
+    <p><a href="https://arxiv.org/abs/1511.06434">Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks</a></p>
+  </li>
+</ul>
+
+<p><strong>实现：</strong></p>
+
+<ul>
+  <li>
+    <p><a href="https://pytorch.org/tutorials/beginner/dcgan_faces_tutorial.html">DCGAN in PyTorch</a></p>
+  </li>
+  <li>
+    <p><a href="https://www.tensorflow.org/tutorials/generative/dcgan">DCGAN in TensorFlow</a></p>
+  </li>
+</ul>
+
+<p><img src="https://dennybritz.com/assets/deep-learning-most-important-ideas/early-gan-images.png" alt="" title="Source: https://developers.google.com/machine-learning/gan/gan_structure"></p>
+
+<p>生成模型（比如变分自编器）的目标，是生成仿真的数据样本，比如那些好像在哪里见过的人脸图片。GANs这类网络需要对整个数据分布（想象有多少像素）进行建模模拟，而不是像<em>判别器</em>那样只分类成狗或猫。</p>
+
+<p>GANs背后的基本思想是先后训练两个网络：生成器和判别器。生成器的目标是生成能欺骗识别器的样本，而判别器经过训练，可以区分真图片和生成图片。一段时间过后，识别器会越来越擅长识别假图片，而生成器也会越来越擅长生成欺骗识别器的图片，图片看起来也会越来越真实。早期的GAN只能生成模糊的低分辨率图片，而且训练很不稳定。但随着时间推移，变种和改良版（如DCGAN，Wasserstein GAN，CycleGAN，StyleGAN等）能够生成高分辨率的真实图片和视频。</p>
+
+<h2 id="2015---残差网络resnet">
+<a class="anchor" href="#2015---%E6%AE%8B%E5%B7%AE%E7%BD%91%E7%BB%9Cresnet" aria-hidden="true"><span class="octicon octicon-link"></span></a>2015 - 残差网络（ResNet）</h2>
+
+<p><strong>论文：</strong></p>
+
+<ul>
+  <li><a href="https://arxiv.org/abs/1512.03385">Deep Residual Learning for Image Recognition</a></li>
+</ul>
+
+<p><strong>实现：</strong></p>
+
+<ul>
+  <li>
+    <p><a href="https://github.com/pytorch/vision/blob/master/torchvision/models/resnet.py">ResNet in PyTorch</a></p>
+  </li>
+  <li>
+    <p><a href="https://github.com/tensorflow/tensorflow/blob/v2.2.0/tensorflow/python/keras/applications/resnet.py">ResNet in Tensorflow</a></p>
+  </li>
+</ul>
+
+<p><img src="https://dennybritz.com/assets/deep-learning-most-important-ideas/resnet-slice.png" alt=""></p>
+
+<p>研究人员一直在AlexNet这个突破之上挖掘更好的卷积神经网络（如VGGNet，Inception等）。ResNet就是这一系列快速发展的下一代。时至今日，ResNet的变体仍在各种任务和建立复杂结构中作为基准模型被应用。</p>
+
+<p>除了在<a href="http://image-net.org/challenges/LSVRC/2015/">ILSVRC 2015分类挑战</a>中获得优胜，ResNet的独特之处在于它与其它网络明显不同的深度。论文中最深的网络有1000层，在基准测试中表现得还不错，尽管比起对应的101层和152层网络还是略逊一筹。由于梯度消失的存在，训练这么深的网络是一个具有挑战性的优化问题，序列模型也会有这样的问题。很少研究者相信训练这么深的网络会有优秀且稳定的效果。</p>
+
+<p>ResNet应用了恒等捷径连接（identity shortcut connections），来帮助梯度传递。解释这些连接的一种说法是ResNet只需要学习两层之间的增量而不是完整的变换，这就显得简单很多。受LSTM的门机制的启发，这种恒定连接也是高速网络（Highway Networks）的一种特例。</p>
+
+<h2 id="2017---transformers">
+<a class="anchor" href="#2017---transformers" aria-hidden="true"><span class="octicon octicon-link"></span></a>2017 - Transformers</h2>
+
+<p><strong>论文：</strong></p>
+
+<ul>
+  <li><a href="https://arxiv.org/abs/1706.03762">Attention is All You Need</a></li>
+</ul>
+
+<p><strong>实现：</strong></p>
+
+<ul>
+  <li>
+    <p><a href="https://pytorch.org/tutorials/beginner/transformer_tutorial.html">PyTorch: Sequence-to-Sequence Modeling with nn.Transformer and TorchText</a></p>
+  </li>
+  <li>
+    <p><a href="https://www.tensorflow.org/tutorials/text/transformer">Tensorflow: Transformer model for language understanding</a></p>
+  </li>
+  <li>
+    <p><a href="https://github.com/huggingface/transformers">HuggingFace Transformers Library</a></p>
+  </li>
+</ul>
+
+<p><img src="https://dennybritz.com/assets/deep-learning-most-important-ideas/transformer-architecture.png" alt="The Transformer - model architecture" title="Source: https://arxiv.org/abs/1706.03762"></p>
+
+<p>带上面提到过的注意力机制序列对序列（Sequence-to-Sequence）模型表现不错，但由于需要序列计算的循环特性，还是存在一些瑕疵：难以并行，因为每次只处理一个输入。每个时步都依赖上一个时步，这就使得把时步扩展成很长的序列很困难。即使用上注意力机制，这些模型仍会困在分析这些长期依赖的复杂性上。大部分“工作”似乎是在循环层里完成的。</p>
+
+<p>Transformers模型通过用多个前馈自注意层（feed-forward self-attention layers）完全代替循环层，并行处理所有输入，并在输入和输出之间生成相对较短（相当于更容易优化梯度下降）的路径，来解决这些问题。这使得模型训练得更快、容易扩展，以及能够处理更多数据。为了让网络了解输入的顺序（这在循环网络里是隐式的），Transformers模型使用位置编码，想要知道Transformers到底是如何运作的，建议看<a href="http://jalammar.github.io/illustrated-transformer/">这份指南</a></p>
+
+<p>要说Transformers模型表现比所有人预期要好，都算低估了Transformers。接下来几年，它将成为今天大多数NLP和其他序列任务的标准构架，甚至还影响到计算机视觉的构架中。</p>
+
+<h2 id="2018---bert-和微调的nlp模型">
+<a class="anchor" href="#2018---bert-%E5%92%8C%E5%BE%AE%E8%B0%83%E7%9A%84nlp%E6%A8%A1%E5%9E%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>2018 - BERT 和微调的NLP模型</h2>
+
+<p><strong>论文：</strong></p>
+
+<ul>
+  <li><a href="https://arxiv.org/abs/1810.04805">BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding</a></li>
+</ul>
+
+<p><strong>实现：</strong></p>
+
+<ul>
+  <li><a href="https://huggingface.co/transformers/training.html">Fine-Tuning BERT with HuggingFace</a></li>
+</ul>
+
+<p><img src="https://dennybritz.com/assets/deep-learning-most-important-ideas/bert-training.png" alt=""></p>
+
+<p>预训练是指训练一个模型来完成某个任务，然后用经过学习的参数来初始化模型，再经过学习来完成其他有关联的任务。直观来说就是，一个已经学会分辨猫和狗的模型，也会学习到一些关于图像以及毛茸茸的动物的基本知识。当这个模型微调成可分类狐狸，人们会期望他比从头学习的模型表现要好。同样地，一个学会从一个句子中预测下一个词的模型，应该也学到了一些人类语言模式的基本知识。人们会期望它成为一些相关工作（如翻译、情感分析）的良好初始。</p>
+
+<p>预训练和微调已经在CV和NLP顺利应用，但一直依赖都是视觉领域的标准，使得在NLP中用好会更具有挑战性。大多目前表现最优（SOTA，state-of-the-art）的成果仍来自完全监督模型。随着Transformers模型的出现，研究者终于开始预训练的工作，研究出ELMo、ULMFiT和<a href="https://openai.com/blog/language-unsupervised/">OpenAI的GPT</a>。</p>
+
+<p>BERT是同类发展的最新产物，甚至可以认为它开启了NLP的新纪元。与其他模型一样在预测单词上预学习不同，它在预测句子中哪些单词会被故意去除以及两个句子之间是否存在联系，这些事情上预训练。注意这些任务不需要标注的数据，它可以在任何文本上训练。预训练模型可能学到一些一般的语言属性，就可以进行微调进而解决监督问题（如问答系统、情感预测）。BERT在各种任务都表现得惊人地好，像HuggingFace这样的公司提供了下载，并微调了类BERT模型来解决NLP任务。到目前为止，BERT发展了如XLNet、RoBERTa和ALBERT等变体。</p>
+
+<h2 id="20192020及以后---大型语言模型自监督学习">
+<a class="anchor" href="#20192020%E5%8F%8A%E4%BB%A5%E5%90%8E---%E5%A4%A7%E5%9E%8B%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E8%87%AA%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0" aria-hidden="true"><span class="octicon octicon-link"></span></a>2019/2020及以后 - 大型语言模型、自监督学习？</h2>
+
+<p><a href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html">《苦痛的教训》</a>一文中清晰地描述了深度学习的历史趋势。算法的并行化（更多的数据）和更多的模型参数，一次又一次地战胜了“聪明的技术”。当OpenAI的<a href="https://arxiv.org/abs/2005.14165">GPT-3</a>，一个1750亿参数的普通架构语言模型，只需普通地训练展现出出乎意料地泛化能力时，这个趋势似乎会在2020年继续下去。</p>
+
+<p>具有同样趋势的还有对比性自监督学习（contrastive self-supervised learning），比如<a href="https://arxiv.org/abs/2002.05709">SimCLR</a>，可以更好地利用未标注的数据。随着模型越来越大和训练得越来越快，能够在网络上高效使用大量未标注数据的技术和学习通用知识的迁移学习系统会变得有价值且广泛采用。</p>
+
+<h2 id="这里还有">
+<a class="anchor" href="#%E8%BF%99%E9%87%8C%E8%BF%98%E6%9C%89" aria-hidden="true"><span class="octicon octicon-link"></span></a>这里还有……</h2>
+<p>如果你觉得论文不够看：</p>
+
+<ul>
+  <li>
+    <p><a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality">Distributed Representations of Words and Phrases and their Compositionality (2013)</a></p>
+  </li>
+  <li>
+    <p><a href="https://arxiv.org/abs/1303.5778">Speech recognition with deep recurrent neural networks (2013)</a></p>
+  </li>
+  <li>
+    <p><a href="https://arxiv.org/abs/1409.1556">Very Deep Convolutional Networks for Large-Scale Image Recognition (2014)</a></p>
+  </li>
+  <li>
+    <p><a href="https://arxiv.org/abs/1512.00567">Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift (2015)</a></p>
+  </li>
+  <li>
+    <p><a href="https://arxiv.org/abs/1512.00567">Rethinking the Inception Architecture for Computer Vision (2015)</a></p>
+  </li>
+  <li>
+    <p><a href="https://arxiv.org/abs/1609.03499">WaveNet: A Generative Model for Raw Audio (2016)</a></p>
+  </li>
+  <li>
+    <p><a href="https://storage.googleapis.com/deepmind-media/alphago/AlphaGoNaturePaper.pdf">Mastering the game of Go with deep neural networks and tree search (2016)</a></p>
+  </li>
+  <li>
+    <p><a href="https://arxiv.org/abs/1611.01578">Neural Architecture Search with Reinforcement Learning (2017)</a></p>
+  </li>
+  <li>
+    <p><a href="https://arxiv.org/abs/1703.06870">Mask R-CNN (2017)</a></p>
+  </li>
+  <li>
+    <p><a href="https://arxiv.org/abs/1912.06680">Dota 2 with Large Scale Deep Reinforcement Learning (2017-2019)</a></p>
+  </li>
+  <li>
+    <p><a href="https://arxiv.org/abs/1803.03635">The Lottery Ticket Hypothesis: Finding Sparse, Trainable Neural Networks (2018)</a></p>
+  </li>
+  <li>
+    <p><a href="https://arxiv.org/abs/1905.11946">EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks (2019)</a></p>
+  </li>
+</ul>
+
+  </div><a class="u-url" href="/myblog/%E7%BF%BB%E8%AF%91,%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/2020/08/13/trans-a-brief-historical-review-of-deep-learning.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/myblog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/myblog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/myblog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>随便写点东西</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/BjChacha" title="BjChacha"><svg class="svg-icon grey"><use xlink:href="/myblog/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
