@@ -4,7 +4,7 @@ description: 回顾深度学习中经住时间考验的想法，涵盖大量理�
 toc: true
 hide: false
 layout: post
-categories: [翻译，深度学习]
+categories: [translations, deeplearning]
 author: Denny Britz
 ---
 
