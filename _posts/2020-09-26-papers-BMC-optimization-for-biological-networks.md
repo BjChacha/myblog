@@ -1,3 +1,13 @@
+---
+title: BMC Paper List: Optimization for Biological Networks
+description: For Reading
+toc: true
+hide: false
+layout: post
+categories: [translations, deeplearning]
+author: BjChacha
+---
+
 # BMC Bioinformatics
 
 关键字：optimization for biological networks
