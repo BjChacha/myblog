@@ -1,6 +1,6 @@
 ---
-title: BMC Paper List: Optimization for Biological Networks
-description: For Reading
+title: "[Paper List]Optimization for Biological Networks"
+description: "Only BMC Bioinformatics"
 toc: true
 hide: false
 layout: post
