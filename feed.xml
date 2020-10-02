@@ -1,4 +1,49 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://bjchacha.github.io/myblog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://bjchacha.github.io/myblog/" rel="alternate" type="text/html" /><updated>2020-10-01T21:14:28-05:00</updated><id>https://bjchacha.github.io/myblog/feed.xml</id><title type="html">What are you LOOKING FOR?</title><subtitle>Try hard to graduate...</subtitle><entry><title type="html">[Paper List]Optimization for Biological Networks</title><link href="https://bjchacha.github.io/myblog/translations/deeplearning/2020/09/26/papers-BMC-optimization-for-biological-networks.html" rel="alternate" type="text/html" title="[Paper List]Optimization for Biological Networks" /><published>2020-09-26T00:00:00-05:00</published><updated>2020-09-26T00:00:00-05:00</updated><id>https://bjchacha.github.io/myblog/translations/deeplearning/2020/09/26/papers-BMC-optimization-for-biological-networks</id><content type="html" xml:base="https://bjchacha.github.io/myblog/translations/deeplearning/2020/09/26/papers-BMC-optimization-for-biological-networks.html">&lt;h1 id=&quot;bmc-bioinformatics&quot;&gt;BMC Bioinformatics&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://bjchacha.github.io/myblog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://bjchacha.github.io/myblog/" rel="alternate" type="text/html" /><updated>2020-10-01T22:51:44-05:00</updated><id>https://bjchacha.github.io/myblog/feed.xml</id><title type="html">What are you LOOKING FOR?</title><subtitle>Try hard to graduate...</subtitle><entry><title type="html">[算法]波义尔摩尔投票算法</title><link href="https://bjchacha.github.io/myblog/algorithm/2020/10/02/algorithm-boyer-moore-majority-vote-algorithm.html" rel="alternate" type="text/html" title="[算法]波义尔摩尔投票算法" /><published>2020-10-02T00:00:00-05:00</published><updated>2020-10-02T00:00:00-05:00</updated><id>https://bjchacha.github.io/myblog/algorithm/2020/10/02/algorithm-boyer-moore-majority-vote-algorithm</id><content type="html" xml:base="https://bjchacha.github.io/myblog/algorithm/2020/10/02/algorithm-boyer-moore-majority-vote-algorithm.html">&lt;h2 id=&quot;1-简介&quot;&gt;1. 简介&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The Boyer–Moore majority vote algorithm is an algorithm for finding the majority of a sequence of elements using linear time and constant space. It is named after Robert S. Boyer and J Strother Moore, who published it in 1981, and is a prototypical example of a streaming algorithm.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;波义尔摩尔投票算法是一种使用线性时间复杂度和常数空间复杂度来找到数组的主要元素（出现超过一半次数的元素）&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;2-描述&quot;&gt;2. 描述&lt;/h2&gt;
+
+&lt;p&gt;简单来说就是对数组（假设存在主要元素，即出现次数超过一半的元素）进行遍历&lt;strong&gt;计数&lt;/strong&gt;，遇到相同元素就加一，不同元素就减一，减到零则重新开始计数。最后计数不为零的元素就是数组的主要元素。&lt;/p&gt;
+
+&lt;h2 id=&quot;3-代码示例&quot;&gt;3. 代码示例&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;```python
+def majority_element(nums):
+    count = 0
+    res = None
+    for num in nums:
+        if count == 0:
+            res = num
+        count += 1 if num == res else -1
+    return res
+```
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;4-qa&quot;&gt;4 QA&lt;/h2&gt;
+
+&lt;p&gt;Q: 为什么最后计数不为零的元素就是数组的主要元素？
+A: 可以这样理解：其他元素都抵消不了该元素，换言之这个元素就比其他元素之和还要多。&lt;/p&gt;
+
+&lt;p&gt;Q：如果最后计数为零怎么办？
+A: 在&lt;strong&gt;存在主要元素&lt;/strong&gt;的假设前提下，不会出现这种情况。&lt;/p&gt;
+
+&lt;p&gt;Q: 在例子&lt;code class=&quot;highlighter-rouge&quot;&gt;[1, 2, 3, 4, 5, 5, 5]&lt;/code&gt;中，最后计数不为零，但5不是主要元素。
+A: 同上，不符合假设前提。&lt;/p&gt;
+
+&lt;h2 id=&quot;5-参考&quot;&gt;5. 参考&lt;/h2&gt;
+
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_majority_vote_algorithm&quot;&gt;Wiki&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content><author><name>BjChacha</name></author><summary type="html">1. 简介</summary></entry><entry><title type="html">[Paper List]Optimization for Biological Networks</title><link href="https://bjchacha.github.io/myblog/translations/deeplearning/2020/09/26/papers-BMC-optimization-for-biological-networks.html" rel="alternate" type="text/html" title="[Paper List]Optimization for Biological Networks" /><published>2020-09-26T00:00:00-05:00</published><updated>2020-09-26T00:00:00-05:00</updated><id>https://bjchacha.github.io/myblog/translations/deeplearning/2020/09/26/papers-BMC-optimization-for-biological-networks</id><content type="html" xml:base="https://bjchacha.github.io/myblog/translations/deeplearning/2020/09/26/papers-BMC-optimization-for-biological-networks.html">&lt;h1 id=&quot;bmc-bioinformatics&quot;&gt;BMC Bioinformatics&lt;/h1&gt;
 
 &lt;p&gt;关键字：optimization for biological networks&lt;/p&gt;
 
@@ -2451,139 +2496,4 @@ int main()
 
 &lt;h2 id=&quot;参考&quot;&gt;参考&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://www.zhihu.com/question/30315894&quot;&gt;知乎&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&quot;https://code.visualstudio.com/docs/cpp/config-mingw&quot;&gt;vscode官方文档&lt;/a&gt;&lt;/p&gt;</content><author><name>BjChacha</name></author><summary type="html">0. 前言</summary></entry><entry><title type="html">精灵宝可梦 动画观看顺序</title><link href="https://bjchacha.github.io/myblog/anime/2019/07/14/pokemon-best-way-to-watch.html" rel="alternate" type="text/html" title="精灵宝可梦 动画观看顺序" /><published>2019-07-14T00:00:00-05:00</published><updated>2019-07-14T00:00:00-05:00</updated><id>https://bjchacha.github.io/myblog/anime/2019/07/14/pokemon-best-way-to-watch</id><content type="html" xml:base="https://bjchacha.github.io/myblog/anime/2019/07/14/pokemon-best-way-to-watch.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;自用，不包括特别篇和其他小剧场。&lt;/li&gt;
-  &lt;li&gt;没看过漫画的强烈推荐特别篇。&lt;/li&gt;
-  &lt;li&gt;摘自&lt;a href=&quot;https://www.zhihu.com/question/40409084&quot;&gt;知乎&lt;/a&gt;，本文也会不定期更新。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-&lt;h2 id=&quot;无印篇epop&quot;&gt;&lt;strong&gt;&lt;a href=&quot;https://www.bilibili.com/bangumi/play/ep97641&quot;&gt;无印篇（EP,OP）&lt;/a&gt;&lt;/strong&gt;&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;石英联盟：&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;001（神奇宝贝，就决定是你了！）——054（警犬卡蒂狗）&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;剧场版：精灵宝可梦：超梦的逆袭&lt;/strong&gt;&lt;/li&gt;
-      &lt;li&gt;055（按快门的机会是皮卡丘）——080（神奇宝贝联盟最后的战斗）&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;橘子群岛：&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;081（真新镇，新的开始）——104（皮卡丘对抗喵喵）&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;剧场版：精灵宝可梦：梦幻之宝可梦 洛奇亚爆诞&lt;/strong&gt;&lt;/li&gt;
-      &lt;li&gt;105（喷火龙，就决定是你了！）——116（宿敌大对决，小茂对抗小智）&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;城都联盟：&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;117（若叶镇，吹起开启之风的城镇）——155（圈圈熊，吓死人）&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;剧场版：精灵宝可梦：结晶塔的帝王&lt;/strong&gt;&lt;/li&gt;
-      &lt;li&gt;156（麒麟奇，超能力神奇宝贝之村）——205（变隐龙在哪里？看不见的神奇宝贝，大混乱！）&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;剧场版：精灵宝可梦：雪拉比 穿梭时空的相遇&lt;/strong&gt;&lt;/li&gt;
-      &lt;li&gt;206（讨厌水系神奇宝贝的乔伊！小霞的愤怒！）——256（龙宫道馆，在水中战斗）&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;剧场版：精灵宝可梦：水都的守护神 拉帝亚斯与拉帝欧斯&lt;/strong&gt;&lt;/li&gt;
-      &lt;li&gt;257（乘龙之歌！）——274（与皮卡丘分手）&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-&lt;h2 id=&quot;超世代ag&quot;&gt;&lt;strong&gt;&lt;a href=&quot;https://www.bilibili.com/bangumi/play/ss6161&quot;&gt;超世代（AG）&lt;/a&gt;&lt;/strong&gt;&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;丰缘联盟：&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;001（新的大地！新的冒险！！）——034（最初拿到的宝可梦，大混乱！）&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;剧场版：精灵宝可梦：七夜的许愿星 基拉祈&lt;/strong&gt;&lt;/li&gt;
-      &lt;li&gt;035（小遥！初次挑战宝可梦华丽大赛！）——085（茵郁道馆！天空之战！）&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;剧场版：精灵宝可梦：裂空的访问者 代欧奇希斯&lt;/strong&gt;&lt;/li&gt;
-      &lt;li&gt;086（喷火驼载着电影来！）——134（月见山！皮宝宝与皮皮与皮可西！）&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;剧场版：精灵宝可梦：梦幻与波导的勇者 路卡利欧&lt;/strong&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;对战开拓区：&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;135（初阵！对战工厂！！（前篇））——183（长尾怪手与国王！）&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;剧场版：精灵宝可梦：宝可梦保育家与苍海的王子 玛纳霏&lt;/strong&gt;&lt;/li&gt;
-      &lt;li&gt;184（聒噪鸟与宝可梦相声！）——192（旅程的终点，以及旅程的开始！）&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-&lt;h2 id=&quot;钻石与珍珠神奥联盟dp&quot;&gt;&lt;strong&gt;&lt;a href=&quot;https://www.bilibili.com/bangumi/play/ss6162&quot;&gt;钻石与珍珠：神奥联盟（DP）&lt;/a&gt;&lt;/strong&gt;&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;001（出发！双叶镇到真砂镇！）——039（皮卡丘留守记！）&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;剧场版：精灵宝可梦：决战时空之塔 帝牙卢卡VS帕路奇犽VS达克莱伊&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;040（冠军·竹兰登场！）——086（缘之时装大会！通往宝可梦风格设计师之路！！）&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;剧场版：精灵宝可梦：骑拉帝纳与冰空的花束 洁咪&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;087（路霸可达鸭！）——135（全员参战！宝可梦大胜利！！）&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;剧场版：精灵宝可梦：阿尔宙斯 超克的时空&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;136（天冠山的遗迹！银河队的阴谋！！）——183（开幕！神奥联盟・铃兰大会！！）&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;剧场版：精灵宝可梦：幻影的霸者 索罗亚克&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;184（神奥联盟第三轮！真司对阿驯！！）——191（回忆是珍珠！友情是钻石！！）&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-&lt;h2 id=&quot;超级愿望bw&quot;&gt;&lt;strong&gt;&lt;a href=&quot;https://www.bilibili.com/bangumi/play/ss6164&quot;&gt;超级愿望（BW）&lt;/a&gt;&lt;/strong&gt;&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;合众联盟：&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;001（前往合众地方！捷克罗姆的身影！！）——039（全体集合！东·乔治对战！！）&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;剧场版：精灵宝可梦：比克提尼与黑英雄 捷克罗姆&lt;/strong&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;剧场版：精灵宝可梦：比克提尼与白英雄 雷希拉姆&lt;/strong&gt;&lt;/li&gt;
-      &lt;li&gt;040（激战东·乔治对战！藤藤蛇VS驹刀小兵！！）——084（激战立涌道馆！VS霍米加！！（后篇））&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;东合众：&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;085（歌唱吧，美洛耶塔！爱的旋律！！）——087（大岩蛇岛野外求生！！）&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;剧场版：精灵宝可梦：酋雷姆VS圣剑士 凯路迪欧&lt;/strong&gt;&lt;/li&gt;
-      &lt;li&gt;088（酒侍侦探天桐！消失的喷嚏熊之谜！！）——108（决战合众联盟！皮卡丘对路卡利欧！！）&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;N章：&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;109（红豆杉研究所！展开新旅行！！）——122（莱希拉姆对N！理想和真实的那一方!!）&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Da！章：&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;123（再见了合众！新的乘船之旅！！）——133（光之飞碟！大宇怪之城！！）&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;剧场版：精灵宝可梦：神速的盖诺赛克特 超梦觉醒&lt;/strong&gt;&lt;/li&gt;
-      &lt;li&gt;134（三色堇登场！伞电蜥与坐骑山羊!!）——144（艾莉丝VS小椿！通往龙系大师之路!!）&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-&lt;h2 id=&quot;xy系列&quot;&gt;&lt;strong&gt;XY系列&lt;/strong&gt;&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://www.bilibili.com/bangumi/play/ss5762&quot;&gt;XY&lt;/a&gt;&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;001（抵达卡洛斯地方！梦想与冒险的开始!!）——034（森林拳王！摔角鹰人登场!!）&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;剧场版：精灵宝可梦：破坏之茧与蒂安希&lt;/strong&gt;&lt;/li&gt;
-      &lt;li&gt;035（空中对战!?摔角鹰人对烈箭鹰!!）——081（穿越时空的小智！洛托姆的心愿！）&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;剧场版：精灵宝可梦：光轮的超魔神 胡帕&lt;/strong&gt;&lt;/li&gt;
-      &lt;li&gt;082（南瓜怪人变装庆典！再见了，南瓜精!?）——093（百刻道馆的双打对战！葛吉花的先知!!）&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;&lt;a href=&quot;https://www.bilibili.com/bangumi/play/ss5692&quot;&gt;XY&amp;amp;Z&lt;/a&gt;&lt;/strong&gt;
-    &lt;ul&gt;
-      &lt;li&gt;094（Z爆炸诞生！卡洛斯的潜伏者!!）——126（超级蜥蜴王对雷丘！我要学到许多的经验!!）&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;剧场版：精灵宝可梦：波尔凯尼恩与机关人偶玛机雅娜&lt;/strong&gt;&lt;/li&gt;
-      &lt;li&gt;127（全面对战的准决赛！小智对翔太!!）——142（最强的二人！希特隆与天桐!!）&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-&lt;h2 id=&quot;太阳月亮&quot;&gt;&lt;strong&gt;&lt;a href=&quot;https://www.bilibili.com/bangumi/play/ss5707&quot;&gt;太阳&amp;amp;月亮&lt;/a&gt;&lt;/strong&gt;&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;001（阿罗拉！最初的岛屿、最初的宝可梦们!!）——033（厉害的池塘霸主弱丁鱼！）&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;剧场版：精灵宝可梦:就决定是你了!&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;034（火焰对战！嘎啦嘎啦现身!!）——081（阿罗拉新的火焰！皇家小智诞生!!）&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;剧场版：精灵宝可梦：大家的物语&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;082（跳舞，跳舞进化吗？）——至今&lt;/li&gt;
-  &lt;li&gt;待续……&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>BjChacha</name></author><summary type="html">前言 自用，不包括特别篇和其他小剧场。 没看过漫画的强烈推荐特别篇。 摘自知乎，本文也会不定期更新。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://bjchacha.github.io/myblog/images/posts/2019-07-14-pokemon-best-way-to-watch/pm_logo.png" /><media:content medium="image" url="https://bjchacha.github.io/myblog/images/posts/2019-07-14-pokemon-best-way-to-watch/pm_logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;a href=&quot;https://code.visualstudio.com/docs/cpp/config-mingw&quot;&gt;vscode官方文档&lt;/a&gt;&lt;/p&gt;</content><author><name>BjChacha</name></author><summary type="html">0. 前言</summary></entry></feed>
