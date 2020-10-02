@@ -2,7 +2,7 @@
 title: "[Paper List]Optimization for Biological Networks"
 description: "Only BMC Bioinformatics"
 toc: true
-hide: false
+hide: true 
 layout: post
 categories: [translations, deeplearning]
 author: BjChacha
