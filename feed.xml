@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://bjchacha.github.io/myblog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://bjchacha.github.io/myblog/" rel="alternate" type="text/html" /><updated>2020-10-01T22:51:44-05:00</updated><id>https://bjchacha.github.io/myblog/feed.xml</id><title type="html">What are you LOOKING FOR?</title><subtitle>Try hard to graduate...</subtitle><entry><title type="html">[算法]波义尔摩尔投票算法</title><link href="https://bjchacha.github.io/myblog/algorithm/2020/10/02/algorithm-boyer-moore-majority-vote-algorithm.html" rel="alternate" type="text/html" title="[算法]波义尔摩尔投票算法" /><published>2020-10-02T00:00:00-05:00</published><updated>2020-10-02T00:00:00-05:00</updated><id>https://bjchacha.github.io/myblog/algorithm/2020/10/02/algorithm-boyer-moore-majority-vote-algorithm</id><content type="html" xml:base="https://bjchacha.github.io/myblog/algorithm/2020/10/02/algorithm-boyer-moore-majority-vote-algorithm.html">&lt;h2 id=&quot;1-简介&quot;&gt;1. 简介&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://bjchacha.github.io/myblog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://bjchacha.github.io/myblog/" rel="alternate" type="text/html" /><updated>2020-10-02T03:22:30-05:00</updated><id>https://bjchacha.github.io/myblog/feed.xml</id><title type="html">What are you LOOKING FOR?</title><subtitle>Try hard to graduate...</subtitle><entry><title type="html">[算法]波义尔摩尔投票算法</title><link href="https://bjchacha.github.io/myblog/algorithm/2020/10/02/algorithm-boyer-moore-majority-vote-algorithm.html" rel="alternate" type="text/html" title="[算法]波义尔摩尔投票算法" /><published>2020-10-02T00:00:00-05:00</published><updated>2020-10-02T00:00:00-05:00</updated><id>https://bjchacha.github.io/myblog/algorithm/2020/10/02/algorithm-boyer-moore-majority-vote-algorithm</id><content type="html" xml:base="https://bjchacha.github.io/myblog/algorithm/2020/10/02/algorithm-boyer-moore-majority-vote-algorithm.html">&lt;h2 id=&quot;1-简介&quot;&gt;1. 简介&lt;/h2&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;The Boyer–Moore majority vote algorithm is an algorithm for finding the majority of a sequence of elements using linear time and constant space. It is named after Robert S. Boyer and J Strother Moore, who published it in 1981, and is a prototypical example of a streaming algorithm.&lt;/p&gt;
@@ -12,16 +12,14 @@
 
 &lt;h2 id=&quot;3-代码示例&quot;&gt;3. 代码示例&lt;/h2&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;```python
-def majority_element(nums):
-    count = 0
-    res = None
-    for num in nums:
-        if count == 0:
-            res = num
-        count += 1 if num == res else -1
-    return res
-```
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;majority_element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nums&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;4-qa&quot;&gt;4 QA&lt;/h2&gt;
