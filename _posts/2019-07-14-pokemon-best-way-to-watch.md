@@ -1,5 +1,5 @@
 ---
-title: "[MEMO]精灵宝可梦 动画观看顺序"
+title: "-MEMO-精灵宝可梦 动画观看顺序"
 description: "童年补完计划"
 toc: true
 comments: true

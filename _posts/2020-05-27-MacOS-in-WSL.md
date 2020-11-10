@@ -1,5 +1,5 @@
 ---
-title: "[LOG]在WSL中安装MacOS虚拟机"
+title: "-LOG-在WSL中安装MacOS虚拟机"
 description: "圆了我的苹果梦（没有"
 toc: true
 hide: false
