@@ -1,4 +1,97 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://bjchacha.github.io/myblog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://bjchacha.github.io/myblog/" rel="alternate" type="text/html" /><updated>2020-11-10T02:43:02-06:00</updated><id>https://bjchacha.github.io/myblog/feed.xml</id><title type="html">What are you LOOKING FOR?</title><subtitle>Try hard to graduate...</subtitle><entry><title type="html">-ALGO-波义尔摩尔投票算法</title><link href="https://bjchacha.github.io/myblog/algorithm/2020/10/02/algorithm-boyer-moore-majority-vote-algorithm.html" rel="alternate" type="text/html" title="-ALGO-波义尔摩尔投票算法" /><published>2020-10-02T00:00:00-05:00</published><updated>2020-10-02T00:00:00-05:00</updated><id>https://bjchacha.github.io/myblog/algorithm/2020/10/02/algorithm-boyer-moore-majority-vote-algorithm</id><content type="html" xml:base="https://bjchacha.github.io/myblog/algorithm/2020/10/02/algorithm-boyer-moore-majority-vote-algorithm.html">&lt;h2 id=&quot;1-简介&quot;&gt;1. 简介&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://bjchacha.github.io/myblog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://bjchacha.github.io/myblog/" rel="alternate" type="text/html" /><updated>2020-11-10T05:05:26-06:00</updated><id>https://bjchacha.github.io/myblog/feed.xml</id><title type="html">What are you LOOKING FOR?</title><subtitle>Try hard to graduate...</subtitle><entry><title type="html">[ALGO]柱状图中最大的矩形</title><link href="https://bjchacha.github.io/myblog/algorithm/stack/div&conq/2020/11/10/algorithm-largest-rectangle-in-histogram.html" rel="alternate" type="text/html" title="[ALGO]柱状图中最大的矩形" /><published>2020-11-10T00:00:00-06:00</published><updated>2020-11-10T00:00:00-06:00</updated><id>https://bjchacha.github.io/myblog/algorithm/stack/div&amp;conq/2020/11/10/algorithm-largest-rectangle-in-histogram</id><content type="html" xml:base="https://bjchacha.github.io/myblog/algorithm/stack/div&amp;conq/2020/11/10/algorithm-largest-rectangle-in-histogram.html">&lt;h2 id=&quot;1-问题描述&quot;&gt;1. 问题描述&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;给定一个非零直方图，找出当中面积最大的矩形，并返回其面积。如下图所示。&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;/images/posts/2020-11-10-algorithm-largest-rectangle-in-histogram/histogram_area.png&quot; alt=&quot;&quot; title=&quot;The largest rectangle is shown in the shaded area, which has area = 10 unit.&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;2-思路&quot;&gt;2. 思路&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;比较直观的解法是用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;分治法&lt;/code&gt;
+    &lt;ul&gt;
+      &lt;li&gt;分：把直方图分成左、右两部分，可用递归简单实现；&lt;/li&gt;
+      &lt;li&gt;治：最大面积可能来自左半部分、右半部分以及中间部分；&lt;/li&gt;
+      &lt;li&gt;合：用双指针，逐步向两边扩张，找出最大面积。&lt;/li&gt;
+      &lt;li&gt;分治法的时间复杂度为$O(n\log{n})$&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;这里主要讲解使用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;栈&lt;/code&gt;的算法&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;：
+    &lt;ul&gt;
+      &lt;li&gt;最大面积可以看做是高度和宽度的tradeoff。&lt;/li&gt;
+      &lt;li&gt;每次遇到较高的元素，可能会产生最大面积。&lt;/li&gt;
+      &lt;li&gt;故可一次遍历：
+        &lt;ol&gt;
+          &lt;li&gt;若遇到更高的元素，则压栈，作为最大面积的可能&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;参与者&lt;/code&gt;；&lt;/li&gt;
+          &lt;li&gt;若遇到更低的元素，则将之前更高元素逐个出栈，并计算可能的最大面积；&lt;/li&gt;
+          &lt;li&gt;最后会计算最大宽度、最低高度情况的面积。&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;关于边界条件：
+        &lt;ol&gt;
+          &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;stack = [-1]&lt;/code&gt;: 确保第一个元素能进栈；&lt;/li&gt;
+          &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;heights.append(0)&lt;/code&gt;: 确保最后能计算上面遍历中的c情况，同时也是上一条的前置条件。&lt;/li&gt;
+        &lt;/ol&gt;
+      &lt;/li&gt;
+      &lt;li&gt;看不懂没关系，后面附录有图文说明；&lt;/li&gt;
+      &lt;li&gt;由于只有一次遍历，故时间复杂度为$O(n)$。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;3-代码&quot;&gt;3. 代码&lt;/h2&gt;
+
+&lt;p&gt;代码比较简单，关键还是理解思路。&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;largestRectangleArea&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;heights&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;heights&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;height&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;enumerate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;heights&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;height&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;heights&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]:&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;h&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;heights&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()]&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;h&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;h&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;stack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;res&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;4-总结&quot;&gt;4. 总结&lt;/h2&gt;
+
+&lt;p&gt;个人觉得会用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;分治法&lt;/code&gt;解决这道题算及格了，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;栈&lt;/code&gt;的算法对逻辑思维要求比较高（for me）。&lt;/p&gt;
+
+&lt;h2 id=&quot;5-参考&quot;&gt;5. 参考&lt;/h2&gt;
+
+&lt;h2 id=&quot;6-附录&quot;&gt;6. 附录&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;关于用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;栈&lt;/code&gt;的算法遍历
+    &lt;ol&gt;
+      &lt;li&gt;遍历前：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;heights&lt;/code&gt;数组在最后补一个&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;（图中放在前面），&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;stack&lt;/code&gt;初始元素为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-1&lt;/code&gt;；
+  &lt;img src=&quot;\../images/posts/2020-11-10-algorithm-largest-rectangle-in-histogram/step_1.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+      &lt;li&gt;开始遍历，第0个元素为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;，比栈顶元素0大，有机会参与最大面积的运算，故压栈，继续遍历；
+  &lt;img src=&quot;\../images/posts/2020-11-10-algorithm-largest-rectangle-in-histogram/step_2.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+      &lt;li&gt;第1个元素为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;，比栈顶元素&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;小，因为如果栈中较大元素要与当前元素一起计算面积，其高度会被限制，&lt;strong&gt;因此要先把栈中比当前元素大的元素依次出栈，并分别参与计算面积，并暂存当前最大面积&lt;/strong&gt;。这里只要1个元素&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;比当前元素&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;大，故只出栈和计算面积1次；然后再把当前元素压栈，直到后面遇到比它还小的元素，再出栈参与面积运算。
+  &lt;img src=&quot;\../images/posts/2020-11-10-algorithm-largest-rectangle-in-histogram/step_3.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+      &lt;li&gt;第2、3个元素为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;5&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;6&lt;/code&gt;，均比栈顶元素大，故依次压栈。
+  &lt;img src=&quot;../images/posts/2020-11-10-algorithm-largest-rectangle-in-histogram/step_4.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+      &lt;li&gt;第4个元素为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;，比栈顶元素&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;6&lt;/code&gt;小。与步骤3相同，先将栈顶元素&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;6&lt;/code&gt;出栈，并计算面积。&lt;strong&gt;这里计算面积的宽度是以当前元素下标为基准&lt;/strong&gt;，故宽度为1，面积为$1\times6=6$；同样地，再将栈顶元素&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;5&lt;/code&gt;出栈，并计算面积得$2\times5=10$.暂存最大面积为10。
+  &lt;img src=&quot;../images/posts/2020-11-10-algorithm-largest-rectangle-in-histogram/step_5.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+      &lt;li&gt;第5个元素为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;6&lt;/code&gt;，比栈顶元素&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;大，压栈。&lt;/li&gt;
+      &lt;li&gt;第6个元素为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;（算法添加），一定比栈顶元素小，因此会把栈内所有有效元素出栈，最后计算的面积是最低高度&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;min(heights)&lt;/code&gt;与最大宽度&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;len(heights)&lt;/code&gt;的乘积，其面积为$6\times1=6$。最后记录到最大面积为12。
+  &lt;img src=&quot;../images/posts/2020-11-10-algorithm-largest-rectangle-in-histogram/step_6.png&quot; alt=&quot;&quot; /&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://abhinandandubey.github.io/posts/2019/12/15/Largest-Rectangle-In-Histogram.html&quot;&gt;Largest Rectangle In Histogram&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content><author><name>BjChacha</name></author><category term="algorithm" /><category term="stack" /><category term="div&amp;conq" /><summary type="html">1. 问题描述</summary></entry><entry><title type="html">-ALGO-波义尔摩尔投票算法</title><link href="https://bjchacha.github.io/myblog/algorithm/2020/10/02/algorithm-boyer-moore-majority-vote-algorithm.html" rel="alternate" type="text/html" title="-ALGO-波义尔摩尔投票算法" /><published>2020-10-02T00:00:00-05:00</published><updated>2020-10-02T00:00:00-05:00</updated><id>https://bjchacha.github.io/myblog/algorithm/2020/10/02/algorithm-boyer-moore-majority-vote-algorithm</id><content type="html" xml:base="https://bjchacha.github.io/myblog/algorithm/2020/10/02/algorithm-boyer-moore-majority-vote-algorithm.html">&lt;h2 id=&quot;1-简介&quot;&gt;1. 简介&lt;/h2&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;The Boyer–Moore majority vote algorithm is an algorithm for finding the majority of a sequence of elements using linear time and constant space. It is named after Robert S. Boyer and J Strother Moore, who published it in 1981, and is a prototypical example of a streaming algorithm.&lt;/p&gt;
@@ -2032,7 +2125,7 @@ training time cost: 129.5 s, accuracy: 0.9130
       &lt;p&gt;即动态规划啦（其实是想test一下fastpages的引用功能 &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
-&lt;/div&gt;</content><author><name>BjChacha</name></author><category term="algorithm" /><category term="dp" /><summary type="html">0. 前言 好久没刷leetcode了，加上要准备考研复试，所以决定尝试开个算法系列，每篇解决一道比较经典或者稍有难度的算法题，注重从思路到代码、从无到有的过程。 其实之前有写一篇类似的刷题总结文章，但只写了题目和代码答案，没有记录思路过程，导致回忆的时候十分痛苦。而且leetcode的答案网上一搜一大把，那篇文章没啥意义，所以决定关掉并重开这个系列。 在这里建议不要一卡住就看答案，很多问题卡个一两天很正常。但自己亲手解决每一道算法题真的会带来很大的成就感，这种正反馈也是后续刷题的重要精神源泉。在这里顺便贴一个我觉得不错的学习参考：labuladong的算法小抄。 这是开篇之作，所以废话很多（skr~）马上进入本文主题——一道颇有难度的动规1问题：编辑距离问题（72. Edit Distance）。 即动态规划啦（其实是想test一下fastpages的引用功能 &amp;#8617;</summary></entry><entry><title type="html">-LOG-使用PlaidML进行GPU模型训练</title><link href="https://bjchacha.github.io/myblog/keras/deeplearning/log/2020/02/25/using-plaidml-keras-to-ai.html" rel="alternate" type="text/html" title="-LOG-使用PlaidML进行GPU模型训练" /><published>2020-02-25T00:00:00-06:00</published><updated>2020-02-25T00:00:00-06:00</updated><id>https://bjchacha.github.io/myblog/keras/deeplearning/log/2020/02/25/using-plaidml-keras-to-ai</id><content type="html" xml:base="https://bjchacha.github.io/myblog/keras/deeplearning/log/2020/02/25/using-plaidml-keras-to-ai.html">&lt;!--
+&lt;/div&gt;</content><author><name>BjChacha</name></author><category term="algorithm" /><category term="dp" /><summary type="html">0. 前言 好久没刷leetcode了，加上要准备考研复试，所以决定尝试开个算法系列，每篇解决一道比较经典或者稍有难度的算法题，注重从思路到代码、从无到有的过程。 其实之前有写一篇类似的刷题总结文章，但只写了题目和代码答案，没有记录思路过程，导致回忆的时候十分痛苦。而且leetcode的答案网上一搜一大把，那篇文章没啥意义，所以决定关掉并重开这个系列。 在这里建议不要一卡住就看答案，很多问题卡个一两天很正常。但自己亲手解决每一道算法题真的会带来很大的成就感，这种正反馈也是后续刷题的重要精神源泉。在这里顺便贴一个我觉得不错的学习参考：labuladong的算法小抄。 这是开篇之作，所以废话很多（skr~）马上进入本文主题——一道颇有难度的动规1问题：编辑距离问题（72. Edit Distance）。 即动态规划啦（其实是想test一下fastpages的引用功能 &amp;#8617;</summary></entry><entry><title type="html">LOG-&amp;gt;使用PlaidML进行GPU模型训练</title><link href="https://bjchacha.github.io/myblog/keras/deeplearning/log/2020/02/25/using-plaidml-keras-to-ai.html" rel="alternate" type="text/html" title="LOG-&amp;gt;使用PlaidML进行GPU模型训练" /><published>2020-02-25T00:00:00-06:00</published><updated>2020-02-25T00:00:00-06:00</updated><id>https://bjchacha.github.io/myblog/keras/deeplearning/log/2020/02/25/using-plaidml-keras-to-ai</id><content type="html" xml:base="https://bjchacha.github.io/myblog/keras/deeplearning/log/2020/02/25/using-plaidml-keras-to-ai.html">&lt;!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
@@ -2319,152 +2412,4 @@ training time cost: 124.2 s, accuracy: 0.8858
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="keras" /><category term="deeplearning" /><category term="log" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://bjchacha.github.io/myblog/images/posts/2020-02-25-using-plaidml-keras-to-ai/PlaidML.png" /><media:content medium="image" url="https://bjchacha.github.io/myblog/images/posts/2020-02-25-using-plaidml-keras-to-ai/PlaidML.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">-LOG-VSCode用于cpp调试的相关设置</title><link href="https://bjchacha.github.io/myblog/log/vscode/2020/01/28/vscode-cpp-setting.html" rel="alternate" type="text/html" title="-LOG-VSCode用于cpp调试的相关设置" /><published>2020-01-28T00:00:00-06:00</published><updated>2020-01-28T00:00:00-06:00</updated><id>https://bjchacha.github.io/myblog/log/vscode/2020/01/28/vscode-cpp-setting</id><content type="html" xml:base="https://bjchacha.github.io/myblog/log/vscode/2020/01/28/vscode-cpp-setting.html">&lt;h2 id=&quot;0-前言&quot;&gt;0. 前言&lt;/h2&gt;
-
-&lt;p&gt;由于对Cpp的需求比较轻量，用来学习语法和写写算法题之类的，用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;visual studio&lt;/code&gt;觉得十分臃肿。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vscode&lt;/code&gt;是一款非常优秀的代码编辑器，本身不具备任何编译器等IDE功能。需要进行一定的环境准备才能用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vscode&lt;/code&gt;进行Cpp代码的编译和调试。&lt;/p&gt;
-
-&lt;h2 id=&quot;1-gcc编译器安装&quot;&gt;1. GCC编译器安装&lt;/h2&gt;
-
-&lt;p&gt;1.下载&lt;a href=&quot;https://sourceforge.net/projects/mingw-w64/files/&quot;&gt;MinGW-w64&lt;/a&gt;，选择最新版本的&lt;strong&gt;x86_64-posix-seh&lt;/strong&gt;。  &lt;br /&gt;
-2.解压下载下来的压缩包，并将&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mingw64&lt;/code&gt;文件夹移动到C盘根目录下（当然也可以到其他地方）。&lt;br /&gt;
-3.将&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mingw64&lt;/code&gt;文件夹下的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bin&lt;/code&gt;文件夹目录添加到用户环境变量中的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PATH&lt;/code&gt;中。此例中则将&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C:\mingw64\bin&lt;/code&gt;添加到PATH中。&lt;br /&gt;
-4.验证gcc编译器安装是否成功：&lt;strong&gt;Win+R&lt;/strong&gt;运行cmd，输入gcc，若提示&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;gcc:fatal error: no input files&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;则gcc编译器安装成功；若提示：&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;不是内部命令或外部命令&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;则gcc没有安装成功，回头检查环境变量中&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PATH&lt;/code&gt;中的目录与gcc实际目录是否符合。&lt;/p&gt;
-
-&lt;h2 id=&quot;2-vscode-cpp相关插件&quot;&gt;2. vscode cpp相关插件&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;C/C++：提供Cpp Debug等功能。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;3-vscode-相关配置文件&quot;&gt;3. vscode 相关配置文件&lt;/h2&gt;
-
-&lt;p&gt;在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vscode&lt;/code&gt;打开Cpp工作区后，会在当前目录下自动生成&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.vscode&lt;/code&gt;文件夹。该文件夹下存放当前工作区的以下配置文件。若无以下文件可自行创建。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;em&gt;launch.json&lt;/em&gt;&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  {
-      &quot;version&quot;: &quot;0.2.0&quot;,
-      &quot;configurations&quot;: [
-        
-          {
-              &quot;name&quot;: &quot;(gdb) Launch&quot;,
-              &quot;type&quot;: &quot;cppdbg&quot;,
-              &quot;request&quot;: &quot;launch&quot;,
-              &quot;program&quot;: &quot;${fileDirname}/${fileBasenameNoExtension}.exe&quot;,
-              &quot;args&quot;: [],
-              &quot;stopAtEntry&quot;: false,
-              &quot;cwd&quot;: &quot;${workspaceFolder}&quot;,
-              &quot;environment&quot;: [],
-              &quot;externalConsole&quot;: true,
-              &quot;internalConsoleOptions&quot;: &quot;neverOpen&quot;,
-              &quot;MIMode&quot;: &quot;gdb&quot;,
-              &quot;miDebuggerPath&quot;: &quot;gdb.exe&quot;,
-              &quot;setupCommands&quot;: [
-                  {
-                      &quot;description&quot;: &quot;Enable pretty-printing for gdb&quot;,
-                      &quot;text&quot;: &quot;-enable-pretty-printing&quot;,
-                      &quot;ignoreFailures&quot;: false
-                  }
-              ],
-              &quot;preLaunchTask&quot;: &quot;Compile&quot;,
-          }
-      ]
-  }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;em&gt;tasks.json&lt;/em&gt;&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  {
-      &quot;version&quot;: &quot;2.0.0&quot;,
-      &quot;tasks&quot;: [
-          {
-              &quot;label&quot;: &quot;Compile&quot;,
-              &quot;command&quot;: &quot;g++&quot;,
-              &quot;args&quot;: [
-                  &quot;${file}&quot;,
-                  &quot;-o&quot;,
-                  &quot;${fileDirname}/${fileBasenameNoExtension}.exe&quot;,
-                  &quot;-g&quot;,
-                  &quot;-Wall&quot;,
-                  &quot;-static-libgcc&quot;,
-                  &quot;-fexec-charset=GBK&quot;
-              ],
-              &quot;type&quot;: &quot;process&quot;,
-              &quot;group&quot;: {
-                  &quot;kind&quot;: &quot;build&quot;,
-                  &quot;isDefault&quot;: true
-              },
-              &quot;presentation&quot;: {
-                  &quot;echo&quot;: true,
-                  &quot;reveal&quot;: &quot;always&quot;,
-                  &quot;focus&quot;: false,
-                  &quot;panel&quot;: &quot;shared&quot;,
-              },
-          }
-      ]
-  }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;em&gt;setting.json&lt;/em&gt; (部分)&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  {
-      ...
-      &quot;files.defaultLanguage&quot;: &quot;cpp&quot;,
-      &quot;editor.formatOnType&quot;: true,
-      &quot;editor.suggest.snippetsPreventQuickSuggestions&quot;: false,
-      &quot;editor.acceptSuggestionOnEnter&quot;: &quot;off&quot;,
-      &quot;editor.snippetSuggestions&quot;: &quot;top&quot;,
-      &quot;code-runner.runInTerminal&quot;: true,
-      &quot;code-runner.executorMap&quot;: {
-          &quot;c&quot;: &quot;cd $dir &amp;amp;&amp;amp; gcc '$fileName' -o '$fileNameWithoutExt.exe' -Wall -g -O2 -static-libgcc -std=c11 -fexec-charset=GBK &amp;amp;&amp;amp; &amp;amp;'$dir$fileNameWithoutExt'&quot;,
-          &quot;cpp&quot;: &quot;cd $dir &amp;amp;&amp;amp; g++ '$fileName' -o '$fileNameWithoutExt.exe' -Wall -g -O2 -static-libgcc -std=c++17 -fexec-charset=GBK &amp;amp;&amp;amp; &amp;amp;'$dir$fileNameWithoutExt'&quot;
-      },
-      &quot;code-runner.saveFileBeforeRun&quot;: true,
-      &quot;code-runner.preserveFocus&quot;: true,
-      &quot;code-runner.clearPreviousOutput&quot;: false,
-      &quot;code-runner.ignoreSelection&quot;: true,
-      &quot;C_Cpp.clang_format_sortIncludes&quot;: true,
-      ...
-  }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;4-用vscode进行cpp调试&quot;&gt;4. 用vscode进行cpp调试&lt;/h2&gt;
-&lt;p&gt;1.在任意目录下创建文件夹&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cpp&lt;/code&gt;。   &lt;br /&gt;
-2.在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vscode&lt;/code&gt;下&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl+K&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl+O&lt;/code&gt;，打开&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cpp&lt;/code&gt;文件夹。 &lt;br /&gt;
-3.&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ctrl+N&lt;/code&gt;创建新文件，随便写个cpp demo:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
-using namespace std;
-
-int main()
-{
-    cout &amp;lt;&amp;lt; &quot;hello world&quot; &amp;lt;&amp;lt; endl;
-    int a;
-    cin &amp;gt;&amp;gt; a;
-    return 0;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;4.&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Shift+Ctrl+B&lt;/code&gt;进行编译；&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;F5&lt;/code&gt;进行调试，会弹出命令行窗口显示&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hello world&lt;/code&gt;输出。至此完成所有设置。&lt;/p&gt;
-
-&lt;h2 id=&quot;参考&quot;&gt;参考&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.zhihu.com/question/30315894&quot;&gt;知乎&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&quot;https://code.visualstudio.com/docs/cpp/config-mingw&quot;&gt;vscode官方文档&lt;/a&gt;&lt;/p&gt;</content><author><name>BjChacha</name></author><category term="log" /><category term="vscode" /><summary type="html">0. 前言</summary></entry></feed>
+&lt;/div&gt;</content><author><name></name></author><category term="keras" /><category term="deeplearning" /><category term="log" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://bjchacha.github.io/myblog/images/posts/2020-02-25-using-plaidml-keras-to-ai/PlaidML.png" /><media:content medium="image" url="https://bjchacha.github.io/myblog/images/posts/2020-02-25-using-plaidml-keras-to-ai/PlaidML.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
