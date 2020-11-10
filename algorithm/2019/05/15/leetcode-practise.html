@@ -18,21 +18,21 @@
 
 <h2 id="0-preface">0. Preface</h2>
 <ul>
-  <li>刷<code class="highlighter-rouge">Leetcode</code>过程中记录所做过题目的答案，偏向归档属性。</li>
-  <li><code class="highlighter-rouge">Leetcode</code>许多题目有多种算法解，以下一般只采用其中一种，优先选择<code class="highlighter-rouge">runtime</code>较低、复杂程度较低的方案。</li>
-  <li><code class="highlighter-rouge">Leetcode</code>的<code class="highlighter-rouge">runtime</code>一般情况下并不代表时间复杂度，有许多情况下时间复杂度较高的算法<code class="highlighter-rouge">runtime</code>却很低。所以不要本文盲目追求低<code class="highlighter-rouge">runtime</code>，理解并熟练运用多种算法来处理问题才是王道。</li>
+  <li>刷<code class="language-plaintext highlighter-rouge">Leetcode</code>过程中记录所做过题目的答案，偏向归档属性。</li>
+  <li><code class="language-plaintext highlighter-rouge">Leetcode</code>许多题目有多种算法解，以下一般只采用其中一种，优先选择<code class="language-plaintext highlighter-rouge">runtime</code>较低、复杂程度较低的方案。</li>
+  <li><code class="language-plaintext highlighter-rouge">Leetcode</code>的<code class="language-plaintext highlighter-rouge">runtime</code>一般情况下并不代表时间复杂度，有许多情况下时间复杂度较高的算法<code class="language-plaintext highlighter-rouge">runtime</code>却很低。所以不要本文盲目追求低<code class="language-plaintext highlighter-rouge">runtime</code>，理解并熟练运用多种算法来处理问题才是王道。</li>
 </ul>
 
 <h2 id="1-two-sum">1. Two Sum</h2>
 <ul>
   <li><strong>Description</strong>:
     <ul>
-      <li>给定一个<code class="highlighter-rouge">int</code>数组，输出其两数之和的最大值。</li>
+      <li>给定一个<code class="language-plaintext highlighter-rouge">int</code>数组，输出其两数之和的最大值。</li>
     </ul>
   </li>
   <li><strong>Analysis</strong>:
     <ul>
-      <li>遍历一次数组，用<code class="highlighter-rouge">unordered_map</code>（哈希表）记录每个出现过的值及其索引值。若在表中查找出目标与当前值的差值，则返回两数的索引值。</li>
+      <li>遍历一次数组，用<code class="language-plaintext highlighter-rouge">unordered_map</code>（哈希表）记录每个出现过的值及其索引值。若在表中查找出目标与当前值的差值，则返回两数的索引值。</li>
       <li>时间复杂度：$O(n)$</li>
       <li>空间复杂度：$O(n)$</li>
     </ul>
@@ -117,8 +117,8 @@
   </li>
   <li><strong>Analysis</strong>:
     <ul>
-      <li>用<code class="highlighter-rouge">unordered_map</code>记录出现过的字符，若出现重复，则从上一个重复字符的索引开始重新遍历。</li>
-      <li>优化：使用<code class="highlighter-rouge">start</code>标记子串的开始位置，则不需要索引倒退，实现“一遍过”。</li>
+      <li>用<code class="language-plaintext highlighter-rouge">unordered_map</code>记录出现过的字符，若出现重复，则从上一个重复字符的索引开始重新遍历。</li>
+      <li>优化：使用<code class="language-plaintext highlighter-rouge">start</code>标记子串的开始位置，则不需要索引倒退，实现“一遍过”。</li>
       <li>时间复杂度：$O(n)$</li>
       <li>空间复杂度：$O(min(m,n))$，其中$m$是字母集大小。</li>
     </ul>
@@ -157,29 +157,29 @@
       <li>先确定中值的定义：将数列分隔成等长两个子集，其中左子集始终小于右子集。</li>
       <li>如果将两个数列分别分隔成左、右两子集，左两子集的并集始终小于右两子集的并集，且两并集等长，则分隔点就是中值。</li>
       <li>
-        <p>假设用<code class="highlighter-rouge">i</code>和<code class="highlighter-rouge">j</code>分别将两个数列分隔成两部分，如下：</p>
+        <p>假设用<code class="language-plaintext highlighter-rouge">i</code>和<code class="language-plaintext highlighter-rouge">j</code>分别将两个数列分隔成两部分，如下：</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      left_A             |        right_A
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      left_A             |        right_A
 A[0], A[1], ..., A[i-1]  |  A[i], A[i+1], ..., A[m-1]
       left_B             |        right_B
 B[0], B[1], ..., B[j-1]  |  B[j], B[j+1], ..., B[n-1]
 </code></pre></div>        </div>
       </li>
       <li>
-        <p>将<code class="highlighter-rouge">left_A</code>和<code class="highlighter-rouge">left_B</code>、<code class="highlighter-rouge">right_A</code>和<code class="highlighter-rouge">right_B</code>合并，如下：</p>
+        <p>将<code class="language-plaintext highlighter-rouge">left_A</code>和<code class="language-plaintext highlighter-rouge">left_B</code>、<code class="language-plaintext highlighter-rouge">right_A</code>和<code class="language-plaintext highlighter-rouge">right_B</code>合并，如下：</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      left               |        right
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      left               |        right
 A[0], A[1], ..., A[i-1]  |  A[i], A[i+1], ..., A[m-1]
 B[0], B[1], ..., B[j-1]  |  B[j], B[j+1], ..., B[n-1]
 </code></pre></div>        </div>
       </li>
-      <li>要使得<code class="highlighter-rouge">left</code>始终小于<code class="highlighter-rouge">right</code>，只需满足两个条件：
+      <li>要使得<code class="language-plaintext highlighter-rouge">left</code>始终小于<code class="language-plaintext highlighter-rouge">right</code>，只需满足两个条件：
         <ul>
           <li>A[i-1] &lt; B[j]</li>
           <li>B[j-1] &lt; A[i]</li>
         </ul>
       </li>
-      <li>要使得<code class="highlighter-rouge">left</code>与<code class="highlighter-rouge">right</code>等长，即$i+j=m−i+n−j$，这里使：
+      <li>要使得<code class="language-plaintext highlighter-rouge">left</code>与<code class="language-plaintext highlighter-rouge">right</code>等长，即$i+j=m−i+n−j$，这里使：
         <ul>
           <li>$i = \frac{m+n}{2}$</li>
           <li>$j = \frac{m+n+1}{2}-i$ （注意：这里+1是为了确保 $j$ 的位置意义与 $i$ 一致，同为右部分的初始位置）</li>
@@ -234,16 +234,16 @@ B[0], B[1], ..., B[j-1]  |  B[j], B[j+1], ..., B[n-1]
   </li>
   <li><strong>Analysis</strong>:
     <ul>
-      <li>回文有两种：单核心（如<code class="highlighter-rouge">aba</code>）和双核心（如<code class="highlighter-rouge">abba</code>）。</li>
+      <li>回文有两种：单核心（如<code class="language-plaintext highlighter-rouge">aba</code>）和双核心（如<code class="language-plaintext highlighter-rouge">abba</code>）。</li>
       <li>方法一：中心扩张法。遍历每个字符，以该字符为中心向两边扩张检测回文性，其中要包括的单核心扩张和双核心扩张。
         <ul>
           <li>优化：可将遍历范围缩小到$[0,n-maxlen/2]$，其中$maxlen$为目前最大回文子串的长度。</li>
-          <li>优化：由于双核心的回文核心必然是两个相同字符，即使不是双核心回文，如<code class="highlighter-rouge">abbba</code>也是回文。故可用<code class="highlighter-rouge">left</code>和<code class="highlighter-rouge">right</code>标记扩张位置，且遍历核心时<code class="highlighter-rouge">right</code>可跳过所有相同字符，直接到达回文右端。无需分类讨论。</li>
+          <li>优化：由于双核心的回文核心必然是两个相同字符，即使不是双核心回文，如<code class="language-plaintext highlighter-rouge">abbba</code>也是回文。故可用<code class="language-plaintext highlighter-rouge">left</code>和<code class="language-plaintext highlighter-rouge">right</code>标记扩张位置，且遍历核心时<code class="language-plaintext highlighter-rouge">right</code>可跳过所有相同字符，直接到达回文右端。无需分类讨论。</li>
           <li>时间复杂度：$O(n^{2})$</li>
           <li>空间复杂度：$O(1)$</li>
         </ul>
       </li>
-      <li>方法二：动态规划。若字符串<code class="highlighter-rouge">s[i:j]</code>为回文串，则子串<code class="highlighter-rouge">s[i-1:j+1]</code>肯定也是回文串，故<code class="highlighter-rouge">dp(i,j) = (dp(i-1,j-1) &amp;&amp; s[i] == s[j])</code>
+      <li>方法二：动态规划。若字符串<code class="language-plaintext highlighter-rouge">s[i:j]</code>为回文串，则子串<code class="language-plaintext highlighter-rouge">s[i-1:j+1]</code>肯定也是回文串，故<code class="language-plaintext highlighter-rouge">dp(i,j) = (dp(i-1,j-1) &amp;&amp; s[i] == s[j])</code>
         <ul>
           <li>时间复杂度：$O(n^{2})$</li>
           <li>空间复杂度：$O(n^{2})$</li>
@@ -319,9 +319,9 @@ B[0], B[1], ..., B[j-1]  |  B[j], B[j+1], ..., B[n-1]
     <ul>
       <li>给定一个字符串和行数，按行输出其锯齿形状。</li>
       <li>
-        <p>如输入<code class="highlighter-rouge">s = "PAYPALISHIRING", numRows = 3</code>，输出<code class="highlighter-rouge">"PAHNAPLSIIGYIR"</code>，如下：</p>
+        <p>如输入<code class="language-plaintext highlighter-rouge">s = "PAYPALISHIRING", numRows = 3</code>，输出<code class="language-plaintext highlighter-rouge">"PAHNAPLSIIGYIR"</code>，如下：</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>P   A   H   N
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>P   A   H   N
 A P L S I I G
 Y   I   R
 </code></pre></div>        </div>
@@ -330,7 +330,7 @@ Y   I   R
   </li>
   <li><strong>Analysis</strong>:
     <ul>
-      <li>这是个找数学规律的算法。锯齿文字中，每个纵列之间的间隔<code class="highlighter-rouge">(max_setp)</code>是一定的,而位于斜列上的字符，都按规律将这个间隔分成两部分。</li>
+      <li>这是个找数学规律的算法。锯齿文字中，每个纵列之间的间隔<code class="language-plaintext highlighter-rouge">(max_setp)</code>是一定的,而位于斜列上的字符，都按规律将这个间隔分成两部分。</li>
       <li>时间复杂度：$O(n)$</li>
       <li>空间复杂度：$O(n)$</li>
     </ul>
@@ -380,7 +380,7 @@ Y   I   R
   <li><strong>Analysis</strong>:
     <ul>
       <li>从低位逐位取出数字，从高位逐位放置数字。</li>
-      <li>时间复杂度：$O(n)$，<code class="highlighter-rouge">n</code>为输入整数的位数。</li>
+      <li>时间复杂度：$O(n)$，<code class="language-plaintext highlighter-rouge">n</code>为输入整数的位数。</li>
       <li>空间复杂度：$O(1)$</li>
     </ul>
   </li>
@@ -464,7 +464,7 @@ Y   I   R
   <li><strong>Analysis</strong>:
     <ul>
       <li>判断是否回文比判断是否存在回文要简单。直接头尾进行判断即可。</li>
-      <li>时间复杂度：$O(n)$，<code class="highlighter-rouge">n</code>为输入整数的位数。</li>
+      <li>时间复杂度：$O(n)$，<code class="language-plaintext highlighter-rouge">n</code>为输入整数的位数。</li>
       <li>空间复杂度：$O(1)$</li>
     </ul>
   </li>
@@ -510,24 +510,24 @@ Y   I   R
     <ul>
       <li>（后记：刚开始为了统一才硬是用英语写分析，毫无语法，以后有空再改写成中文）</li>
       <li>Using Dynamic Programming to solve this problem.</li>
-      <li>While itering, ther are 3 possible situations in p: <code class="highlighter-rouge">a-z</code>, <code class="highlighter-rouge">'.'</code>, <code class="highlighter-rouge">'*'</code>. (assuming <code class="highlighter-rouge">i</code> = current substring index in <code class="highlighter-rouge">s</code>)
+      <li>While itering, ther are 3 possible situations in p: <code class="language-plaintext highlighter-rouge">a-z</code>, <code class="language-plaintext highlighter-rouge">'.'</code>, <code class="language-plaintext highlighter-rouge">'*'</code>. (assuming <code class="language-plaintext highlighter-rouge">i</code> = current substring index in <code class="language-plaintext highlighter-rouge">s</code>)
         <ul>
           <li>
             <ol>
-              <li><code class="highlighter-rouge">a-z</code> : if char is matched and dp[i-1] is true, then dp[i] is true.</li>
+              <li><code class="language-plaintext highlighter-rouge">a-z</code> : if char is matched and dp[i-1] is true, then dp[i] is true.</li>
             </ol>
           </li>
           <li>
             <ol>
-              <li><code class="highlighter-rouge">'.'</code> : always matched.</li>
+              <li><code class="language-plaintext highlighter-rouge">'.'</code> : always matched.</li>
             </ol>
           </li>
           <li>
             <ol>
-              <li><code class="highlighter-rouge">'*'</code> :
+              <li><code class="language-plaintext highlighter-rouge">'*'</code> :
                 <ul>
-                  <li>(1) if the preceding char is matched, then the <code class="highlighter-rouge">'*'</code> combo can means 0, 1 or more this char.</li>
-                  <li>(2) otherwise, the <code class="highlighter-rouge">'*'</code> combo can only means 0 (in other word, don’t match) this char.</li>
+                  <li>(1) if the preceding char is matched, then the <code class="language-plaintext highlighter-rouge">'*'</code> combo can means 0, 1 or more this char.</li>
+                  <li>(2) otherwise, the <code class="language-plaintext highlighter-rouge">'*'</code> combo can only means 0 (in other word, don’t match) this char.</li>
                 </ul>
               </li>
             </ol>
@@ -536,9 +536,9 @@ Y   I   R
       </li>
       <li>So we can use a matrix called dp to represent how pattern matching the string, initializing with false.</li>
       <li>
-        <p>For an example, <code class="highlighter-rouge">s</code> = <code class="highlighter-rouge">"aaaa"</code>, <code class="highlighter-rouge">p</code> = <code class="highlighter-rouge">"a*b*"</code>:</p>
+        <p>For an example, <code class="language-plaintext highlighter-rouge">s</code> = <code class="language-plaintext highlighter-rouge">"aaaa"</code>, <code class="language-plaintext highlighter-rouge">p</code> = <code class="language-plaintext highlighter-rouge">"a*b*"</code>:</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     ""  a   a   a   a
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     ""  a   a   a   a
  ""  0   0   0   0   0
  a   0   0   0   0   0
  *   0   0   0   0   0
@@ -547,9 +547,9 @@ Y   I   R
 </code></pre></div>        </div>
       </li>
       <li>
-        <p>step 1.1: preprocessing, set <code class="highlighter-rouge">dp[0][0]</code> true because <code class="highlighter-rouge">""</code> do match with <code class="highlighter-rouge">""</code></p>
+        <p>step 1.1: preprocessing, set <code class="language-plaintext highlighter-rouge">dp[0][0]</code> true because <code class="language-plaintext highlighter-rouge">""</code> do match with <code class="language-plaintext highlighter-rouge">""</code></p>
 
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     ""  a   a   a   a
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     ""  a   a   a   a
  ""  1   0   0   0   0
  a   0   0   0   0   0
  *   0   0   0   0   0
@@ -558,9 +558,9 @@ Y   I   R
 </code></pre></div>        </div>
       </li>
       <li>
-        <p>step 1.2: <code class="highlighter-rouge">'*'</code> can match zero element, so <code class="highlighter-rouge">dp[i][0]</code> = <code class="highlighter-rouge">dp[i-2][0]</code> meaning <code class="highlighter-rouge">'*'</code> and preceding element match nothing.</p>
+        <p>step 1.2: <code class="language-plaintext highlighter-rouge">'*'</code> can match zero element, so <code class="language-plaintext highlighter-rouge">dp[i][0]</code> = <code class="language-plaintext highlighter-rouge">dp[i-2][0]</code> meaning <code class="language-plaintext highlighter-rouge">'*'</code> and preceding element match nothing.</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     ""  a   a   a   a
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     ""  a   a   a   a
  ""  1   0   0   0   0
  a   0   0   0   0   0
  *   1   0   0   0   0
@@ -569,9 +569,9 @@ Y   I   R
 </code></pre></div>        </div>
       </li>
       <li>
-        <p>step 2.1: start itering, if element matches without <code class="highlighter-rouge">'*'</code>, then <code class="highlighter-rouge">dp[i][j]</code> = <code class="highlighter-rouge">dp[i-1][j-1]</code></p>
+        <p>step 2.1: start itering, if element matches without <code class="language-plaintext highlighter-rouge">'*'</code>, then <code class="language-plaintext highlighter-rouge">dp[i][j]</code> = <code class="language-plaintext highlighter-rouge">dp[i-1][j-1]</code></p>
 
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     ""  a   a   a   a
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     ""  a   a   a   a
  ""  1   0   0   0   0
  a   0   1   0   0   0
  *   1   0   0   0   0
@@ -579,12 +579,12 @@ Y   I   R
  *   1   0   0   0   0
 </code></pre></div>        </div>
       </li>
-      <li>step 2.2: if <code class="highlighter-rouge">'*'</code> and the preceding element matched, there are 3 meaning about <code class="highlighter-rouge">'*'</code>: doesn’t match (<code class="highlighter-rouge">dp[i-2][j]</code>), matches one element (<code class="highlighter-rouge">dp[i-1][j]</code>), matches several elements (<code class="highlighter-rouge">dp[i][j-1]</code>).
+      <li>step 2.2: if <code class="language-plaintext highlighter-rouge">'*'</code> and the preceding element matched, there are 3 meaning about <code class="language-plaintext highlighter-rouge">'*'</code>: doesn’t match (<code class="language-plaintext highlighter-rouge">dp[i-2][j]</code>), matches one element (<code class="language-plaintext highlighter-rouge">dp[i-1][j]</code>), matches several elements (<code class="language-plaintext highlighter-rouge">dp[i][j-1]</code>).
         <ul>
           <li>
             <p>case 1: match one element:</p>
 
-            <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      ""  a   a   a   a
+            <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      ""  a   a   a   a
   ""  1   0   0   0   0
   a   0   1   0   0   0
   *   1   1   0   0   0
@@ -595,7 +595,7 @@ Y   I   R
           <li>
             <p>case 2: match several elements:</p>
 
-            <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      ""  a   a   a   a
+            <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      ""  a   a   a   a
   ""  1   0   0   0   0
   a   0   1   0   0   0
   *   1   1   1   1   1
@@ -606,7 +606,7 @@ Y   I   R
           <li>
             <p>case 3: don’t match (in this case do nothing):</p>
 
-            <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      ""  a   a   a   a
+            <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      ""  a   a   a   a
   ""  1   0   0   0   0
   a   0   1   0   0   0
   *   1   1   1   1   1
@@ -617,9 +617,9 @@ Y   I   R
         </ul>
       </li>
       <li>
-        <p>step 2.3: if <code class="highlighter-rouge">'*'</code> and the preceding element doesn’t match, like step 1.2, <code class="highlighter-rouge">dp[i][0]</code> = <code class="highlighter-rouge">dp[i-2][0]</code> meaning <code class="highlighter-rouge">'*'</code> and preceding element match nothing.</p>
+        <p>step 2.3: if <code class="language-plaintext highlighter-rouge">'*'</code> and the preceding element doesn’t match, like step 1.2, <code class="language-plaintext highlighter-rouge">dp[i][0]</code> = <code class="language-plaintext highlighter-rouge">dp[i-2][0]</code> meaning <code class="language-plaintext highlighter-rouge">'*'</code> and preceding element match nothing.</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     ""  a   a   a   a
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     ""  a   a   a   a
  ""  1   0   0   0   0
  a   0   1   0   0   0
  *   1   1   1   1   1
@@ -628,12 +628,12 @@ Y   I   R
 </code></pre></div>        </div>
       </li>
       <li>
-        <p>Finally <code class="highlighter-rouge">dp[n][m]</code> is the result, in this case dp[4][4] is true, while <code class="highlighter-rouge">"a*b*"</code> matches <code class="highlighter-rouge">"aaaa"</code></p>
+        <p>Finally <code class="language-plaintext highlighter-rouge">dp[n][m]</code> is the result, in this case dp[4][4] is true, while <code class="language-plaintext highlighter-rouge">"a*b*"</code> matches <code class="language-plaintext highlighter-rouge">"aaaa"</code></p>
       </li>
       <li>
-        <p>For another example, <code class="highlighter-rouge">s</code> = <code class="highlighter-rouge">"aab"</code>, <code class="highlighter-rouge">p</code> = <code class="highlighter-rouge">"c*a*b"</code>. at last the result is true:</p>
+        <p>For another example, <code class="language-plaintext highlighter-rouge">s</code> = <code class="language-plaintext highlighter-rouge">"aab"</code>, <code class="language-plaintext highlighter-rouge">p</code> = <code class="language-plaintext highlighter-rouge">"c*a*b"</code>. at last the result is true:</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     ""  a   a   b
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     ""  a   a   b
  ""  1   0   0   0
  c   0   0   0   0
  *   1   0   0   0
@@ -642,8 +642,8 @@ Y   I   R
  b   0   0   0   1
 </code></pre></div>        </div>
       </li>
-      <li>Notes: the <code class="highlighter-rouge">i</code> and <code class="highlighter-rouge">j</code> above are not the same with below, which I use dp[j][i].</li>
-      <li>Time Complexity: $O(TP)$, <code class="highlighter-rouge">T</code> is the length of the text, <code class="highlighter-rouge">P</code> is the length of the pattern.</li>
+      <li>Notes: the <code class="language-plaintext highlighter-rouge">i</code> and <code class="language-plaintext highlighter-rouge">j</code> above are not the same with below, which I use dp[j][i].</li>
+      <li>Time Complexity: $O(TP)$, <code class="language-plaintext highlighter-rouge">T</code> is the length of the text, <code class="language-plaintext highlighter-rouge">P</code> is the length of the pattern.</li>
       <li>Space Complexity: $O(TP)$</li>
     </ul>
   </li>
@@ -685,9 +685,9 @@ Y   I   R
     <ul>
       <li>给定一个整型数组，输出其柱状图能容纳水的最大体积。</li>
       <li>
-        <p>例子：<code class="highlighter-rouge">[1,8,6,2,5,4,8,3,7]</code>，输出如图：</p>
+        <p>例子：<code class="language-plaintext highlighter-rouge">[1,8,6,2,5,4,8,3,7]</code>，输出如图：</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>9 |         8   area:(8-1)x7=49      8
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>9 |         8   area:(8-1)x7=49      8
 8 |        |_|______________________|_|________7_
 7 |        | |   6                  | |       | |
 6 |        | |  | |        5        | |       | |
@@ -738,7 +738,7 @@ Y   I   R
   <li><strong>Analysis</strong>:
     <ul>
       <li>不想动脑系列，直接用两个数组储存对应的数字和罗马字符串，然后贪心算法换完。</li>
-      <li>优化：用两个整型数组比用<code class="highlighter-rouge">unordered_map</code>表现要好。</li>
+      <li>优化：用两个整型数组比用<code class="language-plaintext highlighter-rouge">unordered_map</code>表现要好。</li>
       <li>时间复杂度：$O(num)$</li>
       <li>空间复杂度：$O(1)$</li>
     </ul>
@@ -779,7 +779,7 @@ Y   I   R
   </li>
   <li><strong>Analysis</strong>:
     <ul>
-      <li>罗马数字一般由大到小，只需留意例如<code class="highlighter-rouge">IX</code>的特殊形式即可。</li>
+      <li>罗马数字一般由大到小，只需留意例如<code class="language-plaintext highlighter-rouge">IX</code>的特殊形式即可。</li>
       <li>时间复杂度：$O(n)$</li>
       <li>空间复杂度：$O(1)$</li>
     </ul>
@@ -911,7 +911,7 @@ Y   I   R
 <ul>
   <li><strong>Description</strong>:
     <ul>
-      <li>给定一个数组和一个目标数<code class="highlighter-rouge">target</code>，输出其中三数之和最接近于<code class="highlighter-rouge">target</code>的值。</li>
+      <li>给定一个数组和一个目标数<code class="language-plaintext highlighter-rouge">target</code>，输出其中三数之和最接近于<code class="language-plaintext highlighter-rouge">target</code>的值。</li>
     </ul>
   </li>
   <li><strong>Analysis</strong>:
@@ -966,7 +966,7 @@ Y   I   R
       <li>
         <p>如图：</p>
 
-        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_______________________________
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_______________________________
 |    1    |    2    |    3    |
 |    /    |  a b c  |  d e f  |
 |_________|_________|_________|
@@ -986,7 +986,7 @@ Y   I   R
   <li><strong>Analysis</strong>:
     <ul>
       <li>使用DFS(深度优先搜索)递归解决，每递归一次处理一个数字。</li>
-      <li>时间复杂度：$O(3^{M} \times 4^{N})$，$M$ 是对应字母数为<code class="highlighter-rouge">3</code>的数字的个数，$N$ 是对应字母数为<code class="highlighter-rouge">4</code>的数字的个数。</li>
+      <li>时间复杂度：$O(3^{M} \times 4^{N})$，$M$ 是对应字母数为<code class="language-plaintext highlighter-rouge">3</code>的数字的个数，$N$ 是对应字母数为<code class="language-plaintext highlighter-rouge">4</code>的数字的个数。</li>
       <li>空间复杂度：$O(3^{M} \times 4^{N})$</li>
     </ul>
   </li>
@@ -1030,13 +1030,13 @@ Y   I   R
 <ul>
   <li><strong>Description</strong>:
     <ul>
-      <li>给定一个数组和一个目标数<code class="highlighter-rouge">target</code>，输出其中四数之和等于<code class="highlighter-rouge">target</code>的所有组合。</li>
+      <li>给定一个数组和一个目标数<code class="language-plaintext highlighter-rouge">target</code>，输出其中四数之和等于<code class="language-plaintext highlighter-rouge">target</code>的所有组合。</li>
     </ul>
   </li>
   <li><strong>Analysis</strong>:
     <ul>
-      <li>同<code class="highlighter-rouge">3sum</code>，先遍历固定两个数，然后剩下两数用左右夹逼找出。</li>
-      <li>优化：可用<code class="highlighter-rouge">unordered_map</code>储存两数之和，剩下只需遍历剩余两数，时间复杂度为$O(n^{2})$。但去重比较复杂。</li>
+      <li>同<code class="language-plaintext highlighter-rouge">3sum</code>，先遍历固定两个数，然后剩下两数用左右夹逼找出。</li>
+      <li>优化：可用<code class="language-plaintext highlighter-rouge">unordered_map</code>储存两数之和，剩下只需遍历剩余两数，时间复杂度为$O(n^{2})$。但去重比较复杂。</li>
       <li>时间复杂度：$O(n^{3})$</li>
       <li>空间复杂度：$O(1)$</li>
     </ul>
@@ -1087,12 +1087,12 @@ Y   I   R
 <ul>
   <li><strong>Description</strong>:
     <ul>
-      <li>给定一个链表和<code class="highlighter-rouge">n</code>，返回去掉倒数第<code class="highlighter-rouge">n</code>个结点的链表。</li>
+      <li>给定一个链表和<code class="language-plaintext highlighter-rouge">n</code>，返回去掉倒数第<code class="language-plaintext highlighter-rouge">n</code>个结点的链表。</li>
     </ul>
   </li>
   <li><strong>Analysis</strong>:
     <ul>
-      <li>采用双指针<code class="highlighter-rouge">p1</code>、<code class="highlighter-rouge">p2</code>，指针<code class="highlighter-rouge">p1</code>先走<code class="highlighter-rouge">n</code>步，然后两个指针一起走。当指针<code class="highlighter-rouge">p1</code>到链表尾，去掉指针<code class="highlighter-rouge">p2</code>所指元素即可。</li>
+      <li>采用双指针<code class="language-plaintext highlighter-rouge">p1</code>、<code class="language-plaintext highlighter-rouge">p2</code>，指针<code class="language-plaintext highlighter-rouge">p1</code>先走<code class="language-plaintext highlighter-rouge">n</code>步，然后两个指针一起走。当指针<code class="language-plaintext highlighter-rouge">p1</code>到链表尾，去掉指针<code class="language-plaintext highlighter-rouge">p2</code>所指元素即可。</li>
       <li>时间复杂度：$O(n)$</li>
       <li>空间复杂度：$O(1)$</li>
     </ul>
