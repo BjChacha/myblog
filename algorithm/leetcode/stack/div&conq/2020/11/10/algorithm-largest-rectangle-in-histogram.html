@@ -149,7 +149,7 @@ window.onload = wrap_img;
 <a class="anchor" href="#2-%E6%80%9D%E8%B7%AF" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. 思路</h2>
 
 <ul>
-  <li>比较直观的解法是用<code class="language-plaintext highlighter-rouge">分治法</code>
+  <li>比较直观的解法是用<em>分治法</em>
     <ul>
       <li>分：把直方图分成左、右两部分，可用递归简单实现；</li>
       <li>治：最大面积可能来自左半部分、右半部分以及中间部分；</li>
@@ -157,13 +157,13 @@ window.onload = wrap_img;
       <li>分治法的时间复杂度为$O(n\log{n})$</li>
     </ul>
   </li>
-  <li>这里主要讲解使用<code class="language-plaintext highlighter-rouge">栈</code>的算法<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup>：
+  <li>这里主要讲解使用<em>栈</em>的算法<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup>：
     <ul>
       <li>最大面积可以看做是高度和宽度的tradeoff。</li>
       <li>每次遇到较高的元素，可能会产生最大面积。</li>
       <li>故可一次遍历：
         <ol>
-          <li>若遇到更高的元素，则压栈，作为最大面积的可能<code class="language-plaintext highlighter-rouge">参与者</code>；</li>
+          <li>若遇到更高的元素，则压栈，作为最大面积的可能<em>参与者</em>；</li>
           <li>若遇到更低的元素，则将之前更高元素逐个出栈，并计算可能的最大面积；</li>
           <li>最后会计算最大宽度、最低高度情况的面积。</li>
         </ol>
@@ -202,7 +202,7 @@ window.onload = wrap_img;
 <h2 id="4-总结">
 <a class="anchor" href="#4-%E6%80%BB%E7%BB%93" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. 总结</h2>
 
-<p>个人觉得会用<code class="language-plaintext highlighter-rouge">分治法</code>解决这道题算及格了，<code class="language-plaintext highlighter-rouge">栈</code>的算法对逻辑思维要求比较高（for me）。</p>
+<p>个人觉得会用<em>分治法</em>解决这道题算及格了，<em>栈</em>的算法对逻辑思维要求比较高（for me）。</p>
 
 <h2 id="5-参考">
 <a class="anchor" href="#5-%E5%8F%82%E8%80%83" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. 参考</h2>
@@ -211,7 +211,7 @@ window.onload = wrap_img;
 <a class="anchor" href="#6-%E9%99%84%E5%BD%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. 附录</h2>
 
 <ul>
-  <li>关于用<code class="language-plaintext highlighter-rouge">栈</code>的算法遍历
+  <li>关于用<em>栈</em>的算法遍历
     <ol>
       <li>遍历前：<code class="language-plaintext highlighter-rouge">heights</code>数组在最后补一个<code class="language-plaintext highlighter-rouge">0</code>（图中放在前面），<code class="language-plaintext highlighter-rouge">stack</code>初始元素为<code class="language-plaintext highlighter-rouge">-1</code>；
   <img src="https://bjchacha.github.io/myblog/images/posts/2020-11-10-algorithm-largest-rectangle-in-histogram/step_1.png" alt="">
