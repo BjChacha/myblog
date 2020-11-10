@@ -4,7 +4,7 @@ description: "LeetCode 84. Largest Rectangle in Histogram"
 toc: true
 comments: true
 layout: post
-categories: [algorithm, stack, div&conq]
+categories: [algorithm, leetcode, stack, div&conq]
 author: BjChacha
 ---
 

@@ -4,7 +4,7 @@ description: "LeetCode 72. Edit Distance"
 toc: false
 comments: true
 layout: post
-categories: [algorithm, dp]
+categories: [algorithm, leetcode, dp]
 author: BjChacha
 ---
 

@@ -4,7 +4,7 @@ description: "LeetCode 169. Majority Element"
 toc: true
 comments: true
 layout: post
-categories: [algorithm]
+categories: [algorithm, leetcode]
 author: BjChacha
 ---
 
