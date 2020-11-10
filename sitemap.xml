@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://bjchacha.github.io/myblog/django/2018/04/30/ubuntu-django-deployment.html</loc>
+<loc>https://bjchacha.github.io/myblog/log/django/2018/04/30/ubuntu-django-deployment.html</loc>
 <lastmod>2018-04-30T00:00:00-05:00</lastmod>
 </url>
 <url>
-<loc>https://bjchacha.github.io/myblog/software/2018/04/30/windows-great-software-collections.html</loc>
+<loc>https://bjchacha.github.io/myblog/software/memo/2018/04/30/windows-great-software-collections.html</loc>
 <lastmod>2018-04-30T00:00:00-05:00</lastmod>
 </url>
 <url>
@@ -13,11 +13,11 @@
 <lastmod>2019-05-15T00:00:00-05:00</lastmod>
 </url>
 <url>
-<loc>https://bjchacha.github.io/myblog/anime/2019/07/14/pokemon-best-way-to-watch.html</loc>
+<loc>https://bjchacha.github.io/myblog/anime/memo/2019/07/14/pokemon-best-way-to-watch.html</loc>
 <lastmod>2019-07-14T00:00:00-05:00</lastmod>
 </url>
 <url>
-<loc>https://bjchacha.github.io/myblog/vscode/cpp/2020/01/28/vscode-cpp-setting.html</loc>
+<loc>https://bjchacha.github.io/myblog/log/vscode/2020/01/28/vscode-cpp-setting.html</loc>
 <lastmod>2020-01-28T00:00:00-06:00</lastmod>
 </url>
 <url>
@@ -25,15 +25,15 @@
 <lastmod>2020-02-25T00:00:00-06:00</lastmod>
 </url>
 <url>
-<loc>https://bjchacha.github.io/myblog/algorithm/2020/03/17/algorithm-dp-edit-distance.html</loc>
+<loc>https://bjchacha.github.io/myblog/algorithm/dp/2020/03/17/algorithm-dp-edit-distance.html</loc>
 <lastmod>2020-03-17T00:00:00-05:00</lastmod>
 </url>
 <url>
-<loc>https://bjchacha.github.io/myblog/algorithm/2020/03/20/algorithm-dp-0-1-knapsack.html</loc>
+<loc>https://bjchacha.github.io/myblog/algorithm/dp/2020/03/20/algorithm-dp-0-1-knapsack.html</loc>
 <lastmod>2020-03-20T00:00:00-05:00</lastmod>
 </url>
 <url>
-<loc>https://bjchacha.github.io/myblog/wsl/2020/05/27/MacOS-in-WSL.html</loc>
+<loc>https://bjchacha.github.io/myblog/log/wsl/2020/05/27/MacOS-in-WSL.html</loc>
 <lastmod>2020-05-27T00:00:00-05:00</lastmod>
 </url>
 <url>
