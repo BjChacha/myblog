@@ -1,9 +1,9 @@
 ---
-title: 在Ubuntu快速部署Django
-description: 开发5分钟，部署2小时
+title: "[LOG]在Ubuntu快速部署Django"
+description: "开发5分钟，部署2小时"
 toc: false
 layout: post
-categories: [django]
+categories: [log, django]
 image: images/posts/2018-04-30-ubuntu-django-deployment/django_logo.png
 author: BjChacha
 ---

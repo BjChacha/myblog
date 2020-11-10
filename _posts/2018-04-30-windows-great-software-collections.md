@@ -1,9 +1,9 @@
 ---
-title: "Windows 个人软件收藏集"
-description: 不定期更新……
+title: "[MEMO]Windows 个人向软件收藏集"
+description: "不定期诈尸"
 toc: true
 layout: post
-categories: [software]
+categories: [software, memo]
 author: BjChacha
 ---
 

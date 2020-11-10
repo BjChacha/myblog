@@ -1,10 +1,10 @@
 ---
-title: "[动态规划]0-1背包问题"
-description: "经典又简单的动规问题"
+title: "[ALGO]0-1背包问题"
+description: "动态规划"
 toc: false
 comments: true
 layout: post
-categories: [algorithm]
+categories: [algorithm, dp]
 author: BjChacha
 ---
 

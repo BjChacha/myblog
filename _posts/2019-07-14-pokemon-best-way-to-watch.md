@@ -1,10 +1,10 @@
 ---
-title: "精灵宝可梦 动画观看顺序"
-description: 童年补完计划
+title: "[MEMO]精灵宝可梦 动画观看顺序"
+description: "童年补完计划"
 toc: true
 comments: true
 layout: post
-categories: [anime]
+categories: [anime, memo]
 image: images/posts/2019-07-14-pokemon-best-way-to-watch/pm_logo.png
 author: BjChacha
 ---

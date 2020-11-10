@@ -1,6 +1,6 @@
 ---
 title: "[ALGO]波义尔摩尔投票算法"
-description: "LeetCode [169. Majority Element](https://leetcode.com/problems/majority-element/)"
+description: "LeetCode 169. Majority Element"
 toc: true
 comments: true
 layout: post

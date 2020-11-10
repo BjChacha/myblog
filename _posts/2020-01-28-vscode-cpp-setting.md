@@ -1,9 +1,9 @@
 ---
-title: "VSCode用于cpp调试的相关设置"
-description: 妈妈再也不用担心我没空间装Visual Studio啦~
+title: "[LOG]VSCode用于cpp调试的相关设置"
+description: "妈妈再也不用担心我没空间装Visual Studio啦~"
 toc: false
 layout: post
-categories: [vscode, cpp]
+categories: [log, vscode]
 author: BjChacha
 ---
 

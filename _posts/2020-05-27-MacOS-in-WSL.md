@@ -1,10 +1,10 @@
 ---
-title: 在WSL中安装MacOS虚拟机
-description: 圆了我的苹果梦
+title: "[LOG]在WSL中安装MacOS虚拟机"
+description: "圆了我的苹果梦（没有"
 toc: true
 hide: false
 layout: post
-categories: [wsl]
+categories: [log, wsl]
 author: BjChacha
 ---
 
