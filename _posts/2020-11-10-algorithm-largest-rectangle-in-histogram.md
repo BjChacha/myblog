@@ -1,5 +1,5 @@
 ---
-title: "[ALGO]柱状图中最大的矩形"
+title: "ALGO->柱状图中最大的矩形"
 description: "LeetCode 84. Largest Rectangle in Histogram"
 toc: true
 comments: true

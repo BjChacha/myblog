@@ -1,5 +1,5 @@
 ---
-title: "-ALGO-01背包问题"
+title: "ALGO->01背包问题"
 description: "动态规划"
 toc: false
 comments: true

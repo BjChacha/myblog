@@ -1,5 +1,5 @@
 ---
-title: "-MEMO-Windows 个人向软件收藏集"
+title: "MEMO->Windows 个人向软件收藏集"
 description: "不定期诈尸"
 toc: true
 layout: post

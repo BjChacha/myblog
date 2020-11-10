@@ -1,5 +1,5 @@
 ---
-title: "-ALGO-编辑距离问题"
+title: "ALGO->编辑距离问题"
 description: "LeetCode 72. Edit Distance"
 toc: false
 comments: true

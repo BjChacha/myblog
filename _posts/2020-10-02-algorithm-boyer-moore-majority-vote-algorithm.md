@@ -1,5 +1,5 @@
 ---
-title: "-ALGO-波义尔摩尔投票算法"
+title: "ALGO->波义尔摩尔投票算法"
 description: "LeetCode 169. Majority Element"
 toc: true
 comments: true
