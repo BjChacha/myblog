@@ -1,6 +1,6 @@
 ---
-title: "[算法]波义尔摩尔投票算法"
-description: "解数组中的主要元素"
+title: "[ALGO]波义尔摩尔投票算法"
+description: "LeetCode [169. Majority Element](https://leetcode.com/problems/majority-element/)"
 toc: true
 comments: true
 layout: post
@@ -9,7 +9,6 @@ author: BjChacha
 ---
 
 ## 1. 简介
-
 
 > The Boyer–Moore majority vote algorithm is an algorithm for finding the majority of a sequence of elements using linear time and constant space. It is named after Robert S. Boyer and J Strother Moore, who published it in 1981, and is a prototypical example of a streaming algorithm.
 
