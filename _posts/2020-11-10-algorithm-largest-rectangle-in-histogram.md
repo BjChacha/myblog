@@ -12,7 +12,7 @@ author: BjChacha
 
 - 给定一个非零直方图，找出当中面积最大的矩形，并返回其面积。如下图所示。
 
-    ![](/images/posts/2020-11-10-algorithm-largest-rectangle-in-histogram/histogram_area.png "The largest rectangle is shown in the shaded area, which has area = 10 unit.")
+    ![](https://bjchacha.github.io/myblog/images/posts/2020-11-10-algorithm-largest-rectangle-in-histogram/histogram_area.png "The largest rectangle is shown in the shaded area, which has area = 10 unit.")
 
 ## 2. 思路
 
@@ -63,15 +63,15 @@ def largestRectangleArea(self, heights: List[int]) -> int:
 
 - 关于用`栈`的算法遍历
   1. 遍历前：`heights`数组在最后补一个`0`（图中放在前面），`stack`初始元素为`-1`；
-    ![](\../images/posts/2020-11-10-algorithm-largest-rectangle-in-histogram/step_1.png)
+    ![](https://bjchacha.github.io/myblog/images/posts/2020-11-10-algorithm-largest-rectangle-in-histogram/step_1.png)
   2. 开始遍历，第0个元素为`2`，比栈顶元素0大，有机会参与最大面积的运算，故压栈，继续遍历；
-    ![](\../images/posts/2020-11-10-algorithm-largest-rectangle-in-histogram/step_2.png)
+    ![](https://bjchacha.github.io/myblog/images/posts/2020-11-10-algorithm-largest-rectangle-in-histogram/step_2.png)
   3. 第1个元素为`1`，比栈顶元素`2`小，因为如果栈中较大元素要与当前元素一起计算面积，其高度会被限制，**因此要先把栈中比当前元素大的元素依次出栈，并分别参与计算面积，并暂存当前最大面积**。这里只要1个元素`2`比当前元素`1`大，故只出栈和计算面积1次；然后再把当前元素压栈，直到后面遇到比它还小的元素，再出栈参与面积运算。
-    ![](\../images/posts/2020-11-10-algorithm-largest-rectangle-in-histogram/step_3.png)
+    ![](https://bjchacha.github.io/myblog/images/posts/2020-11-10-algorithm-largest-rectangle-in-histogram/step_3.png)
   4. 第2、3个元素为`5`、`6`，均比栈顶元素大，故依次压栈。
-    ![](../images/posts/2020-11-10-algorithm-largest-rectangle-in-histogram/step_4.png)
+    ![](https://bjchacha.github.io/myblog/images/posts/2020-11-10-algorithm-largest-rectangle-in-histogram/step_4.png)
   5. 第4个元素为`2`，比栈顶元素`6`小。与步骤3相同，先将栈顶元素`6`出栈，并计算面积。**这里计算面积的宽度是以当前元素下标为基准**，故宽度为1，面积为$1\times6=6$；同样地，再将栈顶元素`5`出栈，并计算面积得$2\times5=10$.暂存最大面积为10。
-    ![](../images/posts/2020-11-10-algorithm-largest-rectangle-in-histogram/step_5.png)
+    ![](https://bjchacha.github.io/myblog/images/posts/2020-11-10-algorithm-largest-rectangle-in-histogram/step_5.png)
   6. 第5个元素为`6`，比栈顶元素`2`大，压栈。
   7. 第6个元素为`0`（算法添加），一定比栈顶元素小，因此会把栈内所有有效元素出栈，最后计算的面积是最低高度`min(heights)`与最大宽度`len(heights)`的乘积，其面积为$6\times1=6$。最后记录到最大面积为12。
-    ![](../images/posts/2020-11-10-algorithm-largest-rectangle-in-histogram/step_6.png)
+    ![](https://bjchacha.github.io/myblog/images/posts/2020-11-10-algorithm-largest-rectangle-in-histogram/step_6.png)
