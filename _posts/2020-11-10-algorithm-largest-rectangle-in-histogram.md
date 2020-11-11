@@ -55,11 +55,7 @@ def largestRectangleArea(self, heights: List[int]) -> int:
 
 个人觉得会用*分治法*解决这道题算及格了，*栈*的算法对逻辑思维要求比较高（for me）。
 
-## 5. 参考
-
-[^1]: [Largest Rectangle In Histogram](https://abhinandandubey.github.io/posts/2019/12/15/Largest-Rectangle-In-Histogram.html)
-
-## 6. 附录
+## 5. 附录
 
 - 关于用*栈*的算法遍历
   1. 遍历前：`heights`数组在最后补一个`0`（图中放在前面），`stack`初始元素为`-1`；
@@ -75,3 +71,7 @@ def largestRectangleArea(self, heights: List[int]) -> int:
   6. 第5个元素为`6`，比栈顶元素`2`大，压栈。
   7. 第6个元素为`0`（算法添加），一定比栈顶元素小，因此会把栈内所有有效元素出栈，最后计算的面积是最低高度`min(heights)`与最大宽度`len(heights)`的乘积，其面积为$6\times1=6$。最后记录到最大面积为12。
     ![](https://bjchacha.github.io/myblog/images/posts/2020-11-10-algorithm-largest-rectangle-in-histogram/step_6.png)
+    
+## 6. 参考
+
+[^1]: [Largest Rectangle In Histogram](https://abhinandandubey.github.io/posts/2019/12/15/Largest-Rectangle-In-Histogram.html)
