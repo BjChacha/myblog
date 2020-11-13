@@ -172,7 +172,7 @@
   
       ,"page1": {
           "title": "About Me",
-          "content": "This is where you put the contents of your About page. Like all your pages, it’s in Markdown format. . This website is powered by fastpages 1. . a blogging platform that natively supports Jupyter notebooks in addition to other formats. &#8617; . |",
+          "content": "这里是About Me页面， . 由于没有任何值得炫耀的资本可以在这里列出， . 所以写了几行冗余信息来填充一下。 .",
           "url": "http://bjxx.ltd/about/",
           "relUrl": "/about/",
           "date": ""
