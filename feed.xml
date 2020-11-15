@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://bjxx.ltd/feed.xml" rel="self" type="application/atom+xml" /><link href="https://bjxx.ltd/" rel="alternate" type="text/html" /><updated>2020-11-15T01:23:26-06:00</updated><id>https://bjxx.ltd/feed.xml</id><title type="html">肥叉不吃肥叉</title><subtitle>未来秃头协会成员</subtitle><entry><title type="html">ALGO-&amp;gt;柱状图中最大的矩形</title><link href="https://bjxx.ltd/algorithm/leetcode/stack/div&conq/2020/11/10/algorithm-largest-rectangle-in-histogram.html" rel="alternate" type="text/html" title="ALGO-&amp;gt;柱状图中最大的矩形" /><published>2020-11-10T00:00:00-06:00</published><updated>2020-11-10T00:00:00-06:00</updated><id>https://bjxx.ltd/algorithm/leetcode/stack/div&amp;conq/2020/11/10/algorithm-largest-rectangle-in-histogram</id><content type="html" xml:base="https://bjxx.ltd/algorithm/leetcode/stack/div&amp;conq/2020/11/10/algorithm-largest-rectangle-in-histogram.html">&lt;h2 id=&quot;1-问题描述&quot;&gt;1. 问题描述&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://bjxx.ltd/feed.xml" rel="self" type="application/atom+xml" /><link href="https://bjxx.ltd/" rel="alternate" type="text/html" /><updated>2020-11-15T03:06:14-06:00</updated><id>https://bjxx.ltd/feed.xml</id><title type="html">肥叉不吃肥叉</title><subtitle>未来秃头协会成员</subtitle><entry><title type="html">ALGO-&amp;gt;柱状图中最大的矩形</title><link href="https://bjxx.ltd/algorithm/leetcode/stack/div&conq/2020/11/10/algorithm-largest-rectangle-in-histogram.html" rel="alternate" type="text/html" title="ALGO-&amp;gt;柱状图中最大的矩形" /><published>2020-11-10T00:00:00-06:00</published><updated>2020-11-10T00:00:00-06:00</updated><id>https://bjxx.ltd/algorithm/leetcode/stack/div&amp;conq/2020/11/10/algorithm-largest-rectangle-in-histogram</id><content type="html" xml:base="https://bjxx.ltd/algorithm/leetcode/stack/div&amp;conq/2020/11/10/algorithm-largest-rectangle-in-histogram.html">&lt;h2 id=&quot;1-问题描述&quot;&gt;1. 问题描述&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -1665,6 +1665,31 @@ penalized Bayesian logistic regression&lt;/strong&gt;– &lt;a href=&quot;https:
 &lt;/div&gt;
 &lt;/div&gt;
 
+&lt;div class=&quot;output_wrapper&quot;&gt;
+&lt;div class=&quot;output&quot;&gt;
+
+&lt;div class=&quot;output_area&quot;&gt;
+
+&lt;div class=&quot;output_subarea output_stream output_stdout output_text&quot;&gt;
+&lt;pre&gt;Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz
+11493376/11490434 [==============================] - 5s 0us/step
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;output_area&quot;&gt;
+
+
+
+&lt;div class=&quot;output_text output_subarea output_execute_result&quot;&gt;
+&lt;pre&gt;&amp;lt;tensorflow.python.keras.callbacks.History at 0x27fa540d9d0&amp;gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+
 &lt;/div&gt;
     
 
@@ -1713,11 +1738,10 @@ penalized Bayesian logistic regression&lt;/strong&gt;– &lt;a href=&quot;https:
 &lt;div class=&quot;output_area&quot;&gt;
 
 &lt;div class=&quot;output_subarea output_stream output_stdout output_text&quot;&gt;
-&lt;pre&gt;WARNING:tensorflow:From C:\Users\bjcha\anaconda3\envs\directml\lib\site-packages\gradio\interface.py:118: The name tf.get_default_graph is deprecated. Please use tf.compat.v1.get_default_graph instead.
-
-WARNING:tensorflow:From C:\Users\bjcha\anaconda3\envs\directml\lib\site-packages\gradio\interface.py:119: The name tf.keras.backend.get_session is deprecated. Please use tf.compat.v1.keras.backend.get_session instead.
-
-Running locally at: http://127.0.0.1:7860/
+&lt;pre&gt;Running locally at: http://127.0.0.1:7860/
+This share link will expire in 6 hours. If you need a permanent link, email support@gradio.app
+Running on External URL: https://44307.gradio.app
+Interface loading below...
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1727,7 +1751,7 @@ Running locally at: http://127.0.0.1:7860/
 
 &lt;div class=&quot;output_html rendered_html output_subarea &quot;&gt;
 
-        &lt;iframe width=&quot;1000&quot; height=&quot;500&quot; src=&quot;http://127.0.0.1:7860/&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+        &lt;iframe width=&quot;1000&quot; height=&quot;500&quot; src=&quot;https://44307.gradio.app&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
         
 &lt;/div&gt;
 
@@ -1738,9 +1762,9 @@ Running locally at: http://127.0.0.1:7860/
 
 
 &lt;div class=&quot;output_text output_subarea output_execute_result&quot;&gt;
-&lt;pre&gt;(&amp;lt;gradio.networking.serve_files_in_background.&amp;lt;locals&amp;gt;.HTTPServer at 0x183c468db08&amp;gt;,
+&lt;pre&gt;(&amp;lt;Flask &amp;#39;gradio.networking&amp;#39;&amp;gt;,
  &amp;#39;http://127.0.0.1:7860/&amp;#39;,
- None)&lt;/pre&gt;
+ &amp;#39;https://44307.gradio.app&amp;#39;)&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;/div&gt;
