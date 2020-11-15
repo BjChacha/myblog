@@ -1,1 +1,1 @@
-Sitemap: http://bjxx.ltd/sitemap.xml
+Sitemap: https://bjxx.ltd/sitemap.xml
