@@ -1,1 +1,1 @@
-Sitemap: https://bjxx.ltd/sitemap.xml
+Sitemap: https://bjchacha.github.io/myblog/sitemap.xml
