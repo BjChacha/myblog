@@ -78,6 +78,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-remote-theme
   - jekyll-sitemap
+  - jemoji
 
 remote_theme: jekyll/minima
 
