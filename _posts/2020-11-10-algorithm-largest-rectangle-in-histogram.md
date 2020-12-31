@@ -45,7 +45,6 @@ def largestRectangleArea(self, heights: List[int]) -> int:
         while height < heights[stack[-1]]:
             h = heights[stack.pop()]
             w = i - stack[-1] - 1
-            print(h , w)
             res = max(h * w, res)
         stack.append(i)
     return res
