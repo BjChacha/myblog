@@ -49,6 +49,11 @@ author: BjChacha
 - itertools.combinations(iterable, n): 返回`iterable`中个数为`n`的自由组合。
 
 
+
+## Conda
+
+- conda update conda
+
 ## SQL
 
 - DENSE_RANK() OVER(PARTITION BY col1 ORDER BY col2 DESC) "rank": 按照`col1`划分，对`col2`进行排序
