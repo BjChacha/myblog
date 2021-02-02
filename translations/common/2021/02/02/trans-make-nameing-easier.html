@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>TRANS-&gt;让命名简单点 | BjChacha</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="TRANS-&gt;让命名简单点" />
+<meta name="author" content="Artem Zakharchenko" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="起名字是一门艺术，不管在编程还是生活。" />
+<meta property="og:description" content="起名字是一门艺术，不管在编程还是生活。" />
+<link rel="canonical" href="http://bjxx.ltd/translations/common/2021/02/02/trans-make-nameing-easier.html" />
+<meta property="og:url" content="http://bjxx.ltd/translations/common/2021/02/02/trans-make-nameing-easier.html" />
+<meta property="og:site_name" content="BjChacha" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-02-02T00:00:00-06:00" />
+<script type="application/ld+json">
+{"url":"http://bjxx.ltd/translations/common/2021/02/02/trans-make-nameing-easier.html","@type":"BlogPosting","headline":"TRANS-&gt;让命名简单点","dateModified":"2021-02-02T00:00:00-06:00","datePublished":"2021-02-02T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://bjxx.ltd/translations/common/2021/02/02/trans-make-nameing-easier.html"},"author":{"@type":"Person","name":"Artem Zakharchenko"},"description":"起名字是一门艺术，不管在编程还是生活。","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://bjxx.ltd/feed.xml" title="BjChacha" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-160825107-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.css" integrity="sha512-h7nl+xz8wgDlNM4NqKEM4F1NkIRS17M9+uJwIGwuo8vGqIl4BhuCKdxjWEINm+xyrUjNCnK5dCrhM0sj+wTIXw==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/katex.min.js" integrity="sha512-/CMIhXiDA3m2c9kzRyd97MTb3MC6OVnx4TElQ7fkkoRghwDf6gi41gaT1PwF270W6+J60uTmwgeRpNpJdRV6sg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.12.0/contrib/auto-render.min.js" integrity="sha512-Do7uJAaHZm5OLrIv/yN4w0iG1dbu01kzdMNnFfu/mAqgUk6Nniv2JYHcwH+cNwjqgLcqcuBBk+JRvprLVI8azg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha512-0doc9hKxR3PYwso42RD1p5ySZpzzuDiOwMrdCEh2WdJZCjcmFKc/wEnL+z8fBQrnHoiNWbo+3fiGkOYXBdQp4A==" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">BjChacha</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">TRANS-&gt;让命名简单点</h1><p class="page-description">起名字是一门艺术，不管在编程还是生活。</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-02-02T00:00:00-06:00" itemprop="datePublished">
+        Feb 2, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Artem Zakharchenko</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/categories/#translations">translations</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#common">common</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h3"><a href="#用英文命名">用英文命名</a></li>
+<li class="toc-entry toc-h3"><a href="#命名规范">命名规范</a></li>
+<li class="toc-entry toc-h3"><a href="#s-i-d">S-I-D</a></li>
+<li class="toc-entry toc-h2"><a href="#变量命名">变量命名</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#避免缩写">避免缩写</a></li>
+<li class="toc-entry toc-h3"><a href="#避免文本重复">避免文本重复</a></li>
+<li class="toc-entry toc-h3"><a href="#反映预期结果">反映预期结果</a></li>
+<li class="toc-entry toc-h3"><a href="#注意单复数">注意单复数</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#函数命名">函数命名</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#ahclc模式">A/HC/LC模式</a></li>
+<li class="toc-entry toc-h3"><a href="#action命名">Action命名</a></li>
+<li class="toc-entry toc-h3"><a href="#prefixes命名">Prefixes命名</a></li>
+<li class="toc-entry toc-h3"><a href="#宾语">宾语</a></li>
+</ul>
+</li>
+</ul><p>在编程工作中，规范统一的命名规则不仅方便协同合作，也会方便回顾自己的个人代码。网上有许多关于代码命名规范的说明，比如<a href="https://zh-google-styleguide.readthedocs.io/en/latest/contents/">《Google 开源项目风格指南》</a>。本文着重讲的是关于命名内容的一些规范。</p>
+
+<p>翻译自<a href="https://github.com/kettanaito/naming-cheatsheet">原文</a></p>
+
+<h3 id="用英文命名">
+<a class="anchor" href="#%E7%94%A8%E8%8B%B1%E6%96%87%E5%91%BD%E5%90%8D" aria-hidden="true"><span class="octicon octicon-link"></span></a>用英文命名</h3>
+
+<p>不管怎么说，目前在编程界的主流语言是英语，基本所有主流的编程语法都是用英文写的，文档教程也是英文居多。所以这方面建议还是“入乡随俗”。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Bad */</span>
+<span class="kd">const</span> <span class="nx">primerNombre</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Gustavo</span><span class="dl">'</span>
+<span class="kd">const</span> <span class="nx">amigos</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">Kate</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">John</span><span class="dl">'</span><span class="p">]</span>
+
+<span class="cm">/* Good */</span>
+<span class="kd">const</span> <span class="nx">firstName</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Gustavo</span><span class="dl">'</span>
+<span class="kd">const</span> <span class="nx">friends</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">Kate</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">John</span><span class="dl">'</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h3 id="命名规范">
+<a class="anchor" href="#%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83" aria-hidden="true"><span class="octicon octicon-link"></span></a>命名规范</h3>
+
+<p>常见的命名规范有<code class="language-plaintext highlighter-rouge">CamelCase</code>(驼峰命名法)和<code class="language-plaintext highlighter-rouge">snake_case</code>(蛇形命名法)。一般选哪个都行，关键是要统一。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Bad */</span>
+<span class="kd">const</span> <span class="nx">page_count</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="kd">const</span> <span class="nx">shouldUpdate</span> <span class="o">=</span> <span class="kc">true</span>
+
+<span class="cm">/* Good */</span>
+<span class="kd">const</span> <span class="nx">pageCount</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="kd">const</span> <span class="nx">shouldUpdate</span> <span class="o">=</span> <span class="kc">true</span>
+
+<span class="cm">/* Good as well */</span>
+<span class="kd">const</span> <span class="nx">page_count</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="kd">const</span> <span class="nx">should_update</span> <span class="o">=</span> <span class="kc">true</span>
+</code></pre></div></div>
+
+<h3 id="s-i-d">
+<a class="anchor" href="#s-i-d" aria-hidden="true"><span class="octicon octicon-link"></span></a>S-I-D</h3>
+
+<p>命名一定要简短、直观、有描述性。</p>
+<ul>
+  <li>简短(Short)：命名太长不利于键入。</li>
+  <li>直观(Intuitive)：命名要符合日常语言习惯。</li>
+  <li>有描述性(Descriptive)：命名要能反映出其变量的意义。</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Bad */</span>
+<span class="kd">const</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1">// "a" could mean anything</span>
+<span class="kd">const</span> <span class="nx">isPaginatable</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="c1">// "Paginatable" sounds extremely unnatural</span>
+<span class="kd">const</span> <span class="nx">shouldPaginatize</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="c1">// Made up verbs are so much fun!</span>
+
+<span class="cm">/* Good */</span>
+<span class="kd">const</span> <span class="nx">postCount</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="kd">const</span> <span class="nx">hasPagination</span> <span class="o">=</span> <span class="nx">postCount</span> <span class="o">&gt;</span> <span class="mi">10</span>
+<span class="kd">const</span> <span class="nx">shouldPaginate</span> <span class="o">=</span> <span class="nx">postCount</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="c1">// alternatively</span>
+</code></pre></div></div>
+
+<h2 id="变量命名">
+<a class="anchor" href="#%E5%8F%98%E9%87%8F%E5%91%BD%E5%90%8D" aria-hidden="true"><span class="octicon octicon-link"></span></a>变量命名</h2>
+
+<h3 id="避免缩写">
+<a class="anchor" href="#%E9%81%BF%E5%85%8D%E7%BC%A9%E5%86%99" aria-hidden="true"><span class="octicon octicon-link"></span></a>避免缩写</h3>
+
+<p><strong>不</strong>要用缩写。日常聊天缩写怪已经很烦了，编程还来缩写，还让不让人好好干活。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Bad */</span>
+<span class="kd">const</span> <span class="nx">onItmClk</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{}</span>
+
+<span class="cm">/* Good */</span>
+<span class="kd">const</span> <span class="nx">onItemClick</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{}</span>
+</code></pre></div></div>
+
+<h3 id="避免文本重复">
+<a class="anchor" href="#%E9%81%BF%E5%85%8D%E6%96%87%E6%9C%AC%E9%87%8D%E5%A4%8D" aria-hidden="true"><span class="octicon octicon-link"></span></a>避免文本重复</h3>
+
+<p>多个变量命名的文本重复会造成信息冗余，可读性下降。前后有多个命名，尽量以变量特点为命名准则（参考前面的S-I-D原则）。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">MenuItem</span> <span class="p">{</span>
+  <span class="cm">/* Method name duplicates the context (which is "MenuItem") */</span>
+  <span class="nx">handleMenuItemClick</span> <span class="o">=</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+
+  <span class="cm">/* Reads nicely as `MenuItem.handleClick()` */</span>
+  <span class="nx">handleClick</span> <span class="o">=</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="反映预期结果">
+<a class="anchor" href="#%E5%8F%8D%E6%98%A0%E9%A2%84%E6%9C%9F%E7%BB%93%E6%9E%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>反映预期结果</h3>
+
+<p>变量命名最好能够反映其预期的结果，尤其是布尔值的变量。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Bad */</span>
+<span class="kd">const</span> <span class="nx">isEnabled</span> <span class="o">=</span> <span class="nx">itemCount</span> <span class="o">&gt;</span> <span class="mi">3</span>
+<span class="k">return</span> <span class="o">&lt;</span><span class="nx">Button</span> <span class="nx">disabled</span><span class="o">=</span><span class="p">{</span><span class="o">!</span><span class="nx">isEnabled</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>
+<span class="cm">/* Good */</span>
+<span class="kd">const</span> <span class="nx">isDisabled</span> <span class="o">=</span> <span class="nx">itemCount</span> <span class="o">&lt;=</span> <span class="mi">3</span>
+<span class="k">return</span> <span class="o">&lt;</span><span class="nx">Button</span> <span class="nx">disabled</span><span class="o">=</span><span class="p">{</span><span class="nx">isDisabled</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<h3 id="注意单复数">
+<a class="anchor" href="#%E6%B3%A8%E6%84%8F%E5%8D%95%E5%A4%8D%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>注意单复数</h3>
+
+<p>一旦使用了单复数作区别，则不能混淆其作用。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Bad */</span>
+<span class="kd">const</span> <span class="nx">friends</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Bob</span><span class="dl">'</span>
+<span class="kd">const</span> <span class="nx">friend</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">Bob</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Tony</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Tanya</span><span class="dl">'</span><span class="p">]</span>
+
+<span class="cm">/* Good */</span>
+<span class="kd">const</span> <span class="nx">friend</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">Bob</span><span class="dl">'</span>
+<span class="kd">const</span> <span class="nx">friends</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">Bob</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Tony</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Tanya</span><span class="dl">'</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h2 id="函数命名">
+<a class="anchor" href="#%E5%87%BD%E6%95%B0%E5%91%BD%E5%90%8D" aria-hidden="true"><span class="octicon octicon-link"></span></a>函数命名</h2>
+
+<h3 id="ahclc模式">
+<a class="anchor" href="#ahclc%E6%A8%A1%E5%BC%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>A/HC/LC模式</h3>
+
+<p>A/HC/LC模式指的是：</p>
+
+<blockquote>
+  <p>prefix? + action (A) + high context (HC) + low context? (LC)</p>
+</blockquote>
+
+<p>具体看表格：</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Prefix</th>
+      <th>Action (A)</th>
+      <th>High context (HC)</th>
+      <th>Low context (LC)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>getUser</td>
+      <td> </td>
+      <td>get</td>
+      <td>User</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>getUserMessages</td>
+      <td> </td>
+      <td>get</td>
+      <td>User</td>
+      <td>Messages</td>
+    </tr>
+    <tr>
+      <td>handleClickOutside</td>
+      <td> </td>
+      <td>handle</td>
+      <td>Click</td>
+      <td>Outside</td>
+    </tr>
+    <tr>
+      <td>shouldDisplayMessage</td>
+      <td>should</td>
+      <td>Display</td>
+      <td>Message</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>Note: 上述语境的交换会影响整个命名的含义。比如说<code class="language-plaintext highlighter-rouge">shouldUpdateComponent</code>指的是用户去更新组件，而<code class="language-plaintext highlighter-rouge">shouldComponentUpdate</code>指的是组件的自我更新。换言之，High context强调的是函数的主体。</p>
+</blockquote>
+
+<h3 id="action命名">
+<a class="anchor" href="#action%E5%91%BD%E5%90%8D" aria-hidden="true"><span class="octicon octicon-link"></span></a>Action命名</h3>
+
+<p>常见的Action命名用如下：</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">get</code></li>
+  <li><code class="language-plaintext highlighter-rouge">set</code></li>
+  <li><code class="language-plaintext highlighter-rouge">reset</code></li>
+  <li><code class="language-plaintext highlighter-rouge">fetch</code></li>
+  <li><code class="language-plaintext highlighter-rouge">remove</code></li>
+  <li><code class="language-plaintext highlighter-rouge">delete</code></li>
+  <li><code class="language-plaintext highlighter-rouge">compose</code></li>
+  <li><code class="language-plaintext highlighter-rouge">handle</code></li>
+</ul>
+
+<h3 id="prefixes命名">
+<a class="anchor" href="#prefixes%E5%91%BD%E5%90%8D" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prefixes命名</h3>
+
+<p>前缀一般用于强调或补充命名的含义。常见的Prefix命名如下：</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">is</code></li>
+  <li><code class="language-plaintext highlighter-rouge">has</code></li>
+  <li><code class="language-plaintext highlighter-rouge">should</code></li>
+  <li>
+<code class="language-plaintext highlighter-rouge">min</code>/<code class="language-plaintext highlighter-rouge">max</code>
+</li>
+  <li>
+<code class="language-plaintext highlighter-rouge">prev</code>/<code class="language-plaintext highlighter-rouge">next</code>
+</li>
+</ul>
+
+<h3 id="宾语">
+<a class="anchor" href="#%E5%AE%BE%E8%AF%AD" aria-hidden="true"><span class="octicon octicon-link"></span></a>宾语</h3>
+
+<p>函数的命名可以存在宾语，用于表示函数作用的对象。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* A pure function operating with primitives */</span>
+<span class="kd">function</span> <span class="nx">filter</span><span class="p">(</span><span class="nx">predicate</span><span class="p">,</span> <span class="nx">list</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">list</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">predicate</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="cm">/* Function operating exactly on posts */</span>
+<span class="kd">function</span> <span class="nx">getRecentPosts</span><span class="p">(</span><span class="nx">posts</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">filter</span><span class="p">(</span><span class="nx">posts</span><span class="p">,</span> <span class="p">(</span><span class="nx">post</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">post</span><span class="p">.</span><span class="nx">date</span> <span class="o">===</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">())</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+  </div><a class="u-url" href="/translations/common/2021/02/02/trans-make-nameing-easier.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Interesting Intelligence</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/BjChacha" title="BjChacha"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
