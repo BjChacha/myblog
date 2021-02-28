@@ -61,6 +61,8 @@
   - 对于每个基因，随机选择两个父母个体的其中一个基因，直至形成新的子代个体的基因。
   - ![Uniform Crossover](https://i.loli.net/2021/02/04/wfnOBEULdWr3Qzv.png)
 
+- CMX(Center of Mass Crossover)\SPX(Simplex Crossover)
+
 - 模拟二进制交叉 Simulated Binary Crossover
   $$
   \begin{equation} 
