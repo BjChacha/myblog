@@ -1,1 +1,1 @@
-Sitemap: http://bjxx.me/myblog/sitemap.xml
+Sitemap: http://bjxx.me/sitemap.xml
